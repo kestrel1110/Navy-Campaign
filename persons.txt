@@ -46,6 +46,7 @@ person "Irex"
 			"Wut?"
 			"Go visit the Exporianes, they have good tech!!!"
 			"I have 15e+10 plugins!"
+	ship "Unity Carrier" "Unity"
 
 
 	ship "Unity Carrier"
