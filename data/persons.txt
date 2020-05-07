@@ -1,0 +1,209 @@
+# Copyright (c) 2020 by Irex
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+person "Commodore Cruz"
+	government "Republic"
+	personality
+		heroic surveillance frugal entering 
+	phrase
+		word
+			"It takes courage to achieve naval honor."
+			"Naval honor is for those who have what it takes to earn it."
+	ship "Cruiser (Jump)" "Recruiter"
+	frequency 300
+
+person "Admiral Danforth"
+	government "Republic"
+	personality
+		heroic surveillance frugal entering 
+	phrase
+		word
+			"It takes courage to achieve naval honor."
+			"Naval honor is for those who have what it takes to earn it."
+	ship "Cruiser (Jump)" "R.N.S. Peacemaker"
+	frequency 300
+
+
+person "Irex"
+	government "Unity"
+	frequency 3000
+	personality
+		mining harvests opportunistic frugal unconstrained disables
+	phrase
+		phrase
+			"friendly author"
+	phrase
+		word
+			"Real captains wear pink!"
+			"Hello, if you attack me I will destroy you, as I have destroyed many Quarg before!!!"
+			"Wut?"
+			"Go visit the Exporianes, they have good tech!!!"
+			"I have 15e+10 plugins!"
+
+
+
+ship "Unity Carrier"
+	sprite ship/modcarrier
+	thumbnail thumbnail/modcarrier
+	attributes
+		category "Heavy Warship"
+		cost 35200000
+		mass 1310
+		bunks 460
+		"cargo space" 350
+		cloak 0.01
+		"cloaking energy" 1
+		"cloaking fuel" 0.2
+		drag 17.7
+		"engine capacity" 300
+		"fuel capacity" 1000
+		gaslining 1
+		"gun ports" 11
+		"heat dissipation" 0.45
+		hull 19400
+		"outfit space" 2100
+		ramscoop 3
+		"required crew" 5
+		shields 29400
+		"turret mounts" 8
+		"weapon capacity" 1000
+	outfits
+		"Thunderhead Launcher" 2
+		"Thunderhead Missile" 120
+		"Thunderhead Storage Array" 2
+		"Type 3 Radiant Thruster"
+		"Type 3 Radiant Steering"
+		"Quantum Keystone" 2
+		"Fuel Pod"
+		"Type 4 Radiant Steering"
+		"Jump Drive"
+		"Korath Disruptor" 4
+		"Wanderer Ramscoop" 13
+		"Outfits Expansion" 10
+		"Outfit Scanner"
+		"Smelter-Class Steering"
+		"Ionic Afterburner" 2
+		"Scram Drive"
+		"Quarg Skylance" 4
+		"Antimatter Core" 3
+		"Nanotech Battery"
+		"Quantum Shield Generator" 2
+		"Nuclear Missile"
+		"Korath Slicer" 4
+		"Large Repair Module" 4
+		"Asteroid Scanner"
+		"Smelter-Class Thruster"
+		"Fuel Processor"
+		"Ka'het Shield Restorer" 2
+		"Korath Minelayer" 4
+		"Korath Mine" 158
+		"Korath Mine Rack" 10
+		"Emergency Ramscoop"
+		"Salvage Scanner" 2
+		"Ka'het Primary Cooling" 2
+		"Quantum Key Stone"
+		"Tier 3 Anti-Missile" 2
+		"Pug Biodefenses" 180
+		"Pug Peacekeeping Staff" 180
+		"Void Rifle" 2
+		"AR120 Reverse Thruster"
+	crew 13
+	fuel 1500
+	shields 29400
+	hull 19400
+	position -135.17373 -244.88163
+	engine -65.5 231 1
+	engine 65.5 231 1
+	engine -138 128.5 1
+	engine 138 128.5 1
+	engine -46.5 237 1
+	engine 46.5 237 1
+	engine -24.5 235.5 1
+	engine 24.5 235.5 1
+	engine -15.5 225 1
+	engine 15.5 225 1
+	engine 0 227 1
+	gun -32.5 -160.5 "Korath Slicer"
+	gun 32.5 -160.5 "Korath Minelayer"
+	gun -32.5 -160.5 "Korath Minelayer"
+	gun 32.5 -160.5 "Korath Slicer"
+	gun -25.5 -168 "Korath Slicer"
+	gun 25.5 -168 "Korath Minelayer"
+	gun -25.5 -168 "Korath Minelayer"
+	gun 25.5 -168 "Korath Slicer"
+	gun -84 -34 "Thunderhead Launcher"
+	gun 84 -34 "Thunderhead Launcher"
+	turret -42.5 -15.5 "Korath Disruptor"
+	turret 42.5 -15.5 "Korath Disruptor"
+	turret -41 105 "Quarg Skylance"
+	turret 41 105 "Quarg Skylance"
+	gun 0.5 -230 "Nuclear Missile"
+	turret 0.5 -39.5 "Quarg Skylance"
+	turret 0 40 "Korath Disruptor"
+	turret 0 69 "Quarg Skylance"
+	turret 0 159.5 "Korath Disruptor"
+	fighter -43.5 -46
+		"launch effect" "basic launch"
+	fighter 43.5 -46
+		"launch effect" "basic launch"
+	drone -75.5 -27.5
+		"launch effect" "basic launch"
+	drone 75.5 -27.5
+		"launch effect" "basic launch"
+	fighter -49 64.5
+		"launch effect" "basic launch"
+	fighter 49 64.5
+		"launch effect" "basic launch"
+	drone -83 84
+		"launch effect" "basic launch"
+	drone 83 84
+		"launch effect" "basic launch"
+	drone -111 84
+		"launch effect" "basic launch"
+	drone 111 84
+		"launch effect" "basic launch"
+	leak leak 30 50
+	leak flame 30 80
+	leak "big leak" 30 30
+	explode "small explosion" 45
+	explode "tiny explosion" 20
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large" 1
+
+
+
+government "Unity"
+	swizzle 1
+	color 1 .33 1
+	"player reputation" 1000
+	"attitude toward"
+		"Zyr'c" -1000
+		"Ixkek" 1000
+		"Pirate" -1000
+		"Coalition" -1000
+		"Heliarch" -1000
+		"Pug" -1000
+		"Korath" -1000
+		"Kor Sestor" -1000
+		"Kor Mereti" -1000
+		"Wanderers" 1000
+		"Syndicate (Extremist)" -1000
+		"Free Worlds" 1000
+		"Republic" 1000
+		"Navy (Oathkeeper)" 1000
+	"bribe" 1
+
+
+
+
+
+
