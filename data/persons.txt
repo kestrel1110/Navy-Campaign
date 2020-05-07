@@ -1,0 +1,188 @@
+# Copyright (c) 2020 by Irex
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+person "Commodore Cruz"
+	government "Republic"
+	personality
+		heroic surveillance frugal entering 
+	phrase
+		word
+			"It takes courage to achieve naval honor."
+			"Naval honor is for those who have what it takes to earn it."
+	ship "Cruiser (Jump)" "Recruiter"
+	frequency 300
+
+person "Admiral Danforth"
+	government "Republic"
+	personality
+		heroic surveillance frugal entering 
+	phrase
+		word
+			"It takes courage to achieve naval honor."
+			"Naval honor is for those who have what it takes to earn it."
+	ship "Cruiser (Jump)" "R.N.S. Peacemaker"
+	frequency 300
+
+
+person "Irex"
+	government "Unity"
+	frequency 3000
+	personality
+		mining harvests opportunistic frugal unconstrained disables
+	phrase
+		phrase
+			"friendly author"
+	phrase
+		word
+			"Real captains wear pink!"
+			"Hello, if you attack me I will destroy you, as I have destroyed many Quarg before!!!"
+			"Wut?"
+			"Go visit the Exporianes, they have good tech!!!"
+			"I have 15e+10 plugins!"
+
+
+ship "Unity Carrier"
+	sprite ship/modcarrier
+	thumbnail thumbnail/modcarrier
+	attributes
+		category "Heavy Warship"
+		cost 15200000
+		mass 1310
+		bunks 460
+		gaslining 1
+		"cargo space" 350
+		cloak 0.01
+		"cloaking energy" 1
+		"cloaking fuel" 0.2
+		drag 17.7
+		"engine capacity" 300
+		"fuel capacity" 1000
+		"gun ports" 8
+		"heat dissipation" 0.45
+		hull 19400
+		"outfit space" 1780
+		ramscoop 3
+		"required crew" 5
+		shields 29400
+		"turret mounts" 8
+		"weapon capacity" 780
+	outfits
+		"Type 3 Radiant Thruster"
+		"Type 3 Radiant Steering"
+		"Wanderer Anti-Missile" 2
+		"Quantum Keystone"
+		"Type 4 Radiant Steering"
+		"Jump Drive"
+		"Hai Tracker Pod" 2
+		"Hai Tracker" 112
+		"Wanderer Ramscoop" 6
+		"Outfits Expansion" 5
+		"Outfit Scanner"
+		"Scram Drive"
+		"Quarg Skylance" 4
+		"Antimatter Core"
+		"Nanotech Battery" 2
+		"Quantum Shield Generator" 2
+		"Ionic Afterburner" 2
+		"Large Repair Module" 4
+		"Asteroid Scanner"
+		"Smelter-Class Thruster"
+		"Fuel Processor" 4
+		"Korath Minelayer" 4
+		"Korath Mine" 149
+		"Korath Mine Rack" 9
+		"Salvage Scanner" 2
+		"Ka'het Primary Cooling" 2
+		"Quantum Key Stone"
+		"Smelter-Class Steering"
+		"Ka'het Shield Restorer" 2
+		"Pug Biodefenses" 180
+		"Pug Peacekeeping Staff" 180
+		"Tier 3 Anti-Missile" 2
+		"Void Rifle" 2
+		Flamethrower 2
+		"AR120 Reverse Thruster"
+	leak leak 30 50
+	leak flame 30 80
+	leak "big leak" 30 30
+	gun -32.5 -160.5
+	gun 32.5 -160.5
+	gun -32.5 -160.5
+	gun 32.5 -160.5
+	gun -25.5 -168
+	gun 25.5 -168
+	gun -25.5 -168
+	gun 25.5 -168
+	gun -84 -34
+	gun 84 -34
+	turret -42.5 -15.5
+	turret 42.5 -15.5
+	turret -41 105
+	turret 41 105
+	fighter -43.5 -46
+	fighter 43.5 -46
+	drone -75.5 -27.5
+	drone 75.5 -27.5
+	fighter -49 64.5
+	fighter 49 64.5
+	drone -83 84
+	drone 83 84
+	drone -111 84
+	drone 111 84
+	gun 0.5 -230
+	turret 0.5 -39.5
+	turret 0 40
+	turret 0 69
+	turret 0 159.5
+	engine -65.5 231
+	engine 65.5 231
+	engine -138 128.5
+	engine 138 128.5
+	engine -46.5 237
+	engine 46.5 237
+	engine -24.5 235.5
+	engine 24.5 235.5
+	engine -15.5 225
+	engine 15.5 225
+	engine 0 227
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "huge explosion" 10
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	"final explode" "final explosion large" 1
+
+
+
+government "Unity"
+	swizzle 1
+	color 1 .33 1
+	"player reputation" 1000
+	"attitude toward"
+		"Zyr'c" -1000
+		"Ixkek" 1000
+		"Pirate" -1000
+		"Coalition" -1000
+		"Heliarch" -1000
+		"Pug" -1000
+		"Korath" -1000
+		"Kor Sestor" -1000
+		"Wanderers" 1000
+		"Syndicate (Extremist)" -1000
+		"Free Worlds" 1000
+		"Republic" 1000
+		"Navy (Oathkeeper)" -1000
+	"bribe" 1
+
+
+
+
+
+
