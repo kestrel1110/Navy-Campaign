@@ -26,22 +26,24 @@ mission "Joining the Navy"
 	on offer
 		log "Attempting to join the Navy by defeating a pirate."
 		conversation
-			`Your ships communicator lights with an official announcement from the Republic. Hello Captain <last>, as of now the Republic Navy is seeking captains skilled in combat to serve in the Navy. If you are interested in an opportunity to serve in the Navy you will have to prove yourself. You will need to hunt down the pirate vessel named <npc> in the <system> system destroy it and return to <planet>`
+			`Your ship's communicator lights with an official announcement from the Republic:`
+			``
+			`	[Hello, Captain <last>,] the message begins, [as of now, the Republic Navy is seeking captains skilled in combat to serve in the Navy. However, to discourage people hoping for handouts, applicants need to prove that they want to serve in the Navy. Recently, we've been having issues with a pirate vessel called the <npc> - our intel reports that it was spotted skulking around the <system> system. Destroy the <npc>, and return to <planet> to be formally accepted into the Navy.]`
 			choice
-				`I am interested, I'll take on that ship.`
+				`	I'm interested - I'll take on that ship.`
 					goto job-accept
-				`I would prefer not to join the navy at this time.`
+				`	Sorry, but I have no desire to join the navy at this time.`
 					defer
                     
 			label job-accept
-			`	Good luck!`
+			`	[We look forward to seeing you on <planet> once the mission is over,] the message reads. [Good luck!]`
 					accept
             
 	npc kill
 		personality heroic staying nemesis target
 		government Bounty
 		system Castor
-		ship "Leviathan" "Come get me!"
+		ship "Raven" "Blackfury"
 				
 	on complete
 		"reputation: Republic" += 10
@@ -51,10 +53,23 @@ mission "Joining the Navy"
 		set "license: Navy"
 		event "naval employment earned"
 		event "Navy Painted"
-		log "I was able to destroy the pirate ship and prove my worth to the navy, I have received a naval license and salary."
+		log "I was able to destroy the pirate ship and prove my worth to the Navy - as thanks, I have received a naval license and a small salary."
 		conversation
-			`<first> <last> I see you were able to destroy that Leviathan without too much trouble the <ship> is certainly battle ready. With war starting in the south and pirates in the north, we will be stretched thin. You will be receiving Navy Tier I enlistment it pays 1000 credits per day and the rank of Lieutenant. For your first assignment you will be combating pirates with Admiral Danforth. Travel to Farpoint and meet with him. Welcome to the Navy.`
-
+			`As you cycle the hatch to exit the ship, you are greeted by two Navy personnel flanking the entryway, armed with rifles. Between them, a Navy officer stands with his arms folded in front of him.`
+			``
+			`	"I assume you are <first> <last>?" he asks. You nod, saluting with your right hand. "Yes sir. And you are...?"`
+			`	"Colonel Marcus Howell," he replies. "Well met, <last> - or rather, Lieutenant <last>."`
+			`	Your eyes widen a bit in shock, still saluting. "Lieutenant?"`
+			`	"Per High Command's recommendation," he states while making a slight bounce on the tips of his feet, smiling. "And I can see they made the right choice. The speed and skill with which your ship, the <ship>, destroyed that Raven proves you are both serious about joining the Navy...and it's ready for battle."`
+			``
+			`Howell's expression hardens as his gaze turns left and skyward. "With war starting in the South, and pirates massing in the North, the Navy is going to be stretched thin." His gaze returns to you. "As of today, you haved been approved for Navy Tier I Enlistment status. You'll receive a daily stipend of 1000 credits per day, in addition to your promotion to Lieutenant. At ease."`
+			``
+			`	You let your hand drop to your side as you nod firmly. "What are my orders, Colonel?"
+			`	"Your first assignment," he begins, taking a uniform handed to him by the trooper to his left (your right), "will be to rendezvous with Admiral William Danforth - he's been tasked to deal with the pirates that are starting to gather up North."`
+			`He hands you the uniform - it's the familiar blue Navy jumpsuit, speckled with orange and gold highlights here and there. Your hands are trembling slightly as you take the uniform from his hands - *this is really happening,* you think to yourself.`
+			`	"Make your way to the spaceport and you'll find his contact there. Any further questions?"`
+			`	"None, sir."`
+			`	"Excellent. And before I forget...welcome to the Navy."`
 
 event "Navy Painted"
 	government "Escort"
@@ -71,7 +86,27 @@ mission "Report to Danforth"
 	on complete
 		log "Have reported to Admiral Danforth for duty guarding against pirates."
 		conversation
-			`You meet with Admiral Danforth in a conference room. There are many others who have enlisted sitting around you. "Welcome to Navy services," Danforth says. "There is a lot you will be learning, but let me start with one of the most important things first. Navy Ships are expensive... While you are stationed here with us any Navy ship that you assist in northern pirate territory: Mintaka, Gorvi, Tortor, Almaaz, Unagi, Arneb, Alnilam and Hatysa- you will be paid 25000 credits. With all the ships we lost in the nuclear attack we simply can not afford to lose more ships."`
+			`Before you set out for the spaceport, you decide to try your new uniform on. Amazingly, it fits like a glove - you have to wonder how they managed to get the size so perfectly.`
+			`	Stepping out of your ship, fully-dressed, you make your way to the spaceport. The walk is uneventful, for the most part, but every now and again, some of the locals slightly turn to look at you. Given the current climate, you can't tell if it's because they're looks of awe or suspicion - you decide to settle on the former.`
+			`	After about ten minutes, you finally meet up with Admiral Danforth's contact. "Lieutenant <last>? I'm Warrant Officer O'Keefe - I'm here to escort you to the Admiral's chambers.`
+			`You meet with Admiral Danforth in a modestly-sized conference room. There are many others who have enlisted sitting around you. "Welcome to Navy services," Danforth says. "There's a lot you'll be learning, but let me start with one of the most important things first: Navy Ships are expensive."`
+			`There's a few chuckles from the seated enlisted, but stern looks from both Danforth and their peers quickly quiets them down.`
+			`Danforth clears his throat before he continues. "While you are stationed here with us, you will be paid for each Navy ship that you assist in Northern Pirate Territory, which includes the following systems:`
+			``
+			`	Mintaka...`
+			`	Gorvi...`
+			`	Tortor...`
+			`	Almaaz...`
+			`	Unagi...`
+			`	Arneb...`
+			`	Alnilam...`
+			`	...and Hatysa."`
+			``
+			`Several of the enlisted present quietly chatter amongst themselves in various tones. "I cannot emphasize this enough, ladies and gentlemen," Danforth warns. "With all the ships we lost in the nuclear attack, we simply can NOT afford to lose more ships. Any questions?"`
+			``
+			`	A long, awkward silence falls over the room. Danforth gazes over the group a few times before a small smile is visible on his face.`
+			``
+			`"Good. You have your orders, men - dismissed!"`
 				decline
 
 mission "Navy Pirate Patrol 1"
@@ -1357,7 +1392,8 @@ mission "ATTACK [7]"
 			`	"Why? What's wrong?" you ask, confused.`
 			`	"Have a look at this."`
 			``
-			`Your primary display changes to show a newsreel of several Syndicate ships in orbit above Earth. On many of the ships, your eyes are drawn to launchers that are several times the size of any missile or rocket launcher - even torpedo tubes wouldn't come close to that size.` 			`"Yesterday, a Syndicate fleet appeared in orbit above Earth - it wasn't long before we determined that the ships were armed with multiple nuclear warheads, and began issuing demands.`
+			`Your primary display changes to show a newsreel of several Syndicate ships in orbit above Earth. On many of the ships, your eyes are drawn to launchers that are several times the size of any missile or rocket launcher - even torpedo tubes wouldn't come close to that size.`
+			`	"Yesterday, a Syndicate fleet appeared in orbit above Earth - it wasn't long before we determined that the ships were armed with multiple nuclear warheads, and began issuing demands.`
 			`	(Wait...armed with WHAT?!) you think to yourself.`
 			`Suddenly, new ships materialize out of nowhere in a haze of bluish particles and surround the Syndicate ships. The new ships are almost organic in their designs - the best description you can give likens them to yellow-colored coral. "Only a few hours after the fleet's arrival, the fleet of unknown alien design you see appeared, apparently using hyperdrives like those possessed by the Quarg. And as soon as they arrived..."`
 			`Right as Cruz narrates, the unknown ships open fire on the Syndicate fleet with their weapons, and reduce the Syndicate ships to little more than drifting hulks. And as swiftly as they appeared, the unknown ships vanish, and the feed goes dead.`
@@ -1448,7 +1484,7 @@ mission "Syndicate investigation [1]"
 		log "Apparently the Syndicate was not in control over the nuclear fleet, but a certain 'extremist' faction was. The hyperlink removals were because of an alien species, called the Pug, that has invaded human space. The Syndicate has seven Jump Drives to outfit an attack fleet with, so the fleet will only have seven ships."
 		conversation
 #### I should note that this is just the edited dialogue from Michael Zahniser's "FW Pug 2B" mission from the reconciliation branch. (because this was too hard for me to write and supposed to have the exact same outcome)
-			`As you are coming in for a landing you announce yourself to the spaceport authorities as diplomatic representatives of the Republic. The moment you land, a Syndicate employee meets you and escorts you to their headquarters, culminating with the arrival at the extravagant-furnished office of Alastair Korban - the CEO of the entire Syndicate Corporation.`
+			`As you are coming in for a landing you announce yourself to the spaceport authorities as diplomatic representatives of the Republic. The moment you land, a Syndicate employee meets you and escorts you to their headquarters, culminating with the arrival at the extravagantly-furnished (perhaps even disgustingly-so) office of Alastair Korban - the CEO of the entire Syndicate Corporation.`
 			`"I'm very glad you've come," says Alastair. "It seems unlikely that we can defeat this attack unless we work together."`
 			`	"Wait," John says, "you're saying this whole thing is not the Syndicate's doing?"`
 			`	Alastair seems taken aback. "Of course not. Seal off valuable trade routes? Why would we do that?"`
@@ -2441,54 +2477,56 @@ mission "syndicate attack [1]"
 	on enter Fomalhaut
 		conversation 
 			`As you jump in to <system>, Captain Fairchild radios in - despite his otherwise calm voice, you can tell he's panicking on the inside.`
-`"Admiral <last>...those ships aren't flying Syndicate colors. If they were with the Syndicate, they'd have purple accents, but those are pink. BRIGHT pink. And some of the bioscans of the crew aren't returning what we'd expect for normal humans..."`
+`	"Admiral <last>...those ships aren't flying Syndicate colors. If they were with the Syndicate, they'd have purple accents, but those are pink. BRIGHT pink. And some of the bioscans of the crew aren't returning what we'd expect for normal humans..."`
 			``
-			`"What are you saying, captain?" you reply, slightly agitated."`
+			`	"What are you saying, captain?" you reply, slightly agitated."`
 			``
-			`"Sir...the extremists are carrying Alphas on board. And-"`
+			`	"Sir...the extremists are carrying Alphas on board. And-"`
 			``
-			`An alarm screams out just before the captain can finish his thought. Looking at the panel, you see the following alert flash in red and white...something you hoped you would never see in your lifetime:`
+			`	An alarm screams out just before the captain can finish his thought. Looking at the panel, you see the following alert flash in red and white...something you hoped you would never see in your lifetime:`
 			``
-			`[DANGER: NUCLEAR MUNITIONS DETECTED]`
+			`		[DANGER: NUCLEAR MUNITIONS DETECTED]`
 			``
-			`"...They appear to be armed with nuclear missiles, sir," Fairchild sheepishly finishes his statement. Moments later, the panel lights up yet again...`
+			`	"...They appear to be armed with nuclear missiles, sir," Fairchild sheepishly finishes his statement. Moments later, the panel lights up yet again...`
 			``
-			`[NEW ORDERS FROM HIGH COMMAND: NEUTRALIZE ALL ALPHA SHIPS]`
+			`		[NEW ORDERS FROM HIGH COMMAND: NEUTRALIZE ALL ALPHA SHIPS]`
 			``
-			`You slowly shift your gaze upwards from the panel, glaring at the Alpha Fleet with a mixture of resolution and defiance. "All hands, to stations!" you shout over the radio. "Brace for impact and prepare to engage!" As you continue to relay orders, you recognize the unmistakable dagger-like silhouettes of an alarming number of nuclear warheads speeding towards the fleet.`
+			`	You slowly shift your gaze upwards from the panel, glaring at the Alpha Fleet with a mixture of resolution and defiance. "All hands, to stations!" you shout over the radio. "Brace for impact and prepare to engage!" As you continue to relay orders, you recognize the unmistakable dagger-like silhouettes of an alarming number of nuclear warheads speeding towards the fleet.`
 			``
-			`Whether in victory or defeat, this will be a day long-remembered in the Republic.`
+			`		Whether in victory or defeat, this will be a day long-remembered in the Republic.`
 	on offer
 		conversation
-			`The air is charged with emotion to an almost explosive degree as you make your way to the spaceport to meet with your fellow officers. Republic High Command relayed that some Syndicate holdouts were not going along with the Republic occupation - one of which happened to be <destination>, with other planets likely to follow suit. Feelings of excitement, pride, anger, sorrow, fear and disgust all intermingle along with many more as you stride forth with determination, remembering all the events that lead up to this moment...`
+			`	The air is charged with emotion to an almost explosive degree as you make your way to the spaceport to meet with your fellow officers. Republic High Command relayed that some Syndicate holdouts were not going along with the Republic occupation - one of which happened to be <destination>, with other planets likely to follow suit. Feelings of excitement, pride, anger, sorrow, fear and disgust all intermingle along with many more as you stride forth with determination, remembering all the events that lead up to this moment...`
 			``
-			`The bombings of Geminus and Martini...`
-			`The framing of the Free Worlds, and the subsequent war and reconciliation with them...'
-			`And the (albeit brief) war with the Pug.`
+			`		The bombings of Geminus and Martini...`
+			`		The framing of the Free Worlds, and the subsequent war and reconciliation with them...'
+			`		And the (albeit brief) war with the Pug.`
 			``
-			`It has been a long, hard road to get here. But finally, the end is so close you can almost picture yourself snatching it out of the air with your bare hands. However, there's one last hurdle to conquer before victory can be claimed at last. How fitting, you muse to yourself, that the beginning of the end takes place here...on Geminus.`
-			`The commanding officers are seated around a large meeting table as you enter the room. You look over each and every one of them, doing your best to engrave their faces into your memory - you solemnly realize that it might be the last time you ever see them again. After some brief introductions, you are formally introduced:`
+			`	It has been a long, hard road to get here. But finally, the end is so close you can almost picture yourself snatching it out of the air with your bare hands. However, there's one last hurdle to conquer before victory can be claimed at last. How fitting, you muse to yourself, that the beginning of the end takes place here...on Geminus.`
+			`	The commanding officers are seated around a large meeting table as you enter the room. You look over each and every one of them, doing your best to engrave their faces into your memory - you solemnly realize that it might be the last time you ever see them again. After some brief introductions, you are formally introduced:`
 			``
-			`Captain Thomas Fairchild, of the R.N.S Fortitude...`
-			`Rear Admiral Sophia Icke, of the R.N.S. Matterhorn...`
-			`Commander Minako Tsubachi of the R.N.S. Itokawa...`
-			`Commodore Elena Antonova of the R.N.S. Aleksandr...`
-			`Captain Piotr Blazkowicz of the R.N.S. Krakow...`
-			`And Admiral William "Billy" Taggart of the R.N.S. Incontrovertible.`
+			`		Captain Thomas Fairchild, of the R.N.S Fortitude...`
+			`		Rear Admiral Sophia Icke, of the R.N.S. Matterhorn...`
+			`		Commander Minako Tsubachi of the R.N.S. Itokawa...`
+			`		Commodore Elena Antonova of the R.N.S. Aleksandr...`
+			`		Captain Piotr Blazkowicz of the R.N.S. Krakow...`
+			`		And Admiral William "Billy" Taggart of the R.N.S. Incontrovertible.`
 			``
 			`"Right," you begin, "well, it's time to address the crews of our ships." You quickly exit the room, COs in tow, and make your way to the main hangar. There must be close to a thousand men and women gathered here, all busily working to get the ships ready.`
-			`Near your arrival point, a small podium has been set up for your final briefing. As you step up to the microphone, some feedback squawks through the speakers, to which an audio tech quickly remedies. Once the feedback is dealt with, you bark: "All crews, fallll IN!"`
-			`Immediately, all officers and enlisted stop what they're doing and form ranks in front of the podium. The whole experience feels like something out of a movie as you begin the briefing, your voice echoing throughout the hangar...`
-			`"This is it, ladies and gentlemen - the complete and total surrender of the Syndicate is all but inevitable. Only a few desperate holdouts remain, and it comes down to us to finalize our victory."`
-			`You turn to your right and slowly begin to pace back and forth in front of the officers and their crews. "We know what's at stake here. To fail now would be a fatal blow for the Republic - not just for morale, but for our people. Our united citizens, Republic and Free Worlds, alike, are looking to us for guidance...and for hope. Hope that we will see another tomorrow. Hope that we will rise from the ashes of this war far stronger than when we started. And hope that we can finally rest, peacefully, safe from all that would seek to destroy that which we value above all else: our freedom."`
-			`"I won't sugar-coat any of this - it's quite possible that when we come back to this hangar, there may be some faces and ships absent. The average citizen in the Republic, never mind the Free Worlds, may never even know of your existence."`
+			`	Near your arrival point, a small podium has been set up for your final briefing. As you step up to the microphone, some feedback squawks through the speakers, to which an audio tech quickly remedies. Once the feedback is dealt with, you bark: "All crews, fallll IN!"`
+			`	Immediately, all officers and enlisted stop what they're doing and form ranks in front of the podium. The whole experience feels like something out of a movie as you begin the briefing, your voice echoing throughout the hangar...`
+			`	"This is it, ladies and gentlemen - the complete and total surrender of the Syndicate is all but inevitable. Only a few desperate holdouts remain, and it comes down to us to finalize our victory."`
+			`	You turn to your right and slowly begin to pace back and forth in front of the officers and their crews. "We know what's at stake here. To fail now would be a fatal blow for the Republic - not just for morale, but for our people. Our united citizens, Republic and Free Worlds, alike, are looking to us for guidance...and for hope. Hope that we will see another tomorrow. Hope that we will rise from the ashes of this war far stronger than when we started. And hope that we can finally rest, peacefully, safe from all that would seek to destroy that which we value above all else: our freedom."`
+			`	"I won't sugar-coat any of this - it's quite possible that when we come back to this hangar, there may be some faces and ships absent. The average citizen in the Republic, never mind the Free Worlds, may never even know of your existence."`
 			``
 			`You stop, and turn to face the group.`
 			``
-			`"But the enemy...the enemy will know. Through our courage and tenacity, we will forever carve an image of ourselves into the hearts and minds of the enemy. We will burn so bright that when even the last lights in the Universe wink out of existence, the enemy will still know of our actions, and never forget the scars of our heroism they experienced. And with this knowledge, we board our ships knowing that defeat is impossible for us, men - we have already claimed victory!"`
-			`"LONG LIVE THE REPUBLIC!"`
+			`	"But the enemy...the enemy will know. Through our courage and tenacity, we will forever carve an image of ourselves into the hearts and minds of the enemy. We will burn so bright that when even the last lights in the Universe wink out of existence, the enemy will still know of our actions, and never forget the scars of our heroism they experienced. And with this knowledge, we board our ships knowing that defeat is impossible for us, men - we have already claimed victory!"`
+			``
+			`		"LONG LIVE THE REPUBLIC!"`
+			``
 			`You move as one unit towards your respective ships, filled with a renewed sense of vigor. As you board the <ship>, you take one last look skyward - to your surprise, there's a rare break in the otherwise thick cloud cover, and the star casts a brilliant light over the spaceport. A warm smile breaks across your face...it almost feels like the heavens themselves are blessing you on your journey.`
-			`Cycling the hatch, you make final preparations before setting out to <destination>...and destiny.`
+			`	Cycling the hatch, you make final preparations before setting out to <destination>...and destiny.`
 	on complete
 		event "Fomalhaut occupied"
 		conversation
@@ -2550,12 +2588,13 @@ mission "syndicate attack [2]"
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
 		conversation
-			`Remains of Syndicate extremist ships can still be seen burning up in the atmosphere of <planet> as your fleet lands at the spaceport. On the surface, you appear calm and collected...but internally, you're a hurricane of mixed emotions. The temptation to exact retribution, in particular, burns hot enough to melt lead. You open comms to the marines standing by, and deliver their orders:`
-			`"Marines, it's time to go to work. Sweep the planet's surface for any remaining pockets of resistance. Lethal force is not, repeat, NOT authorized unless your team comes under attack."`
+			`	Remains of Syndicate extremist ships can still be seen burning up in the atmosphere of <planet> as your fleet lands at the spaceport. On the surface, you appear calm and collected...but internally, you're a hurricane of mixed emotions. The temptation to exact retribution, in particular, burns hot enough to melt lead. You open comms to the marines standing by, and deliver their orders:`
+			`	"Marines, it's time to go to work. Sweep the planet's surface for any remaining pockets of resistance. Lethal force is not, repeat, NOT authorized unless your team comes under attack."`
 ``
-`You pause for a moment, partly to consider how the spirit of orders could be violated. Throughout history, countless individuals have used their positions to twist the interpretations of orders to better suit their needs...and you have no intention of adding yourself or any of your men to that number.`
+`	You pause for a moment, partly to consider how the spirit of orders could be violated. Throughout history, countless individuals have used their positions to twist the interpretations of orders to better suit their needs...and you have no intention of adding yourself or any of your men to that number.`
 ``
-`"And under no circumstances will I tolerate any use of torture, coercion or other underhanded means to force surrender of any hostiles - they must willingly give themselves up. Otherwise, we are no better than the very enemy we face."` 
+`	"And under no circumstances will I tolerate any use of torture, coercion or other underhanded means to force surrender of any hostiles - they must willingly give themselves up. Otherwise, we are no better than the very enemy we face."`
+``
 			`You terminate the link, thankful that cooler thoughts prevailed in your wording; even so, you find yourself hoping your given orders couldn't be somehow abused. Now that the occupation of <source> is underway, you chart a course for <destination>.`
 	on complete
 		event "Caph occupied"
@@ -2743,7 +2782,6 @@ event "Caph occupied"
 event "Diphda occupied"
 	system "Diphda"
 		government Republic
-
 
 
 
