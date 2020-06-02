@@ -91,7 +91,7 @@ mission "Report to Danforth"
 			`	After about ten minutes, you finally meet up with Admiral Danforth's contact. "Lieutenant <last>? I'm Warrant Officer O'Keefe - I'm here to escort you to the Admiral's chambers.`
 			`You meet with Admiral Danforth in a modestly-sized conference room. There are many others who have enlisted sitting around you. "Welcome to Navy services," Danforth says. "There's a lot you'll be learning, but let me start with one of the most important things first: Navy Ships are expensive."`
 			`There's a few chuckles from the seated enlisted, but stern looks from both Danforth and their peers quickly quiets them down.`
-			`Danforth clears his throat before he continues. "While you are stationed here with us, you will paid for each Navy ship that you assist in Northern Pirate Territory, which includes the following systems:`
+			`Danforth clears his throat before he continues. "While you are stationed here with us, you will be paid for each Navy ship that you assist in Northern Pirate Territory, which includes the following systems:`
 			``
 			`	Mintaka...`
 			`	Gorvi...`
@@ -2782,7 +2782,6 @@ event "Caph occupied"
 event "Diphda occupied"
 	system "Diphda"
 		government Republic
-
 
 
 
