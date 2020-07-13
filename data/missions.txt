@@ -23,20 +23,22 @@ mission "Joining the Navy"
 		has "event: enlistment begins"
 		not "event: naval employment earned"
 		has "enlistment announced: offered"
+		not "chosen sides"
 	on offer
 		conversation
 			`Your ship's communicator lights with an official announcement from the Republic:`
 			``
-			`	[Hello, Captain <last>,] the message begins, [as of now, the Republic Navy is seeking captains skilled in combat to serve in the Navy. However, to discourage people hoping for handouts, applicants need to prove that they want to serve in the Navy. Recently, we've been having issues with a pirate vessel called the <npc> - our intel reports that it was spotted skulking around the <system> system. Destroy the <npc>, and return to <planet> to be formally accepted into the Navy.]`
+			`	[Hello, Captain <last>,] the message begins, [as of now, the Republic Navy is seeking captains skilled in combat to serve in the Navy. However, to discourage people hoping for handouts, applicants need to prove that they want to serve in the Navy. Recently, we've been having issues with a pirate vessel called the <npc> - our intel reports that it was spotted skulking around the <system> system. Destroy the <npc>, and return to <destination> to be formally accepted into the Navy.]`
 			choice
 				`	I'm interested - I'll take on that ship.`
-					goto job-accept
+					goto jobAccept
 				`	Sorry, but I have no desire to join the navy at this time.`
 					defer
                     
-			label job-accept
-			`	[We look forward to seeing you on <planet> once the mission is over,] the message reads. [Good luck!]`
+			label jobAccept
+			`	[We look forward to seeing you on <destination> once the mission is over,] the message reads. [Good luck!]`
 					accept
+
 	on accept
 		log "Accepted an enlistment offer from the Republic Navy."
             
@@ -50,20 +52,20 @@ mission "Joining the Navy"
 		"reputation: Republic" += 10
 		"reputation: Free Worlds" = 500
 		"reputation: Escort" = 500
-		"salary: Navy" = 1000
+		"salary: Navy" = 500
 		set "license: Navy"
 		event "naval employment earned"
 		event "Navy Painted"
-		log "I was able to destroy the pirate ship and prove my worth to the Navy - as thanks, I have received a naval license and a small salary."
+		log "Was able to destroy the pirate ship and prove my worth to the Navy. The Navy has inducted me as a Private and given me a small salary."
 		conversation
 			`As you cycle the hatch to exit the ship, you are greeted by two Navy personnel flanking the entryway, armed with rifles. Between them, a Navy officer stands with his arms folded in front of him.`
 			``
 			`	"I assume you are <first> <last>?" he asks. You nod, saluting with your right hand. "Yes sir. And you are...?"`
-			`	"Colonel Marcus Howell," he replies. "Well met, <last> - or rather, Lieutenant <last>."`
-			`	Your eyes widen a bit in shock, still saluting. "Lieutenant?"`
-			`	"Per High Command's recommendation," he states while making a slight bounce on the tips of his feet, smiling. "And I can see they made the right choice. The speed and skill with which your ship, the <ship>, destroyed that Raven proves you are both serious about joining the Navy...and it's ready for battle."`
+			`	"Colonel Marcus Howell," he replies. "Well met, <last> - or rather, Private <last>."`
+			`	You nod, still saluting. "Thank you, sir. I hope to be of great service to the Republic."`
+			`	"I have a feeling you'll be just the man we need, <last>," he states while making a slight bounce on the tips of his feet, smiling. "The speed and skill with which your ship, the <ship>, destroyed that Raven proves you are both serious about joining the Navy...and it's ready for battle."`
 			``
-			`Howell's expression hardens as his gaze turns left and skyward. "With war starting in the South, and pirates massing in the North, the Navy is going to be stretched thin." His gaze returns to you. "As of today, you haved been approved for Navy Tier I Enlistment status. You'll receive a daily stipend of 1,000 credits per day, in addition to your promotion to Lieutenant. At ease."`
+			`Howell's expression hardens as his gaze turns left and skyward. "With rumblings of war starting in the South, and pirates massing in the North, the Navy is going to be stretched thin." His gaze returns to you. "As of today, you haved been approved for Navy Tier I Enlistment status. As part of being inducted as a Navy Private, you'll receive a daily stipend of 500 credits per day. At ease."`
 			``
 			`	You let your hand drop to your side as you nod firmly. "What are my orders, Colonel?"
 			`	"Your first assignment," he begins, taking a uniform handed to him by the trooper to his left (your right), "will be to rendezvous with Admiral William Danforth - he's been tasked to deal with the pirates that are starting to gather up North."`
@@ -84,11 +86,12 @@ mission "Report to Danforth"
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
 		has "Joining the Navy: done"
+		not "chosen sides"
 	on offer
 		conversation
 			`Before you set out for the spaceport, you decide to try your new uniform on. Amazingly, it fits like a glove - you have to wonder how they managed to get the size so perfectly.`
 			`	Stepping out of your ship, fully-dressed, you make your way to the spaceport. The walk is uneventful, for the most part, but every now and again, some of the locals slightly turn to look at you. Given the current climate, you can't tell if it's because they're looks of awe or suspicion - you decide to settle on the former.`
-			`	After about ten minutes, you finally meet up with Admiral Danforth's contact. "Lieutenant <last>? I'm Warrant Officer O'Keefe - I'm here to escort you to the Admiral's chambers.`
+			`	After about ten minutes, you finally meet up with Admiral Danforth's contact. "Private <last>? I'm Warrant Officer O'Keefe - I'm here to escort you to the Admiral's chambers.`
 			`You meet with Admiral Danforth in a modestly-sized conference room. There are many others who have enlisted sitting around you. "Welcome to Navy services," Danforth says. "There's a lot you'll be learning, but let me start with one of the most important things first: Navy Ships are expensive."`
 			`There's a few chuckles from the seated enlisted, but stern looks from both Danforth and their peers quickly quiets them down.`
 			`Danforth clears his throat before he continues. "While you are stationed here with us, you will be paid for each Navy ship that you assist in Northern Pirate Territory, which includes the following systems:`
@@ -126,9 +129,10 @@ mission "Navy Pirate Patrol 1"
 	to offer
 		has "event: naval employment earned"
 		has "Report to Danforth: done"
+		not "chosen sides"
 	on offer
 		conversation
-			`Not long after you begin to land your ship, you communicator alerts you to an incoming hail from Admiral Danforth. "I'm glad you could make it, Lieutenant <last> - I just finished reading the dossier Colonel Howell compiled on you. Your combat skills are certainly impressive, and I commend your bravery. Right now, however, we are in need of a more critical skill: reconaissance."`
+			`Not long after you begin to land your ship, you communicator alerts you to an incoming hail from Admiral Danforth. "I'm glad you could make it, Private <last> - I just finished reading the dossier Colonel Howell compiled on you. Your combat skills are certainly impressive, and I commend your bravery. Right now, however, we are in need of a more critical skill: reconaissance."`
 			``
 			`	Danforth brings up a display of the Galaxy map, highlighting three systems. "This is what we would call a 'mid-range' scouting mission - nothing too hard, but it won't be a cakewalk, either. Your mission, should you choose to accept it, is to fly through Mintaka, Gorvi and Tortor - record pirate fleet presence in those systems, and return here so we can analyze your sensor logs."`
 			choice
@@ -136,11 +140,13 @@ mission "Navy Pirate Patrol 1"
 					goto missionAccept
 				`	"Sorry, sir, but I don't know if I'm ready just yet."`
 					goto missionDecline
+
 			label missionAccept
 			`	"Very good. Now, remember - this is a *scouting* mission. I do not expect, much less require, that you destroy every pirate ship you find. Engage them if you feel you must, but if it becomes clear you're in over your head, jump to hyperspace. Make it back here once your patrol is complete, and there's 100,000 credits waiting for you, in addition to whatever financial gratitude other Navy ships will lend."`
 					accept
+
 			label missionDecline
-			`	"Don't worry, Lieutanant - there's no real timetable for the scouting, but I understand your hesitancy. Contact me again when you think you're ready."`
+			`	"Don't worry, Private - there's no real timetable for the scouting, but I understand your hesitancy. Contact me again when you think you're ready."`
 					defer
 	
 	on complete
@@ -153,7 +159,7 @@ mission "Navy Pirate Patrol 2"
 	priority
 	landing
 	name "Pirate Patrol"
-	description "Fly through Almaaz and Unagi then deliver you sensor logs to Farpoint."
+	description "Fly through Almaaz and Unagi, then deliver you sensor logs to Farpoint."
 	waypoint "Almaaz"
 	waypoint "Unagi"
 	source "Farpoint"
@@ -161,22 +167,26 @@ mission "Navy Pirate Patrol 2"
 	to offer
 		has "event: naval employment earned"
 		has "Navy Pirate Patrol 1: done"
+		not "chosen sides"
 	on offer
 		conversation
 			`	A short stroll through the spaceport makes you realize Farpoint is appropriately-named - beyond the walls of the base, the scorching desert sands stretch farther than the eye can see. If this isn't the middle of nowhere, you could certainly see it from here. Which, you muse to yourself, isn't necessarily a bad thing - the remoteness and elevated security means someone would need unfathomably poor judgement to try anything out here.`
 			`	You sit down on a bench near one of the pubs while you wait for the Admiral. Not 10 minutes after you arrive, you see Danforth walking towards you and you wave him over.`
-			`	"Thank you once again for your assistance, Lieutenant <last>," he begins as he sits down next to you. "The sensor logs you provided don't seem to indicate much change in pirate activity - granted, those are just the three nearest systems, so it's somewhat expected." He sits up a bit straighter, leaning back slightly while doing so. "But now, we need to do a bit more in-depth analysis. The next systems we need scanned are Almaaz and Unagi - as you'll be passing by Freedom, which is well-known for its anarchy, this mission is beyond what most other merchants would be comfortable with...and as a result, the payment will also be substantially more. Are you up to it?"`
+			`	"Thank you once again for your assistance, Private <last>," he begins as he sits down next to you. "The sensor logs you provided don't seem to indicate much change in pirate activity - granted, those are just the three nearest systems, so it's somewhat expected." He sits up a bit straighter, leaning back slightly while doing so. "But now, we need to do a bit more in-depth analysis. The next systems we need scanned are Almaaz and Unagi - as you'll be passing by Freedom, which is well-known for its anarchy, this mission is beyond what most other merchants would be comfortable with...and as a result, the payment will also be substantially more. Are you up to it?"`
 			choice
 				`	"Absolutely, Admiral. A few pirates can't scare me."`
 					goto missionAccept
 				`	"I'm not sure my ship will survive the mission, sir."`
 					goto missionDecline
+
 			label missionAccept
-			`	"I wish all our officers and enlisted had the same attitude you do, Lieutenant," he replies, smiling broadly. "As before, you don't have to (and in fact, shouldn't) attack every pirate you meet on the way - remember, your objective is to monitor pirate movements, not necessarily intercept them. Make it back here with the logs, and you'll receive 150,000 credits for your work."`
+			`	"I wish all our officers and enlisted had the same attitude you do, Private," he replies, smiling broadly. "As before, you don't have to (and in fact, shouldn't) attack every pirate you meet on the way - remember, your objective is to monitor pirate movements, not necessarily intercept them. Make it back here with the logs, and you'll receive 150,000 credits for your work."`
 					accept
+
 			label missionDecline
 			`	"That's completely understandable," he replies with a thoughtful nod. "Trust me - nothing is worth you getting killed. When you feel more able, come back to this spaceport and contact me."`
 					defer
+
 	on complete
 		payment 150000
 		dialog
@@ -187,7 +197,7 @@ mission "Navy Pirate Patrol 3"
 	priority
 	landing
 	name "Pirate Patrol"
-	description "Fly through Arneb, Alnilam and Hatysa then deliver you sensor logs to Farpoint."
+	description "Fly through Arneb, Alnilam and Hatysa before returning to Farpoint to deliver you sensor logs."
 	waypoint "Arneb"
 	waypoint "Alnilam"
 	waypoint "Hatysa"
@@ -199,65 +209,70 @@ mission "Navy Pirate Patrol 3"
 		has "event: naval employment earned"
 		has "Navy Pirate Patrol 1: done"
 		has "Navy Pirate Patrol 2: done"
+		not "chosen sides"
 	on offer
 		conversation
 			`	While there are scant few establishments to begin with, the Stardust Pub appears to be one of the more popular places to eat, judging by the crowd at the entrance. Among those gathered, you notice, and subsequently join, Admiral Danforth; however, his expression is one that you can only describe as "hesistant."`
-			`	"You've done a fantastic job so far, Lieutenant <last>," he begins, looking straight ahead, "and I need your talents once more. We're sending you straight into the heart of the Northern Pirates to track their fleet presence in Arneb, Alnilam and Hatsya. I won't lie to you - even most Navy recruits tend to be wary operating so remotely, and you will be compensated appropriately."`
+			`	"You've done a fantastic job so far, Private <last>," he begins, looking straight ahead, "and I need your talents once more. We're sending you straight into the heart of the Northern Pirates to track their fleet presence in Arneb, Alnilam and Hatsya. I won't lie to you - even most Navy recruits tend to be wary operating so remotely, and you will be compensated appropriately."`
 			`	Danforth then turns his head slightly in your direction. "Can I count on you to scan these systems?"`
 			choice
 				`	"Without question, Admiral."`
 					goto missionAccept
 				`	"I can't say I'm willing to potentially kick the hornet's nest, Admiral."`
 					goto missionDecline
+
 			label missionAccept
-			`	Danforth smiles broadly. "We need more men and women like you in the Navy, Lieutenant - you certainly are a rare breed. Come on. My treat," he says, as he walks into the pub.`
+			`	Danforth smiles broadly. "We need more men and women like you in the Navy, Private - you certainly are a rare breed. Come on. My treat," he says, as he walks into the pub.`
 			`	The two of you are shown a table along one of the walls of the Stardust. Just from what you see, it's clear the owners wanted their patrons to feel more like they were part of civilization, not on a barren rock as far away as one could be from it. After the waitstaff takes your orders, Danforth makes a couple glances left and right before he addresses you.`
 			`	"You probably guessed it already, but there's an ulterior motive to meet here, <last>. I've been reviewing the logs you collected, and what I'm seeing bothers me. So far, it doesn't look like much has changed in the level of activity we're used to seeing in those systems - frankly, if anything, there's actually been *less* activity in those systems. You know that old saying: 'It's quiet. *Too* quiet.'"`
 			`	"Yeah," you agree, looking slightly downward as you put a hand to your chin. "It feels like the calm before the storm."`
 			`	"Indeed. They're planning something...but what, I don't know. Hopefully this last round of scanning will clear things up."`
 			`A moment later, the waitstaff bring your meals to you and the two of you begin eating. As the two of you continue idle banter, you realize that not many officers usually have such a personal relationship with Admirals - Danforth is truly a rarity among them. Even though he far outranks you, he still insists on paying the bill for both of you. "One thing I've learned over the years," he comments, "is what actually being an Admiral entails. It's not just about the medals you earned and the battles you fought to reach this position - it's also the relationships you build and the friends you make along the way. Anyone can give orders, but if you only see your men as expendable resources, all those stars, medals and badges don't mean a damned thing."`
 			`	"That's the other reason I brought you here, <last>," he adds while the two of you exit the Stardust. "I wanted to make it clear that just because I have a higher rank, that does *not* mean I should also feel superior to you. We're both humans, and on that note, equals. I'm sure my actions have proved as much, but my position does *not* give me the right to treat you like dirt, and any Admiral who tells you otherwise is either delusional, drunk, a liar or an idiot. Or all of the above."`
-			`The two of you laugh for a second at his comment. "Anyway," he continues, "just like before, there's no need to engage any hostiles on your patrol. Just beware of Zenith and Haven - considering their locations, they're fairly well-guarded. Report back to me with the logs, and I'll personally make sure that you'll receive 250,000 credits for your work."`
+			`The two of you laugh for a second at his comment. "Anyway," he continues, "just like before, there's no need to engage any hostiles on your patrol. Just beware of Zenith and Haven - considering their locations, they're fairly well-guarded. Report back to me with the logs, and I'll personally make sure that you'll receive 250,000 credits for your work. Furthermore...I'm going to put in a good word on possibly getting you promoted straight to Lieutenant-grade."`
 			`	"That is very gracious of you, sir," you reply with a nod. "And thank you for taking the time to talk to me - I promise you, I won't let you down."`
-			`	"I know you won't, Lieutenant. Good luck, and God Bless."`
+			`	"I know you won't, Private. Good luck, and God Bless."`
 					accept
+
 			label missionDecline
 			`	Danforth chuckles. "That's pretty accurate," he replies. "Don't worry - take all the time you need before you're ready to find me here again."`
 					defer
+
 	on complete
 		payment 250000
 		conversation
 			`When you come in for a landing, you can't help but feel like something's wrong. Just from how remote Farpoint is, the activity in the base usually rather low. But now the hangars are swarming with crews and ships ready to take off. In addition, unlike most times when you might have to wait up to 20 minutes to land, the control tower gives you clearance almost immediately. For you to be moved to the front of the line so quickly, while certainly a nice change of pace, also sends a slight twinge of dread down your spine...which soon proves to be well-founded.`
-			`	You quickly disembark the <ship> to find Danforth's aide waiting for you. The two of you quickly hurry to the Admiral's quarters, and find he's joined by other Navy officers. As you enter the room, all eyes shift away from the table and towards you - and the looks you receive, in particular Danforth's, make you feel uneasy.`
-			`	"Lieutenant <last>, your timing is impeccable," Danforth says. "We just obtained your sensor logs, and it may have just been enough to prevent things from getting worse."`
+			`	You quickly disembark the <ship> to find Danforth's aide waiting for you. The two of you quickly hurry to the Admiral's quarters, and find he's joined by other Navy officers. As you enter the room, instictively saluting as you do so, all eyes shift away from the table and towards you - and the looks you receive, in particular Danforth's, make you feel uneasy.`
+			`	"Private <last>, your timing is impeccable," Danforth says. "We just obtained your sensor logs, and it may have just been enough to prevent things from getting worse."`
 			`	"...Worse, sir?" you ask, cautiously.`
 			`	"Indeed," one of the officers says. "Shit well and truly hit the fan right as you got here."`
-			`	"Ranulph, please," Danforth comments, exasperated. "Just as we finished downloading your logs, a pirate fleet suddenly warped in. Most of them were either destroyed or routed back into the North, but one ship managed to escape. Most of us believe it's thanks to your sensor logs that we were able to halt their advance as much as we did."`
+			`	"Ranulph, please," Danforth exasperatedly shushes the officer, raising his hand. "Just as we finished downloading your logs, a pirate fleet suddenly warped in. Most of them were either destroyed or routed back into the North, but one ship managed to escape. Most of us believe it's thanks to your sensor logs that we were able to halt their advance as much as we did."`
 			`	"Even so, that one ship is now running amok amongst the systems South of us," another officer adds. "We could have done more if we'd-"`
 			`	"We did as much as we could," you interrupt, silencing the room. "None of us could have possibly anticipated, let alone prepared for anything more than what those logs indicated."`
 			`Most of the officers quietly talk amongst themselves at your response, but Ranulph keeps staring you down. You don't know why, but it seems like he feels threatened by you speaking as though you were a higher rank than he was.`
-			`	"Lieutenant <last>," Danforth finally says, standing up from behind his desk "we can go over the details later in the spaceport," he adds, walking towards you. "In the meantime, here's your payment of 250,000 credits, as promised."`
+			`	"Private <last>, at ease," Danforth finally says as he stands up from behind his desk. "We can go over the details later in the spaceport," he adds, walking towards you. "In the meantime, here's your payment of 250,000 credits, as promised."`
 
 
 mission "Navy vs Pirate 1"
 	landing
 	name "Destroy <npc>"
-	description "A pirate vessel named <npc> has broken through our defenses in Alnitak and is currently in the <system> system. Destroy it before it can move further into Republic space and return to <planet> for additional orders."
+	description "A pirate vessel named <npc> has broken through our defenses in Alnitak and is currently in the Saiph system. Destroy it before it can move further into Republic space and return to <planet> for additional orders."
 	to offer
 		has "event: naval employment earned"
 		has "Navy Pirate Patrol 1: done"
 		has "Navy Pirate Patrol 2: done"
 		has "Navy Pirate Patrol 3: done"
-	source Farpoint
-	waypoint Saiph
-	destination Farpoint
+		not "chosen sides"
+	source "Farpoint"
+	waypoint "Saiph"
+	destination "Farpoint"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 
 	npc kill
 		personality heroic staying nemesis target unconstrained opportunistic appeasing mining harvests
-		government Bounty
-		system Saiph
+		government "Pirate"
+		system "Saiph"
 		names "pirate"
 		fleet
 			variant
@@ -267,24 +282,87 @@ mission "Navy vs Pirate 1"
 			variant
 				"Leviathan (Laser)"
 
-		dialog "The <npc> has been eliminated. You can return to <destination> for additional orders."
+		dialog "The <npc> has been eliminated. Return to <destination> for additional orders."
 	on offer
-		log "Have been assigned to take out a pirate that broke through the Navy defenses and is ambushing merchants."
 		conversation
-			`<first>, there is a pirate that broke through our defenses, please hunt them down and return for <payment> credits. They are currently in the Saiph system.`
+			`Farpoint feels a lot different when the entire base is on alert. Normally, you could easily see from one side of the compound to the other and only have the odd soldier or vehicle break your vision. Since the pirate ship that broke through, however, the farthest you can see is maybe 50 feet due to the mass of guards, crewmen, machinery and munitions.`
+			`	Eventually, you find the Admiral near his ship, the N.S. Peacemaker; other crewmen are busily loading his ship while he stares intently at a clipboard, clearly distraught about something.`
 			choice
-			`	I would be happy to take care of that`
+			`	(Ask him what he's looking at.)`
+				goto ask
+			`	(Wait for him to finish reading.)`
+				goto wait
+
+			label ask
+			apply 
+				set "ranulph's background"
+			`	"Something wrong, Admiral?" you inquire, concerned.`
+			`	"Oh, it's Ranulph," he dismissively comments as he looks up from his clipboard. "I'm just reading some performance commentary from his peers."`
+			`	Your face twists into another uneasy expression. "I'm guessing that falls under the category of 'not good.'"`
+			`	"Ranulph's always been a handful," the admiral replies, setting the clipboard down. "The man seems to have it in his head that by climbing the ranks quickly, he'll be seen as some sort of hero. While I admire his efforts to do his best, his means of getting there have been..." Danforth makes an aside glance, as if checking to see if Ranulph is in earshot. "Well, to say that it's underhanded would be a slight understatement."`
+			choice
+			`	"If you don't mind me asking, Admiral, exactly how bad are we talking?"`
+				goto ranulph
+			`	"I see."`
+				goto pirateHunt
+
+			label ranulph
+			apply
+				set "excessive force"
+			`Danforth sighs sadly as he shakes his head. "I'll be honest with you, <first> - it wasn't as bad when he first joined, but recently, some of the things Ranulph's done are borderline terroristic. Still fully legal within the bounds of Galactic Law, but extremely questionable from a moral standpoint."`
+			`	"Is there...anything that stands out?" you ask, now even more nervous of the man who stared you down in the boardroom.`
+			`Danforth puts a hand on his chin while he searches his memory. "I can't say for certain, but I've heard rumors he once dealt with a slavery ring by strapping the slavers with the very bomb collars they used to control their 'merchandise.' Poetic, yes...but also far in excess of his duties. I'm amazed he wasn't court-martialed by the end of it."`
+			`	"Sounds like a man who gazed too long into the abyss, sir," you remark.`
+			`	"Indeed. And that's what worries me. But no sense in dwelling on that now; there's a fight to be had."`
+				goto mission
+
+			label pirateHunt
+			`	"That's a topic for another day, though. For now, we have bigger fish to fry."`
+				goto mission
+
+			label wait
+			`You patiently stand by for a few minutes before Danforth realizes you're there. "Sorry about that, Private <last>," he apologizes. "I just had to take care of some internal matters - I hope you weren't waiting long."`
+			`	"Just a few minutes, Admiral. I didn't want to interrupt if it was something important."`
+			`Danforth scoffs, smiling. "Don't ever be afraid to ask, Private - honestly, you being here helps me take my mind off of things."
+				goto mission
+
+			label mission
+			`	Danforth procures a small holo-projector from his pocket, which shows the nearby systems. "We've managed to track the pirate to the Saiph system, <first>," he says, right as Saiph is highlighted. "The ship in question is a Leviathan-class warship known as the '<npc>' - they've been reported terrorizing merchants passing through the system. Once you destroy the <npc>, report back here for further instructions."`
+			choice
+			`	"Consider it done, Admiral."`
+				goto missionAccept
+			label missionAccept
+			`	"Be careful, <last> - while I am able to tell you it's a Leviathan, our teams were unable to successfully get a good read on its weapon systems. Be ready for anything."`
 				accept
-			`	I'm sorry but I can not take on that mission right now`
-				goto missionDecline
-			label missionDecline
-			`	I'm sorry to hear that I will offer the mission again you can accept it when you are ready.`
-					defer
+	on accept
+		log "Have been assigned to take out a pirate that broke through the Navy defenses and is ambushing merchants in Saiph."
 	on complete
-		log "Succeeded in destroying the pirate ship, and received a bonus."
-		payment 125000
+		log "Succeeded in destroying the pirate ship in Saiph. For my efforts, I have been promoted to the rank of Lieutenant, with an impending increase to my salary."
+		payment 350000
 		conversation
-			 `Admiral Danforth "I am pleased you were able to destroy <npc> before it could move deeper into Republic space. The <ship> is certainly proving itself battle capable." You receive a bonus of <payment>.`
+			`As your ship pierces <destination>'s atmosphere, you notice that the base has reverted to its much-less active state. It isn't long before the control tower radios in: [Private <last>, proceed to Hangar 357 - Admiral Danforth is expecting you.]`
+			`Sure enough, Admiral Danforth is present to greet you at Hangar 357, accompanied by Colonel Howell and, to your dismay, Ranulph. Howell appears as chipper as he was when you first met, but the scowl on Ranulph's face is worse than you remember. Nonetheless, you salute the trio as you exit the <ship>. "Private <last>," Danforth begins, "with the destruction of <npc>, you did more than just prove your mettle in combat - you kept what could have become an interstellar incident contained to the Far North."`
+			`	"Just doing my job, Admiral," you reply, maintaining your salute.`
+			`Danforth smiles. "I wish we had more men and women who had your definition of 'just doing their job,' Private...or should I say, 'Lieutenant.'"`
+			`Your eyes widen slightly, though you maintain your salute. "L-lieutenant?"`
+			`	"Per High Command's recommendation," Howell beams. "Your performance, in addition to the Admiral's suggestions, was all the evidence they needed. You have certainly earned the promotion, Lieutenant <last>."`
+			branch angry
+				has "ranulph's background"
+			`Danforth nods approvingly. "At ease," he commands, allowing your hand to drop back to your side. As you do so, your eyes briefly glance over to Ranulph's expression. The man is still clearly displeased by the whole ordeal, but for what reason, you don't know. Whatever the case, his glare is chilling, to say the least.
+				goto end
+			label angry
+			`Danforth nods approvingly. "At ease," he commands, allowing your hand to drop back to your side. As you do so, your eyes briefly glance over to Ranulph's expression. It suddenly dawns on you that the ceremony is why Ranulph looks as incensed as he does - normally, the process of becoming a Lieutenant would take months, if not years, and you managed it within a fraction of that time. Danforth mentioned that Ranulph is a glory hound, and a new upstart being promoted as quickly as you are would be a serious threat to his perceived status as a hero.`
+			branch dread
+				has "excessive force"
+			`	What this means for your future, however, is anyone's guess.`
+				goto end
+			label dread
+			apply
+				set "rivalry"
+			`	And if it turns out he's as vicious to protect that status as he was when he dealt with the slavery ring, then Ranulph is truly more dangerous to the Republic than the very pirates he hunts. You decide to keep a watchful eye on him - whatever is in that twisted mind of his, it can't be anything good.`
+				goto end
+			label end
+			`"In addition to your payment of 350,000 credits," Danforth begins, "your promotion also carries an increase of salary pay. However, there's a few formalities that need to be sorted out by High Command before that goes into effect. In the meantime, find me in the spaceport when you're ready for more work."`
 
 mission "Navy Rebuilding Geminus"
 	name "Escort Freighters to <destination> to help rebuild the Navy Shipyards there."
@@ -297,6 +375,7 @@ mission "Navy Rebuilding Geminus"
 		has "Navy Pirate Patrol 2: done"
 		has "Navy Pirate Patrol 3: done"
 		has "Navy vs Pirate 1: done"
+		not "chosen sides"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
@@ -2809,7 +2888,6 @@ event "Caph occupied"
 event "Diphda occupied"
 	system "Diphda"
 		government Republic
-
 
 
 
