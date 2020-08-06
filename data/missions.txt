@@ -8,6 +8,422 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
+# Republic/Navy Campaign Project Lead: Bereskatuket
+# Head Writer/Creative Consultant/Resident Grammar Nazi: Warlord Mike
+# Opening Missions Writing Credit to: Disiuze, Kiko, Moonbeam, Kat
+# 
+
+mission "Republic Bounty 1"
+	name "Republic Bounty Hunting"
+	description `Hunt down the <npc>, a pirate ship that has been assaulting miners in the Boral system.`
+	minor
+	source
+		government "Republic"
+		attributes "dirt belt"
+	to offer
+		has "event: war begins"
+		"combat rating" > 150
+		not "chosen sides"
+		random < 65
+
+	on offer
+		conversation
+			`You barely have time to find your bearings in this spaceport when you're approached by a man in a crisp, navy blue Republic uniform.`
+			`	"You have a face that says you're looking for work," he says, in a surprisingly cheerful tone. "We're in need of someone to deal some pirates that have been causing trouble near Boral. Not normally something we'd contract out, but, luckily for you, we're a little short on free ships right now."`
+			choice
+				`	"Sure."`
+				`	"Sorry, I'm not really into bounty hunting."`
+					defer
+			`	"Much obliged," he says. "It's a ship called the <npc>. It's a small little devil, but don't let it take you off guard."`
+				accept
+	on accept
+		log `Hunting a pirate ship called the "<npc>," which has been plundering ships near Boral.`
+
+	npc kill
+		personality heroic staying nemesis target
+		government Bounty
+		system
+			near Boral 1 2
+		ship "Clipper (Heavy)" "Black Fang"
+		dialog `The <npc> has been eliminated. You can claim the bounty payment by returning to <destination>.`
+
+	on complete
+		payment 175000
+		dialog `Upon landing, the commander greets you, seemingly surprised by your return. "The Republic needs more captains like you. Hopefully this payment of <payment> will be enough to convince you to help us out the next time." You nod. "Captain <last>, correct?" he says, and barely gives you enough time to agree before he continues speaking. "Right. I'm Commander Kent, in case I didn't introduce myself. I'll be keeping an eye out for you in case we ever need more assistance." `
+
+
+
+mission "Republic Bounty 2"
+	name "Republic Bounty Hunting"
+	description `Kill a known criminal aboard the <npc>, which was last spotted in the Alnasl system.`
+	source
+		government "Republic"
+		attributes "dirt belt"
+	to offer
+		has "Republic Bounty 1: done"
+		not "chosen sides"
+		random < 70
+
+	on offer
+		conversation
+			`Before you can decide where you want to go in the spaceport, you are flagged down by a Republic officer. This time, they're a dour woman with black hair in a tight bun. "Captain <last>?" she asks. You nod. "I'm Captain Shah. Commander Kent has you listed as a privateer." she says in a quick, clipped tone. "We've been made aware that a criminal has been spotted near Alnasl. He is wanted dead."`
+			choice
+				`	"Dead. Got it."`
+				` 	"You have an interesting way of asking."`
+					goto asking
+				`	"I'm a merchant, not a hitman."`
+					goto killer
+			`	Captain Shah grins. "He's aboard a ship named the <npc>. I expect to see you back soon."`
+				accept
+			label killer
+			`	"Your file led me to believe otherwise," says Shah. "Either way, we will be sure to update our record and will be working with other contractors in the future."`
+				decline
+			label asking
+			`	Her face darkens. "I won't try to convince you if you're not interested."`
+			choice
+				`	"Okay, I'll do it."`
+					accept
+				`	"Thank you, but I'm not interested in this kind of work."`
+					decline
+	npc kill
+		personality heroic staying nemesis target
+		government Bounty
+		system
+			near "Alnasl" 1 2
+		ship "Bastion (Heavy)" "Amphithere"
+		dialog `The <npc> has been eliminated. You can claim the bounty payment by returning to <destination>.`
+
+	on accept
+		log `Hunting a pirate ship called the "<npc>," which is wanted by the Republic. It was last spotted in the Alnasl system.`
+
+	on complete
+		payment 200000
+		dialog `Captain Shah contacts you after you've landed. "The Republic thanks you for your assistance. <payment> have been credited to your account. I'll be in touch should I have need of you again."`
+		log "People" "Anton Kent" "Anton Kent is a Republic official assigned to keep an eye on the systems bordering the Free Worlds. He seems to be unaffiliated with the Navy."
+		log "People" "Amelia Shah" "Amelia Shah is a Republic official assigned to keep an eye on the systems bordering the Free Worlds. She seems to be unaffiliated with the Navy."
+
+
+
+mission "Republic Bounty 3"
+	name "Republic Bounty Hunting"
+	description `Disable the <npc> which seems to be holding merchants for ransom. Do not destroy or attempt to capture the ship. It was last spotted in the Tais system`
+	source
+		government "Republic"
+		attributes "dirt belt"
+	to offer
+		has "Republic Bounty 2: done"
+		not "chosen sides"
+		random < 75
+
+	on offer
+		conversation
+			`As you wander the spaceport, a hand grips your shoulder. You turn to find the surprising strength belongs to Captain Shah. "Captain <last>, the Republic has another job for you. It's different than the last one but I'm sure you'll be interested."`
+			choice
+				`	"Sure, what do I have to do?"`
+				`	"Sorry, I'm a bit busy right now."`
+					defer
+			`	"A ship named the <npc> has captured a number of wealthy merchants and is holding them for ransom. While this should not be a job for an ordinary contractor, there are concerns that they might kill the hostages if approached by a ship flying Republic colors. You will disable the ship and return to me immediately."`
+			choice
+				`	"Consider it done."`
+				`	"I'm sorry, but I can't deal with problems like that."`
+					decline
+			`	Captain Shah gives a small, relieved nod. "The ship was last spotted in Tias. We believe it is still there."`
+				accept
+	npc disable
+		personality heroic staying nemesis target
+		government Bounty
+		system "Tais"
+		ship "Falcon (Heavy)" "Gediminas"
+		dialog `The <npc> has been disabled. You can claim the bounty payment by returning to <destination>.`
+
+	on accept
+		log `Hunting a pirate ship called the "<npc>," which has captured multiple merchant captains. The ship was last sighted in the Tais system.`
+
+	on complete
+		"assisted republic" ++
+		payment 250000
+		dialog `Soon after you land, Captain Shah contacts you. "The hostages were recovered safely," she says, with a smile. "The Republic owes you a debt of gratitude. If you are interested in more tangible benefits, <payment> have been transferred to your account, and I have informed my superiors that you can be counted on."`
+		log "Captain Shah says she has informed her superiors of my contributions."
+
+
+
+mission "Republic Scouting 1"
+	name "Hyperspace Relay Testing"
+	description "Fly through the <waypoints> systems, then report to <destination> so the Navy can analyze the network connectivity of your logs."
+	minor
+	waypoint "Hassaleh"
+	waypoint "Sumar"
+	waypoint "Cardax"
+	waypoint "Volax"
+	source
+		government "Republic"
+		attributes "paradise"
+	destination "Glaze"
+	to offer
+		has "event: war begins"
+		not "chosen sides"
+		random < 60
+
+	on offer
+		conversation
+			`As you wander the spaceport you overhear a woman in a Navy uniform telling a bored-looking merchant about satellite dishes in the empty systems to the north.`
+			`	"That sounds interesting." The merchant tells her, "But I've got a cargo bay full of medical supplies headed the other direction."`
+			`	"Also an important mission," she replies. "I wish you safe travels."`
+			choice
+				`	(Ask her what's going on.)`
+				`	(Walk away.)`
+					decline
+			`	"Do you need help with retrieving a satellite?" you ask the Navy officer, interested, as the other merchant captain walks away.`
+			`	"Not quite." She replies brightly. "We've been experiencing some latency between Farpoint and Maelstrom. I'd need someone to fly through, then let me look at their logs so I can figure out what the trouble is."`
+			choice
+				`	"Sounds simple enough."`
+				`	"Sorry, I won't be able to help you either."`
+					decline
+			`	"Excellent." She smiles. "I'm Captain Jane Melgrew, by the way. Thank you for your help."`
+				accept
+
+	on accept
+		log "Volunteered to help track down the cause of some latency for the Republic."
+
+	on complete
+		payment 30000
+		dialog
+			`As you land on <destination>, Jane approaches you again. "Thank you on behalf of not only the Republic, but everyone who uses this network. I've transfered <payment> to your account."`
+
+
+
+mission "Republic Scouting 2"
+	landing
+	name "Cul-de-sac System Scouting"
+	description "Fly through the <waypoints> systems, then report to <destination> so the Navy can analyze your logs of pirate activity (if any)."
+	waypoint "Regulus"
+	waypoint "Fingol"
+	waypoint "Nocte"
+	waypoint "Ipsing"
+	source
+		government "Republic"
+	destination "Follower"
+	to offer
+		has "Republic Scouting 1: done"
+		not "chosen sides"
+		random < 40
+
+	on offer
+		dialog
+			`You receive a message from Jane, the Navy captain who asked you to fly through some uninhabited systems to the north. "I need some data from a few dead end systems," she says. "There might be some pirate fleets in the area but I just need logs again. Interested?"`
+
+	on complete
+		payment 40000
+		dialog
+			`You transfer your sensor logs to Captain Melgrew. She thanks you for your work, and pays you <payment>. She says, "I'll let you know when we have more work."`
+		log "People" "Jane Melgrew" "Jane Melgrew is a Navy captain charged with all manner of odd jobs, from diagnosing hyperspace network problems, to scouting uninhabited systems."
+
+
+
+mission "Republic Scouting 3"
+	name "Navy Reconnaissance"
+	description "Perform an outfit scan on the <npc> in Yed Prior, then report to Captain Melgrew on <destination>."
+	source
+		government "Republic"
+	destination "Follower"
+	to offer
+		has "Republic Scouting 2: done"
+		not "chosen sides"
+		random < 40
+
+	on offer
+		conversation
+			`As you step off your ship, you are greeted by an out-of-breath Jane Melgrew. "Captain <last>!" she exclaims. "Glad I caught you. I have another job, and I couldn't just send you a message for this one.`
+			choice
+				`	"What's going on?"`
+				`	"Sorry, I'm really busy."`
+					decline
+			`	"We have reason to believe there is a ship loaded with alien tech somewhere in the south," she says. "As I'm sure you've heard, the worlds in this area have been organizing a rebellion. So far they've been peaceful, but if they are arming themselves with alien technology, that could be a major problem for us. Would you be able to track down the ship and scan it?"`
+			choice
+				`	"Sure, that sounds simple enough."`
+				`	"Sorry, that sounds way too dangerous."`
+					decline
+			`	"Fantastic. It's a Falcon named the <npc>, last seen near Yed Prior. If it is alien technology, we'll be the first in the Republic to see it, how exciting."`
+				accept
+
+	on accept
+		log "Volunteered to scan a ship in Free Worlds space that might be armed with alien technology."
+
+	npc "scan outfits"
+		personality staying uninterested
+		government "Free Worlds"
+		system "Yed Prior"
+		fleet
+			names "free worlds capital"
+			variant
+				"Falcon (Heavy)"
+		conversation
+			`As soon as you scan the <npc>, its captain hails you. "Excuse me, captain," he says, "mind telling me why you felt the need to probe my ship?"`
+			choice
+				`	"Your ship looked so powerful, I just had to know what kind of gear you had. Some of it looked almost alien."`
+				`	"I hope to have a ship like that someday, and I just wanted a shopping list of what I would need."`
+					goto equipment
+			`	"Alien? Well, maybe to someone flying a tub like yours," he says, chuckling. "No, I promise you this is all standard human fare."`
+				goto close
+			label equipment
+			`	He looks awfully pleased with himself. "Yes, she is quite the beauty. I would have never been able to afford anything like this without the Defense Pact's scouting program," he says. "She makes keeping pirates out of our territory as easy as a dream. If you're interested in trading that tub you've got in for something like this, the program should be hiring again soon."`
+			label close
+			`	You cut the comlink and breathe a sigh of relief that the conversation is over.`
+
+	on complete
+		"assisted republic" ++
+		dialog `Soon after you land, Jane comes to your ship and pays you <payment> in exchange for your sensor logs regarding <npc>. "No alien tech, I see," she says, sounding dissapointed. "While that would have been a great find, I will admit I'm happy I don't have to figure out how to defend against it. I've let my supervisors know how helpful you've been, hopefully we can work together again soon." `
+		payment 50000
+		log "Captain Melgrew says she has put a good word in for me with her superiors."
+
+
+
+mission "Republic Shipping 1"
+	name "Secret cargo to <destination>."
+	description "Transport a squad of Navy marines and their undisclosed cargo to <destination>."
+	minor
+	passengers 5
+	cargo "undisclosed cargo" 5
+	to offer
+	source
+		government "Republic"
+		attributes "factory"
+	to offer
+		has "event: war begins"
+		not "chosen sides"
+		random < 50
+	destination "New Austria"
+
+	on offer
+		conversation
+			`Shortly after leaving your ship, you notice a squad of what appears to be Navy Marines gathered around a civilian transport. The ship looks damaged, and the smell of hot metal fills the air.`
+			choice
+				`	(Talk to them.)`
+				`	(Ignore them.)`
+					decline
+			`	You approach who you assume to be the captain of the ship and ask them what happened.`
+			`	"I was hired to take these fine individuals and their cargo to <destination>," the captain replies. "Unfortunately, I don't think I can make it the rest of the way. Would you be willing to take over? Oh, and don't bother asking what they are transporting, they won't tell me."`
+			choice
+				`	"I can do that."`
+				`	I'd prefer knowing what it's in my hold, sorry."`
+					decline
+			`	"Great! The name's Jeff Haas, by the way. I run a shipping company mostly taking contracts for the Navy," Jeff says enthusiastically.`
+			`	"Complete this job and I will gladly hire you to do more in the future."`
+				accept
+
+	on accept
+		log "Accepted a job transporting some marines and their cargo to <destination>."
+
+	on complete
+		payment
+		payment 50000
+		log "People" "Jeff Haas" "Jeff Haas is the head of the Jeff Haas Shipping Company. He is often contracted by the Republic Navy."
+		dialog `After a very quiet journey, you land on <destination>. The marines unload their cargo without saying a single word to you. A different navy officer thanks you for your assistance, and pays you the respectable sum of 50,000 credits.`
+
+
+
+mission "Republic Shipping 2"
+	name "Navy Interior Design to <destination>"
+	description "Transport furniture to the navy offices on <destination>."
+	cargo "furniture" 20
+	to offer
+	source
+		government "Republic"
+		attributes "factory"
+	to offer
+		has "event: war begins"
+		has "Republic Shipping 1: done"
+		not "chosen sides"
+		random < 50
+	destination "New Austria"
+
+	npc accompany save
+		personality escort timid
+		government "Merchant"
+		ship "Behemoth (Heavy)" "Alba Oro"
+
+	on offer
+		conversation
+			`As you wander around the spaceport, a merchant captain calls you over and asks you to help transport some furniture to the navy base on <destination>. You can clearly see the Jeff Haas Shipping logo on the cargo ramp of her ship.`
+			choice
+				`	"Of course."`
+					accept
+				`	"I don't have space for this right now."`
+					defer
+				`	"I'm not interested, and please don't offer me any more jobs in the future."`
+					decline
+
+	on accept
+		log "Accepted a job to transport some furniture to <destination>."
+
+	on complete
+		payment
+		payment 30000
+		dialog `When you land, the merchant captain thanks you for the escort and use of your cargo space. She gives you a cut of the total payment, <payment>.`
+
+
+
+mission "Republic Shipping 3"
+	name "Convoy to <destination>"
+	description "Carry 52 tons of cargo and <bunks> Navy observer as part of a convoy to <destination>"
+	passengers 1
+	cargo "restricted cargo" 52
+	source
+		government "Republic"
+		attributes "factory"
+	to offer
+		has "event: war begins"
+		has "Republic Shipping 2: done"
+		not "chosen sides"
+		random < 50
+	destination "New Austria"
+
+	npc accompany save
+		personality escort timid
+		government "Merchant"
+		ship "Behemoth (Heavy)" "Alba Oro"
+	npc accompany save
+		personality escort timid
+		government "Merchant"
+		ship "Behemoth (Heavy)" "Jumeaux Soleils"
+	npc accompany save
+		personality escort timid
+		government "Merchant"
+		ship "Bactrian" "Fatalni Sumrak"
+	npc accompany save
+		personality escort timid
+		government "Navy Intelligence"
+		ship "Gunboat" "R.N.S. Theia"
+
+	on offer
+		conversation
+			`As you land, you notice three ships bearing the Jeff Haas logo and a Navy Gunboat land next to you.`
+			choice
+				`	(Approach them.)`
+				`	(Ignore them.)`
+					decline
+			`	As you approach, you can hear the merchants bickering over how much the fleet can move. A familiar face looks up and notices you.`
+			`	"Captain!" Jeff shouts, "An answer to our prayers. Would you be interested in joining our convoy? We're moving supplies to that new Navy base again. 52 tons of cargo and one bunk is all we need of you, and you'll join our fleet."`
+			`	The moment he mentions where the supplies are being moved, the Navy officers glare at him and shake their heads.`
+			`	"If you are trying to get us ambushed, you are doing a good job," one of them says. "Maybe don't tell everyone where we are going?"`
+			` 	The captain of the Alba Oro and Jeff explain together that you have worked with them before.`
+			choice
+				`	"Sure!"`
+				`	"Sorry, but I go my own way.`
+					decline
+			`	They thank you for your assistance, and you give them a hand pushing the heavy cart into your cargo bay.`
+				accept
+
+	on accept
+		log "Decided to help Jeff with transporting cargo and an observer to <destination>."
+
+	on complete
+		"assisted republic" ++
+		payment
+		payment 120000
+		log "The Navy officer from earlier said they'd put in a good word for me."
+		dialog `As you land, Jeff pays you <payment>, and the officer you shuttled lets you know they will put in a good word for you.`
+
 mission "Joining the Navy"
 	autosave
 	name "Navy Candidate"
@@ -61,9 +477,9 @@ mission "Joining the Navy"
 			`As you cycle the hatch to exit the ship, you are greeted by two Navy personnel flanking the entryway, armed with rifles. Between them, a Navy officer stands with his arms folded in front of him.`
 			``
 			`	"I assume you are <first> <last>?" he asks. You nod, saluting with your right hand. "Yes sir. And you are...?"`
-			`	"Colonel Marcus Howell," he replies. "Well met, <last> - or rather, Private <last>."`
+			`	"Colonel Marcus Howell," he replies. "Well met, Captain <last> - or rather, Private <last>."`
 			`	You nod, still saluting. "Thank you, sir. I hope to be of great service to the Republic."`
-			`	"I have a feeling you'll be just the man we need, <last>," he states while making a slight bounce on the tips of his feet, smiling. "The speed and skill with which your ship, the <ship>, destroyed that Raven proves you are both serious about joining the Navy...and it's ready for battle."`
+			`	"I have a feeling you'll be just the man we need, <last>," he states while making a slight bounce on the tips of his feet, smiling. "The speed and skill with which your ship, the <ship>, destroyed that Raven, in addition to your past endeavors, proves you are both serious about joining the Navy...and it's ready for battle."`
 			``
 			`Howell's expression hardens as his gaze turns left and skyward. "With rumblings of war starting in the South, and pirates massing in the North, the Navy is going to be stretched thin." His gaze returns to you. "As of today, you haved been approved for Navy Tier I Enlistment status. As part of being inducted as a Navy Private, you'll receive a daily stipend of 500 credits per day. At ease."`
 			``
@@ -92,7 +508,7 @@ mission "Report to Danforth"
 			`Before you set out for the spaceport, you decide to try your new uniform on. Amazingly, it fits like a glove - you have to wonder how they managed to get the size so perfectly.`
 			`	Stepping out of your ship, fully-dressed, you make your way to the spaceport. The walk is uneventful, for the most part, but every now and again, some of the locals slightly turn to look at you. Given the current climate, you can't tell if it's because they're looks of awe or suspicion - you decide to settle on the former.`
 			`	After about ten minutes, you finally meet up with Admiral Danforth's contact. "Private <last>? I'm Warrant Officer O'Keefe - I'm here to escort you to the Admiral's chambers.`
-			`You meet with Admiral Danforth in a modestly-sized conference room. There are many others who have enlisted sitting around you. "Welcome to Navy services," Danforth says. "There's a lot you'll be learning, but let me start with one of the most important things first: Navy Ships are expensive."`
+			`You meet with Admiral Danforth in a modestly-sized conference room. There are many others who have enlisted sitting around you. "Welcome to Navy services," Danforth begins, "otherwise known as The Oathkeepers. There's a lot you'll be learning, but let me start with one of the most important things first: Navy Ships are expensive."`
 			`There's a few chuckles from the seated enlisted, but stern looks from both Danforth and their peers quickly quiets them down.`
 			`Danforth clears his throat before he continues. "While you are stationed here with us, you will be paid for each Navy ship that you assist in Northern Pirate Territory, which includes the following systems:`
 			``
@@ -113,6 +529,8 @@ mission "Report to Danforth"
 				accept
 	on accept
 		log "Have reported to Admiral Danforth for patrol duty against pirates."
+		log "Factions" "Oathkeepers" `The "Oathkeepers" are a regiment of Navy officers who were captured by the Free Worlds and paroled on the condition that they take no further part in fighting against the Free Worlds. They are led by William Danforth, a famous Navy admiral. Their stated mission is to protect the Paradise Worlds from the pirates who live on the anarchist worlds in the far north of human space.`
+		log "People" "William Danforth" `Danforth is a famous Navy Admiral who is a folk hero throughout human space due to his fair and honorable behavior and his willingness to use his fleet to assist people in need, even when he has to go against Parliament's orders to do so. He is currently in charge of the Navy regiment who call themselves the "Oathkeepers."`
 
 mission "Navy Pirate Patrol 1"
 	priority
@@ -239,6 +657,7 @@ mission "Navy Pirate Patrol 3"
 					defer
 
 	on complete
+		log "People" "Ranulph Hines" `A rather rude Republic Officer, Ranulph Hines has served in the Republic for several years.`
 		payment 250000
 		conversation
 			`When you come in for a landing, you can't help but feel like something's wrong. Just from how remote Farpoint is, the activity in the base usually rather low. But now the hangars are swarming with crews and ships ready to take off. In addition, unlike most times when you might have to wait up to 20 minutes to land, the control tower gives you clearance almost immediately. For you to be moved to the front of the line so quickly, while certainly a nice change of pace, also sends a slight twinge of dread down your spine...which soon proves to be well-founded.`
@@ -246,10 +665,10 @@ mission "Navy Pirate Patrol 3"
 			`	"Private <last>, your timing is impeccable," Danforth says. "We just obtained your sensor logs, and it may have just been enough to prevent things from getting worse."`
 			`	"...Worse, sir?" you ask, cautiously.`
 			`	"Indeed," one of the officers says. "Shit well and truly hit the fan right as you got here."`
-			`	"Ranulph, please," Danforth exasperatedly shushes the officer, raising his hand. "Just as we finished downloading your logs, a pirate fleet suddenly warped in. Most of them were either destroyed or routed back into the North, but one ship managed to escape. Most of us believe it's thanks to your sensor logs that we were able to halt their advance as much as we did."`
+			`	"Hines, please," Danforth exasperatedly shushes the officer, raising his hand. "Just as we finished downloading your logs, a pirate fleet suddenly warped in. Most of them were either destroyed or routed back into the North, but one ship managed to escape. Most of us believe it's thanks to your sensor logs that we were able to halt their advance as much as we did."`
 			`	"Even so, that one ship is now running amok amongst the systems South of us," another officer adds. "We could have done more if we'd-"`
 			`	"We did as much as we could," you interrupt, silencing the room. "None of us could have possibly anticipated, let alone prepared for anything more than what those logs indicated."`
-			`Most of the officers quietly talk amongst themselves at your response, but Ranulph keeps staring you down. You don't know why, but it seems like he feels threatened by you speaking as though you were a higher rank than he was.`
+			`Most of the officers quietly talk amongst themselves at your response, but Hines keeps staring you down. You don't know why, but it seems like he feels threatened by you speaking as though you were a higher rank than he was.`
 			`	"Private <last>, at ease," Danforth finally says as he stands up from behind his desk. "We can go over the details later in the spaceport," he adds, walking towards you. "In the meantime, here's your payment of 250,000 credits, as promised."`
 
 
@@ -294,12 +713,13 @@ mission "Navy vs Pirate 1"
 				goto wait
 
 			label ask
-			apply 
+			apply	
+				log "People" "Ranulph Hines" `An egotistical Republic Officer, Ranulph Hines has served in the Republic for several years. He longs to be seen as a hero by the rest of the Republic, and apparently will resort to rather shady tactics if need be.`
 				set "ranulph's background"
 			`	"Something wrong, Admiral?" you inquire, concerned.`
-			`	"Oh, it's Ranulph," he dismissively comments as he looks up from his clipboard. "I'm just reading some performance commentary from his peers."`
+			`	"Oh, it's Hines," he dismissively comments as he looks up from his clipboard. "I'm just reading some performance commentary from his peers."`
 			`	Your face twists into another uneasy expression. "I'm guessing that falls under the category of 'not good.'"`
-			`	"Ranulph's always been a handful," the admiral replies, setting the clipboard down. "The man seems to have it in his head that by climbing the ranks quickly, he'll be seen as some sort of hero. While I admire his efforts to do his best, his means of getting there have been..." Danforth makes an aside glance, as if checking to see if Ranulph is in earshot. "Well, to say that it's underhanded would be a slight understatement."`
+			`	"Ranulph Hines always been a handful," the admiral replies, setting the clipboard down. "The man seems to have it in his head that by climbing the ranks quickly, he'll be seen as some sort of hero. While I admire his efforts to do his best, his means of getting there have been..." Danforth makes an aside glance, as if checking to see if Ranulph is in earshot. "Well, to say that it's underhanded would be a slight understatement."`
 			choice
 			`	"If you don't mind me asking, Admiral, exactly how bad are we talking?"`
 				goto ranulph
@@ -308,6 +728,7 @@ mission "Navy vs Pirate 1"
 
 			label ranulph
 			apply
+				log "People" "Ranulph Hines" `A perfect example of the dark side of ambition, Ranulph Hines has served in the Republic for several years. Deluded by visions of grandeur, Hines has resorted to borderline illegal methods to complete his assignments - most notably capturing a slavery ring through the very explosive collars the ring used to control their slaves. Why Danforth keeps this "thug with a badge" around is anyone's guess.`
 				set "excessive force"
 			`Danforth sighs sadly as he shakes his head. "I'll be honest with you, <first> - it wasn't as bad when he first joined, but recently, some of the things Ranulph's done are borderline terroristic. Still fully legal within the bounds of Galactic Law, but extremely questionable from a moral standpoint."`
 			`	"Is there...anything that stands out?" you ask, now even more nervous of the man who stared you down in the boardroom.`
@@ -365,10 +786,11 @@ mission "Navy vs Pirate 1"
 			`"In addition to your payment of 350,000 credits," Danforth begins, "your promotion also carries an increase of salary pay. However, there's a few formalities that need to be sorted out by High Command before that goes into effect. In the meantime, find me in the spaceport when you're ready for more work."`
 
 mission "Navy Rebuilding Geminus"
-	name "Escort Freighters to <destination> to help rebuild the Navy Shipyards there."
+	name "Escort several Navy Cargo Auxiliaries to <waypoint> to pick up building materials, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
-	source Farpoint
-	destination Geminus
+	source "Farpoint"
+	waypoint "Gemstone"
+	destination "Geminus"
 	to offer
 		has "event: naval employment earned"
 		has "Navy Pirate Patrol 1: done"
@@ -379,17 +801,21 @@ mission "Navy Rebuilding Geminus"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
-		log "Escorting some freighters to Geminus to help rebuild the shipyards there."
 		conversation
-			`You recieve a message from Admiral Danforth: "<last>, could you assist in rebuilding the shipyards on Geminus?`
+			`As you walk to the spaceport, several large shadows pass overhead - your gaze shifts skyward to see Navy Auxiliaries coming in to land. While not terribly new, the modularity of the ships also makes them a rare sight - and if you had to guess, they're for whatever mission Danforth has planned.`
+			`Sure enough, you spot Danforth by one of the Auxiliaries. "Thank you for coming, Lieutenant <last>," he begins. "Up until now, I wasn't sure I could trust anyone in the Navy with the assignment I'm about to give you."`
+			`	"Involving the Auxes, sir?"`
+			`	"Indeed. Ever since the bombings of Geminus and Martini, there's been significant push to get the primary Naval Shipyards rebuilt. However, we can't rebuild the shipyards without any material to do so, and Navy Logistics has been tied up with disaster relief. We only just managed to convince Logistics to spare these four ships, which will be just enough for our purposes."` 
 			choice
-				`	I would be happy to take care of that`
+				`	"Without delay, Admiral."`
+					goto missionAccept
+				`	"Any information about my route, Admiral?"`
+					goto missionInfo
+			label missionAccept
+				accept
+			label missionInfo
+			`	"It seems that the breakthrough at Farpoint has emboldened some of the pirates around here," Danforth notes grimly. "We've received reports of massive fleets gathering in some of the uninhabited systems. Try to stay in populated systems to the best of your ability while you escort the fleet to <waypoint> - remember, there's no rush, so if it results in a safer trip, take your time."`
 					accept
-				`	I'm sorry but I can not take on that mission right now`
-					goto missionDecline
-			label missionDecline
-			`	I'm sorry to hear that I will offer the mission again; you can accept it when you are ready.`
-					defer
 	npc
 		government "Pirate"
 		personality nemesis harvests plunders
@@ -409,14 +835,13 @@ mission "Navy Rebuilding Geminus"
 		fleet "Large Northern Pirates"
 	
 	npc accompany save
-		government "Merchant"
+		government "Republic"
 		personality escort timid
 		fleet
-			names "civilian"
+			names "republic" "capital"
 			variant
-				"Behemoth" 10
-			variant
-				"Bulk Freighter" 10
+				"Auxiliary (Cargo)" 4
+
 	on complete
 		log "Made it to Geminus safely, soon the shipyards will be rebuilt."
 		payment 1500000
