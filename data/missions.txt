@@ -1,4 +1,4 @@
-# Copyright (c) 2020 by Irex
+# Copyright (c) 2020 by Bereskatuket
 #
 # Endless Sky is free software: you can redistribute it and/or modify it under the
 # terms of the GNU General Public License as published by the Free Software
@@ -530,7 +530,7 @@ mission "Report to Danforth"
 	on accept
 		log "Have reported to Admiral Danforth for patrol duty against pirates."
 		log "Factions" "Oathkeepers" `The "Oathkeepers" are a regiment of Navy officers who were captured by the Free Worlds and paroled on the condition that they take no further part in fighting against the Free Worlds. They are led by William Danforth, a famous Navy admiral. Their stated mission is to protect the Paradise Worlds from the pirates who live on the anarchist worlds in the far north of human space.`
-		log "People" "William Danforth" `Danforth is a famous Navy Admiral who is a folk hero throughout human space due to his fair and honorable behavior and his willingness to use his fleet to assist people in need, even when he has to go against Parliament's orders to do so. He is currently in charge of the Navy regiment who call themselves the "Oathkeepers."`
+		log "People" "William Danforth" `Danforth is a famous Navy Admiral who is a folk hero throughout human space due to his fair and honorable behavior and his willingness to use his fleet to assist people in need, even when he has to go against Parliament's orders to do so.`
 
 mission "Navy Pirate Patrol 1"
 	priority
@@ -885,7 +885,8 @@ mission "Tier Boost"
 		conversation
 			`	A message comes in from Danforth: "Lieutenant <last>! As a reward for your assistance in rebuilding the shipyard on Geminus, you have been promoted to Tier II enlistment. Your new salary shall be 2500 credits per day. You also now have access to Cruisers and Carriers. Congradulations!"`
 				decline
-
+	
+########    <electron sequence here>
 
 mission "Reassigned to Sol"
 	name "Reassigned to the Sol defense fleets"
@@ -897,7 +898,6 @@ mission "Reassigned to Sol"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
-		has "Navy Rebuilding Geminus: done"
 		has "Tier Boost: offered"
 	on offer
 		log "Was reassigned to the defense fleets on Sol."
