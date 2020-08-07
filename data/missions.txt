@@ -883,7 +883,7 @@ mission "Tier Boost"
 		set "license: Navy Cruiser"
 		set "license: Navy Carrier"
 		conversation
-			`	Lieutenant <last>! As a reward for your assistance in rebuilding the shipyard on Geminus, you have been promoted to Tier II enlistment. Your new salary shall be 2500 credits per day. You also now have access to Cruisers and Carriers.`
+			`	A message comes in from Danforth: "Lieutenant <last>! As a reward for your assistance in rebuilding the shipyard on Geminus, you have been promoted to Tier II enlistment. Your new salary shall be 2500 credits per day. You also now have access to Cruisers and Carriers. Congradulations!"`
 				decline
 
 
@@ -902,13 +902,14 @@ mission "Reassigned to Sol"
 	on offer
 		log "Was reassigned to the defense fleets on Sol."
 		conversation
-			`	Lieutenant <first> <last>, because of a recent turn of events with the Free Worlds and the Geminus Bombing Investigation, you are from this point on assigned to the defense fleets in Sol. Please report there soon to Commodore Joseph Cruz. Thank you.`
+			`	A message comes in from Naval Command: "Lieutenant <first> <last>, because of a recent turn of events with the Free Worlds and the Geminus Bombing Investigation, you are from this point on assigned to the defense fleets in Sol. Please report there soon to Commodore Joseph Cruz. Thank you."`
 
 
 
-mission "Reassigned to Sol [cruiser]"
+mission "Reassigned to Sol [completion]"
 	landing
 	source Earth
+	destination Earth
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
@@ -918,7 +919,7 @@ mission "Reassigned to Sol [cruiser]"
 		event "deep sky tech available"
 		event "navy using mark ii ships"
 		conversation
-			`	As you land on earth, <ship>'s communicator beeps, and a Navy officer who you presume is Cruz comes on. "Good evening, Lieutenant <last>! The Geminus Bombing Investigation believes that the culprit for the Geminus bombing is the Free Worlds. Because of this, the Navy shall be attacking the system of Kornephoros under orders from Parliament. Therefore, as the new shipyards are complete, you shall be given a single Cruiser and four combat drones with the hope of it serving you well. It is already launched and in orbit, with zero crew. They are painted red to set them apart from other ships. Please use a transport to put your own crew on it and then land. Then, please head south to the system of Seginus where the Navy will prepare to attack. Good Luck!`
+			`	As you land on earth, <ship>'s communicator beeps, and a Navy officer who you presume is Cruz comes on. "Good evening, Lieutenant <last>! The Geminus Bombing Investigation believes that the culprit for the Geminus bombing is the Free Worlds. Because of this, the Navy shall be attacking the system of Kornephoros under orders from Parliament. Therefore, as the new shipyards are complete, you shall be given a single Cruiser and four combat drones with the hope of it serving you well. It is already launched and in orbit, with zero crew. They are painted red to set them apart from other ships. Please use a transport to put your own crew on it and then land for final registration. Then, please head south to the system of Seginus where the Navy will prepare to attack. Good Luck!`
 			`	Don't forget that you must board the ships first if you want them! [Boarding is the 'b' key by default.]`
 				launch
 
@@ -997,8 +998,8 @@ ship "Cruiser" "Cruiser (Mark II)(empty)"
 		"A520 Atomic Thruster"
 		"A525 Atomic Steering"
 		"Hyperdrive"
-		"Placeholder"
-		"No crew" 136
+		"Bunk Lock"
+		"Individual Lock" 136
 	gun "Sidewinder Missile Launcher"
 	gun "Sidewinder Missile Launcher"
 	gun "Sidewinder Missile Launcher"
@@ -1010,19 +1011,18 @@ ship "Cruiser" "Cruiser (Mark II)(empty)"
 	turret "Electron Turret"
 	turret "Heavy Anti-Missile Turret"
 
-outfit "Placeholder"
+outfit "Bunk Lock"
 	category "Systems"
 	"cost" 0
-	"automaton" 1
-	"nocrew capacity" 150
+	"lock capacity" 150
 	description "Computer virus for temporarily automating a ship, and removing any crew that could still be on it. Remove to use this ship as your flagship."
 
-outfit "No crew"
+outfit "Individual lock"
 	category "Systems"
 	cost 0
-	"nocrew capacity" -1
+	"lock capacity" -1
 	"bunks" -1
-	description "Removes 1 crew."
+	description "Removes 1 bunk to prevent'stowaways.'"
 	description "If you want any bunks on this ship you need to remove this!"
 
 mission "Report to Seginus"
@@ -1033,12 +1033,12 @@ mission "Report to Seginus"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
-		has "Reassigned to Sol [cruiser]: offered"
+		has "Reassigned to Sol [completion]: done"
 	on offer
 		log "Was assigned to an attack fleet for attacking the Free Worlds."
 		conversation
 			`	As you land, <ship>'s communicator beeps again, and Commodore Cruz comes on. "Good evening, Lieutenant <last>! As you have now acquired your cruiser, please report to Seginus immediately for preparations on the Kornephoros attack.`
-				decline
+				accept
 
 mission "Seginus Gathering"
 	landing
@@ -1050,7 +1050,6 @@ mission "Seginus Gathering"
 	to offer
 		has "Report to Seginus: declined"
 	on offer
-		log "Successfully captured Kornephoros, a Free Worlds planet."
 		event "start of hostilities(NAVY)"
 		event "prepare for battle of Kornephoros"
 		conversation
@@ -1059,17 +1058,13 @@ mission "Seginus Gathering"
 				accept
 	on visit
 		conversation
-			`	As you begin to land, you see a Free Worlds ship following you.`
-		choice
-			`(Lower your shields as a peace offering and continue to land.)`
-				goto death
-			`(Launch before they kill you)`
-				launch
+			`	You should take off and assist your comrades, as there are still active Free Worlds ships in orbit.
 		label death
 			`You lower your shields and continue to land. The Free Worlds ship hesitates. And then it blasts you out of the sky.`
 				die
 	on complete
 		event "navy captures kornephoros"
+		log "Successfully captured Kornephoros, a Free Worlds planet."
 		conversation
 			`You land on <planet> that has just been captured, and you see a group of Free Worlds members, and a Navy officer tells you one of them is named Katya Reynolds. He tells you she is the suspected perpetrator of the Geminus attack.`
 			choice
@@ -1095,7 +1090,7 @@ mission "Seginus Gathering"
 				goto next
 
 			label next
-			`	"Anyhow, Lieutenant, you are needed for the next assignment. Go to Clark and figure out what to do next."`
+			`	"She will be pickked up later by Navy Intelligence. Anyhow, Lieutenant, you are needed for the next assignment. Go to Clark and figure out what to do next."`
 
 
 	npc
@@ -1127,7 +1122,7 @@ mission "Seginus Gathering"
 				"Lance" 12
 				
 
-	npc kill
+	npc evade
 		personality staying disables heroic
 		government "Free Worlds"
 		system Kornephoros
