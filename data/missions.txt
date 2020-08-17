@@ -530,7 +530,7 @@ mission "Report to Danforth"
 	on accept
 		log "Have reported to Admiral Danforth for patrol duty against pirates."
 		log "Factions" "Oathkeepers" `The "Oathkeepers" are a regiment of Navy officers who were captured by the Free Worlds and paroled on the condition that they take no further part in fighting against the Free Worlds. They are led by William Danforth, a famous Navy admiral. Their stated mission is to protect the Paradise Worlds from the pirates who live on the anarchist worlds in the far north of human space.`
-		log "People" "William Danforth" `Danforth is a famous Navy Admiral who is a folk hero throughout human space due to his fair and honorable behavior and his willingness to use his fleet to assist people in need, even when he has to go against Parliament's orders to do so.`
+		log "People" "William Danforth" `Danforth is a famous Navy Admiral who is a folk hero throughout human space due to his fair and honorable behavior and his willingness to use his fleet to assist people in need, even when he has to go against Parliament's orders to do so. He is currently in charge of the Navy regiment who call themselves the "Oathkeepers."`
 
 mission "Navy Pirate Patrol 1"
 	priority
@@ -583,7 +583,6 @@ mission "Navy Pirate Patrol 2"
 	source "Farpoint"
 	destination "Farpoint"
 	to offer
-		has "event: naval employment earned"
 		has "Navy Pirate Patrol 1: done"
 		not "chosen sides"
 	on offer
@@ -624,8 +623,6 @@ mission "Navy Pirate Patrol 3"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
-		has "event: naval employment earned"
-		has "Navy Pirate Patrol 1: done"
 		has "Navy Pirate Patrol 2: done"
 		not "chosen sides"
 	on offer
@@ -657,7 +654,6 @@ mission "Navy Pirate Patrol 3"
 					defer
 
 	on complete
-		log "People" "Ranulph Hines" `A rather rude Republic Officer, Ranulph Hines has served in the Republic for several years.`
 		payment 250000
 		conversation
 			`When you come in for a landing, you can't help but feel like something's wrong. Just from how remote Farpoint is, the activity in the base usually rather low. But now the hangars are swarming with crews and ships ready to take off. In addition, unlike most times when you might have to wait up to 20 minutes to land, the control tower gives you clearance almost immediately. For you to be moved to the front of the line so quickly, while certainly a nice change of pace, also sends a slight twinge of dread down your spine...which soon proves to be well-founded.`
@@ -672,14 +668,11 @@ mission "Navy Pirate Patrol 3"
 			`	"Private <last>, at ease," Danforth finally says as he stands up from behind his desk. "We can go over the details later in the spaceport," he adds, walking towards you. "In the meantime, here's your payment of 250,000 credits, as promised."`
 
 
-mission "Navy vs Pirate 1"
+mission "Navy vs Pirate"
 	landing
 	name "Destroy <npc>"
-	description "A pirate vessel named <npc> has broken through our defenses in Alnitak and is currently in the Saiph system. Destroy it before it can move further into Republic space and return to <planet> for additional orders."
+	description "A pirate vessel named <npc> has broken through the Navy defenses in Alnitak and is currently in the Saiph system. Destroy it before it can move further into Republic space and return to <planet> for additional orders."
 	to offer
-		has "event: naval employment earned"
-		has "Navy Pirate Patrol 1: done"
-		has "Navy Pirate Patrol 2: done"
 		has "Navy Pirate Patrol 3: done"
 		not "chosen sides"
 	source "Farpoint"
@@ -707,28 +700,26 @@ mission "Navy vs Pirate 1"
 			`Farpoint feels a lot different when the entire base is on alert. Normally, you could easily see from one side of the compound to the other and only have the odd soldier or vehicle break your vision. Since the pirate ship that broke through, however, the farthest you can see is maybe 50 feet due to the mass of guards, crewmen, machinery and munitions.`
 			`	Eventually, you find the Admiral near his ship, the N.S. Peacemaker; other crewmen are busily loading his ship while he stares intently at a clipboard, clearly distraught about something.`
 			choice
-			`	(Ask him what he's looking at.)`
-				goto ask
-			`	(Wait for him to finish reading.)`
-				goto wait
+				`	(Ask him what he's looking at.)`
+					goto ask
+				`	(Wait for him to finish reading.)`
+					goto wait
 
 			label ask
 			apply	
-				log "People" "Ranulph Hines" `An egotistical Republic Officer, Ranulph Hines has served in the Republic for several years. He longs to be seen as a hero by the rest of the Republic, and apparently will resort to rather shady tactics if need be.`
 				set "ranulph's background"
 			`	"Something wrong, Admiral?" you inquire, concerned.`
 			`	"Oh, it's Hines," he dismissively comments as he looks up from his clipboard. "I'm just reading some performance commentary from his peers."`
 			`	Your face twists into another uneasy expression. "I'm guessing that falls under the category of 'not good.'"`
 			`	"Ranulph Hines always been a handful," the admiral replies, setting the clipboard down. "The man seems to have it in his head that by climbing the ranks quickly, he'll be seen as some sort of hero. While I admire his efforts to do his best, his means of getting there have been..." Danforth makes an aside glance, as if checking to see if Ranulph is in earshot. "Well, to say that it's underhanded would be a slight understatement."`
 			choice
-			`	"If you don't mind me asking, Admiral, exactly how bad are we talking?"`
-				goto ranulph
-			`	"I see."`
-				goto pirateHunt
+				`	"If you don't mind me asking, Admiral, exactly how bad are we talking?"`
+					goto ranulph
+				`	"I see."`
+					goto pirateHunt
 
 			label ranulph
 			apply
-				log "People" "Ranulph Hines" `A perfect example of the dark side of ambition, Ranulph Hines has served in the Republic for several years. Deluded by visions of grandeur, Hines has resorted to borderline illegal methods to complete his assignments - most notably capturing a slavery ring through the very explosive collars the ring used to control their slaves. Why Danforth keeps this "thug with a badge" around is anyone's guess.`
 				set "excessive force"
 			`Danforth sighs sadly as he shakes his head. "I'll be honest with you, <first> - it wasn't as bad when he first joined, but recently, some of the things Ranulph's done are borderline terroristic. Still fully legal within the bounds of Galactic Law, but extremely questionable from a moral standpoint."`
 			`	"Is there...anything that stands out?" you ask, now even more nervous of the man who stared you down in the boardroom.`
@@ -746,13 +737,10 @@ mission "Navy vs Pirate 1"
 			`	"Just a few minutes, Admiral. I didn't want to interrupt if it was something important."`
 			`Danforth scoffs, smiling. "Don't ever be afraid to ask, Private - honestly, you being here helps me take my mind off of things."
 				goto mission
-
 			label mission
 			`	Danforth procures a small holo-projector from his pocket, which shows the nearby systems. "We've managed to track the pirate to the Saiph system, <first>," he says, right as Saiph is highlighted. "The ship in question is a Leviathan-class warship known as the '<npc>' - they've been reported terrorizing merchants passing through the system. Once you destroy the <npc>, report back here for further instructions."`
 			choice
-			`	"Consider it done, Admiral."`
-				goto missionAccept
-			label missionAccept
+				`	"Consider it done, Admiral."`
 			`	"Be careful, <last> - while I am able to tell you it's a Leviathan, our teams were unable to successfully get a good read on its weapon systems. Be ready for anything."`
 				accept
 	on accept
@@ -769,34 +757,35 @@ mission "Navy vs Pirate 1"
 			`	"Per High Command's recommendation," Howell beams. "Your performance, in addition to the Admiral's suggestions, was all the evidence they needed. You have certainly earned the promotion, Lieutenant <last>."`
 			branch angry
 				has "ranulph's background"
+			apply
+				log "People" "Ranulph Hines" `A rather rude Republic Officer, Ranulph Hines has served in the Republic for several years.`
 			`Danforth nods approvingly. "At ease," he commands, allowing your hand to drop back to your side. As you do so, your eyes briefly glance over to Ranulph's expression. The man is still clearly displeased by the whole ordeal, but for what reason, you don't know. Whatever the case, his glare is chilling, to say the least.
 				goto end
 			label angry
 			`Danforth nods approvingly. "At ease," he commands, allowing your hand to drop back to your side. As you do so, your eyes briefly glance over to Ranulph's expression. It suddenly dawns on you that the ceremony is why Ranulph looks as incensed as he does - normally, the process of becoming a Lieutenant would take months, if not years, and you managed it within a fraction of that time. Danforth mentioned that Ranulph is a glory hound, and a new upstart being promoted as quickly as you are would be a serious threat to his perceived status as a hero.`
 			branch dread
 				has "excessive force"
+			apply
+				log "People" "Ranulph Hines" `An egotistical Republic Officer, Ranulph Hines has served in the Republic for several years. He longs to be seen as a hero by the rest of the Republic, and apparently will resort to rather shady tactics if need be.`
 			`	What this means for your future, however, is anyone's guess.`
 				goto end
 			label dread
 			apply
+				log "People" "Ranulph Hines" `A perfect example of the dark side of ambition, Ranulph Hines has served in the Republic for several years. Deluded by visions of grandeur, Hines has resorted to borderline illegal methods to complete his assignments - most notably capturing a slavery ring through the very explosive collars the ring used to control their slaves. Why Danforth keeps this "thug with a badge" around is anyone's guess.`
 				set "rivalry"
 			`	And if it turns out he's as vicious to protect that status as he was when he dealt with the slavery ring, then Ranulph is truly more dangerous to the Republic than the very pirates he hunts. You decide to keep a watchful eye on him - whatever is in that twisted mind of his, it can't be anything good.`
-				goto end
 			label end
 			`"In addition to your payment of 350,000 credits," Danforth begins, "your promotion also carries an increase of salary pay. However, there's a few formalities that need to be sorted out by High Command before that goes into effect. In the meantime, find me in the spaceport when you're ready for more work."`
 
-mission "Navy Rebuilding Geminus"
-	name "Escort several Navy Cargo Auxiliaries to <waypoint> to pick up building materials, then return to <destination> to help rebuild the Navy Shipyards there."
+mission "Geminus 1"
+	name "Rebuilding Geminus: Groundbreaking"
+	description "Escort several Navy Cargo Auxiliaries to <stopover> to pick up building materials, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
 	source "Farpoint"
-	waypoint "Gemstone"
+	stopover "Lodestone"
 	destination "Geminus"
 	to offer
-		has "event: naval employment earned"
-		has "Navy Pirate Patrol 1: done"
-		has "Navy Pirate Patrol 2: done"
-		has "Navy Pirate Patrol 3: done"
-		has "Navy vs Pirate 1: done"
+		has "Navy vs Pirate: done"
 		not "chosen sides"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
@@ -805,32 +794,38 @@ mission "Navy Rebuilding Geminus"
 			`As you walk to the spaceport, several large shadows pass overhead - your gaze shifts skyward to see Navy Auxiliaries coming in to land. While not terribly new, the modularity of the ships also makes them a rare sight - and if you had to guess, they're for whatever mission Danforth has planned.`
 			`Sure enough, you spot Danforth by one of the Auxiliaries. "Thank you for coming, Lieutenant <last>," he begins. "Up until now, I wasn't sure I could trust anyone in the Navy with the assignment I'm about to give you."`
 			`	"Involving the Auxes, sir?"`
-			`	"Indeed. Ever since the bombings of Geminus and Martini, there's been significant push to get the primary Naval Shipyards rebuilt. However, we can't rebuild the shipyards without any material to do so, and Navy Logistics has been tied up with disaster relief. We only just managed to convince Logistics to spare these four ships, which will be just enough for our purposes."` 
+			`"Indeed. Ever since the bombings of Geminus and Martini, there's been significant push to get the primary Naval Shipyards rebuilt. However, we can't rebuild the shipyards without any material to do so, and Navy Logistics has been tied up with disaster relief. We only just managed to convince Logistics to spare these four ships, which will be just enough for our purposes."`
+			`	"Where am I headed, Admiral?"`
+			`"The first stop for these Auxiliaries will be <waypoint>; given the planet's rich supply of heavy metals and other minerals, it's the ideal location to procure building materials for the reconstruction."` 
 			choice
 				`	"Without delay, Admiral."`
-					goto missionAccept
+					accept
 				`	"Any information about my route, Admiral?"`
 					goto missionInfo
-			label missionAccept
-				accept
 			label missionInfo
-			`	"It seems that the breakthrough at Farpoint has emboldened some of the pirates around here," Danforth notes grimly. "We've received reports of massive fleets gathering in some of the uninhabited systems. Try to stay in populated systems to the best of your ability while you escort the fleet to <waypoint> - remember, there's no rush, so if it results in a safer trip, take your time."`
+			`	"It seems that the breakthrough at Farpoint has emboldened some of the pirates around here," Danforth notes grimly. "We've received reports of massive fleets gathering in some of the uninhabited systems. Try to stay in populated systems to the best of your ability while you escort the fleet to <stopover> - remember, there's no rush, so if it results in a safer trip, take your time."`
 					accept
 	npc
 		government "Pirate"
 		personality nemesis harvests plunders
-		system Castor
+		system "Rigel"
 		fleet "Small Northern Pirates"
 		fleet "Large Northern Pirates"
 	npc
 		government "Pirate"
 		personality nemesis entering harvests plunders
-		system Canopus
+		system "Mirzam"
+		fleet "Large Northern Pirates"
+
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+		system "Acamar"
 		fleet "Large Northern Pirates"
 	npc
 		government "Pirate"
 		personality nemesis staying harvests plunders
-		system Alnitak
+		system "Cardax"
 		fleet "Small Northern Pirates"
 		fleet "Large Northern Pirates"
 	
@@ -842,18 +837,306 @@ mission "Navy Rebuilding Geminus"
 			variant
 				"Auxiliary (Cargo)" 4
 
+	on stopover
+		event "geminus phase 1"
+		conversation
+			`Your clearance to land on Lodestone was delayed by volcanic ash for about ten minutes before the port authorities allowed your fleet to land. "Fourth Port," as the spaceport is called, was built after the previous three ports were buried under Lodestone's numerous eruptions. Unlike your previous stay at <source>, where you would have struggled to have found a speck of dust in the mess hall, Fourth Port is a testament to the Syndicate's standards: warehouses of rusted sheetmetal, towering metal smokestacks that belching caustic ash, and barrels containing a disgusting yellowish liquid you can only hope are cleaning chemicals and not...something else.`
+			`	 Landing in the hangar designated for your fleet doesn't do the Syndicate's image any favors, either. Workers are actively repairing parts of the walls and ceiling that you felt should've been replaced long ago, and the rickety scaffolding they've erected for the repair crews makes you worried, to say the least. The air in the hangar is also thick and stagnant, and almost makes you gag. You quickly call over the captains of the auxiliaries and make your way to the loading docks - it takes about ten minutes to make your way through the maze of corridors before you reach your destination.`
+			`	Upon reaching the docks, several Syndicate dockworkers call you over to a large collection of cargo containers filled with the building materials bound for Geminus. "Took you long enough," one says with a cigarette hanging out the side of his mouth. "We've been waiting here for five hours with our thumbs up our collective asses for you Navy jarheads. One of your own came by here about a month ago and acted like they owned the place - I tell ya, my boss doesn't pay me enough to put up with shit like theirs."`
+			choice
+				`	"Sorry to have kept you waiting. We came as quickly as we could."`
+					goto end
+				`	"You better keep that tongue of yours in check, my man, or you'll be choking on that cigarette."`
+					goto fight
+				`	"Hold on. 'One of our own?' You mean someone from the Navy?"`
+					goto investigate
+			label fight
+			apply
+				set "bad look"
+			`The dockworker chuckles for a second, takes his cigarette out of his mouth and flicks it at you. You almost throw a punch before one of the captains of the auxiliaries steps between the two of you. "Sir, it's been a long day for all of us. Could you please help us load our cargo onto our ships?"`
+			`"Yeah, yeah, we'll get on it," he replies. "And thanks for proving my point, you jumpy little shit," he pointedly directs at you. Only then do you realize Danforth will probably hear of your behavior - and it's a sure bet he will not be pleased by your conduct.
+				goto end
+			label investigate
+			`"Who the FUCK did you think I meant, asshole?!" he almost screams at you as the cigarette falls out of his mouth. "You know goddamn well I meant someone from the Navy! I knew you fuckers were uptight, but don't tell me you're all a bunch of fucking idiots, too!"`
+			choice
+				`	"Whoa, calm down - I didn't mean to set you off like that. I was just curious, is all."`
+					goto calmDown
+				`	"Relax. I'm just trying to get more information. I promise you, I'll bring the offender to justice, but I need to know what happened."`
+					goto incident
+			label calmDown
+			`He sighs. "Sorry. These days, it feels like I can never quite keep up with my orders and it's starting to weigh on me," he says glumly. "Come on, let's get this shit loaded onto your ships," he adds, fumbling for a new cigarette.`
+				goto end
+			label incident
+			`The dockworker stops dead in his tracks at your genuine honesty. "Wait...you're serious?"`
+			`	"I give you my word," you reply, nodding. Only then does the dockworker realize what a fool he's made of himself, glancing left and right with a cowed look.`
+			`	"I don't know if I can," he laments, "I don't want to risk losing my job."`
+			`	"Trust me," you reply gently, "whatever you say will not leave this dock."`
+			`The dockworker thinks for a minute while he pulls out another cigarette. "Alright," he finally replies, "I'll talk. But only alone, and not here - too many prying eyes, you understand." You nod, and he signals the other dockworkers to begin loading the ships while the two of you head to a small office near the docks.`
+			`Under a small, flickering light, the two of you sit down at a folding table. "Here's what happened," he finally says. "Last month, we got an order of some building materials for the base at New Iceland. Thing is, the guy they sent felt like he was entitled to the materials and gave us an earful for being, quote, 'ungrateful of their protection of Syndicate space,' unquote."`
+			`	"The Navy is only responsible for protecting the Republic - the Syndicate tends to look after itself," you comment.`
+			`	"See, that's what *I* told him. But the moment I did, he punched me right in the jaw and knocked me to the ground, telling me, 'you need to learn your place, you piece of shit.' Once we had loaded the materials into his ships, he pulled me aside and specifically told me, 'if you tell anyone of what I did, I will kill you, your family, and everyone you loved - and I have files on hand to help me.' As large as the Navy is, I was inclined to believe him."`
+			`	"I'm guessing you didn't report this to your bosses."`
+			`	"Hell, no. One, they wouldn't have done anything - most likely just brushed it off as 'he was having a bad day,' but that's the Syndicate for you. Two, they probably would've docked me a few days' pay for raising the issue - the Syndicate pays well, to be sure, but it's still just barely enough to make ends meet. And I wasn't about to call his bluff - no way am I putting my wife, my daughter and two sons in danger."`
+			`	"Can you describe him?"`
+			`	"Do you one better," he says as he stands up, walking over to a file cabinet. The drawers rattle and clunk as he pulls out a manilla-colored file with some photos inside. "I looked through security footage on the day he came through, in case I needed to 'disappear' for a bit." On a photo showing several Navy personnel walking alongside some forklifts, he points to one in particular - a face you quickly identify as Ranulph Hines. "That's him," he says, tapping Ranulph's face.`
+			branch terror
+				has "rivalry"
+			choice
+				`	"I see. I'll keep an eye out for him."`
+					goto end
+				`	"That looks like Ranulph Hines."
+			`"Know him, eh?" he inquires. "I'd watch myself if I were you - man's got a mean streak a mile wide."`
+				goto end
+			label terror
+			choice
+				`	"I had a feeling it might be Ranulph Hines."`
+			apply
+				set "lifeDebt"
+				log "People" "Ranulph Hines" `Hines seems to believe that the Syndicate is subservient to the Republic - Lucas Hadley, a Syndicate dockworker, was injured by Hines when Hadley pointed out the Syndicate was more than capable of handling itself, threatening Hadley and his family with death if he reported Ranulph's behavior.`
+				log "People" "Lucas Hadley" `A Syndicate dockworker from Lodestone, Lucas Hadley was attacked by Ranulph Hines for challenging Hines' belief that the Republic are the superior force in human space, when the Syndicate is quite capable of defending itself from outside threats. Hadley puts on a gruff exterior (and a colorful tongue, to match), but deep-down, he's a good man who does his best to provide for his family.`
+			`"Really? What makes you say that?" he asks, slightly alarmed."`
+			`	You quickly explain what Danforth told you - how Ranulph feels the need to make himself seen as a "hero of the Republic," but his actions prove he is anything *but.* With some trepidation, you even mention how Hines dealt with the slavers to the dockworkers, calling his actions "reprehensible," and can't believe a man such as he would even be allowed to serve in the Navy."`
+			`"Son of a *bitch,*" the dockworker finally says, "he really *is* batshit insane."`
+			`	"That's putting it mildly," you reply. "I can only hope that he sees the fallacy of his actions, and does something about it before it's too late. Do you mind if I get copies of these? I might be able to pull a few strings and keep you and your family safe."`
+			`	"Take 'em," Hadley eagerly replies. He heads back to the file cabinet and procures a few holodisks - likely security footage of the event. "You'll need these, too, if you want to prove your claims; plus, if Hines comes here again, he won't find anything on me."`
+			`As the two of you make your way back to the docks, you can't help but notice how much the fellow has changed from your initial encounter. What started off as an argument that could have spiraled out of control has ended with a potential ally. "You know, I don't think I ever got your name," you say. "Mine's <first> <last>."`
+			`"Lucas Hadley," he replies. "Did you really mean what you said, <last>?"`
+			`	"Every word, Hadley. I'll be sure to mention your plight to my superiors - I don't know if they'll be able to do anything about it, but I refuse to let this lie. Hines needs to answer for his actions."`
+			`	Hadley fights back some tears, clearly moved by the gesture. "Thank you, <last> - I owe you one."`
+			label end
+			`As the last containers get loaded onto the auxiliaries, your communicator beeps. [Lieutenant <last>, how goes the retrieval?] the unmistakable voice of Danforth crackles on the speaker.`
+			`	"We're almost done loading, Admiral," you reply. "What's wrong?"`
+			`	[The pirates are onto us - they've positioned themselves above <destination>, likely to attack the auxiliaries. We've dispatched a small fleet of ships to distract them, but they won't last long. Don't waste your time fighting them - just make a beeline for the planet's surface and get here with the auxiliaries intact!]`
+			`	"Understood, sir. We're on our way." Just as you terminate the link, one of the captains signals the last of the cargo has been loaded. You can only hope the Navy fleet can hold them off long enough to land...`
+
+	npc
+		government "Republic"
+		personality heroic uninterested staying
+		system "Castor"
+		fleet "Small Republic"
+		fleet "Small Republic"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system "Castor"
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+		fleet "Large Northern Pirates"
+
 	on complete
-		log "Made it to Geminus safely, soon the shipyards will be rebuilt."
+		log "Successfully delivered the raw materials needed for the rebuilding of the Geminus shipyards."
 		payment 1500000
-		dialog phrase "generic safe escort completion dialog"
-		event "geminus rebuilt"
+		dialog
+			`Heavy fire rains down around your ships as you come in to land at a makeshift supply depot. While the workers quickly offload the building materials, Danforth comes in over the communicator. [Lieutenant <last>, thank you for getting the materials here in one piece. 1.5 million credits have been transferred to your account as payment - meet me in the spaceport as soon as possible.]`
 	on visit
 		dialog phrase "generic arrived-without-npc dialog"
+
+event "geminus phase 1"
+	planet Geminus
+		description `Geminus, although not the most hospitable of worlds, is a young enough planet that large stores of iron, titanium, and other metals are easily accessible near the surface. The constant volcanic activity leaves the planet perpetually shrouded in a twilight haze of ash and fog.`
+		description `	The shattered remnants of the old Navy Yard are still left abandoned and slowly rusting away in the planet's caustic atmosphere, but the Republic has broken ground on a new shipyard to replace the one destroyed in the bombing. Though only a small supply depot exists right now, in time, the new spaceport will become a central hub of technology and industry.`
+		spaceport `Like everything else on Geminus, the spaceport is not terribly pretty, but is functional and efficient. Each of the wide hallways is marked out like a road, with space in the center for electric carts carrying cargo, while pedestrians are relegated to the edges. Video cameras and sensors have been placed at every intersection, and access to the shipbuilding facilities is tightly controlled.`
+		spaceport `	The hub of the spaceport is a food court with a ring of shops in the center and seating on the outside, where you can look out of plate glass windows at the lava fields and caldera outside. By night, you can see the volcanic glow all around the horizon.`
+		shipyard "Basic Ships"
+		outfitter "Common Outfits"
+		outfitter "Ammo North"
+		outfitter "Syndicate Basics"
+
+mission "Geminus 2A"
+	name "Rebuilding Geminus: Troops and Defenses"
+	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up Navy Personnel and defensive emplacements, then return to <destination> to help rebuild the Navy Shipyards there."
+	landing
+	source "Geminus"
+	stopover "New Wales"
+	destination "Geminus"
+	to offer
+		has "Geminus 1: done"
+		not "chosen sides"
+	on fail
+		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	on offer
+		conversation
+			`As you make your way through the "spaceport" (admittedly, more like a clearing with gun emplacements) to Admiral Danforth, you notice the auxiliaries are being modified - their rear halves are still the giant cargo containers, but the front of each auxiliary appears to have gained a set of fins - and a sleeker body. "They're being retrofitted to carry more personnel," Danforth says as he suddenly appears by your side. "For the next stage of the reconstruction, we need to bring in personnel and equipment - in addition to fresh recruits, we also need better defenses than the turrets we currently have."`
+			`	"That makes sense," you remark, turning towards the admiral. "If the pirates decide to attack again, we might not be able to drive them off with what we have."`
+			`	"Precisely. Now, Lieutenant <last>, if you would, please follow me to my quarters here."`
+			`The admiral's quarters turns out to be a small grouping of construction trailers connected to each other. "Shut the door, please," he says as you enter the office. As Danforth takes a seat behind his desk, you glance about the room. The walls have tables, filing cabinets, and a few calendars with target objectives to be met.`
+			branch youDoneGoofed
+				has "bad look"
+				goto debriefing
+			label youDoneGoofed
+			apply
+				payment -1000000
+			`	"I understand there was...an incident...on Lodestone. Is that accurate?" Before you can even reply, he shows you a video recording from the docks where you almost got in a fight. Watching in wide-eyed horror as your actions are displayed for all to see, you feel the temperature in the room drop sharply.`
+			`"In case you're wondering, the dockworkers sent me that recording."`
+			`	"Sir, I-"`
+			`	"Don't," he harshly cuts you off, standing up. "I don't need to hear your excuses, <last> - your conduct speaks volumes more than your words. And for every action...there are consequences." Suddenly, you receive an email from your bank account - 1 million credits were just returned to the Navy. In the brief moments you look at your communicator's display, Danforth is already uncomfortably close to you.`
+			`	"Rather than revoke your salary, I opted for something a bit more...immediate," he explains, calmly. "As I gave you the 1.5 million, I can just as easily take it away."`
+			`Danforth walks back to his chair while you stand there, motionless, and suddenly very fearful of the man in front of you. "I don't want to have this discussion again," he says as he sits down, still calm. "Do I make myself clear?"`
+			`	"Yes, sir," you reply.`
+			`	"Good. Now then..."`
+			label debriefing
+			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <stopover>, so we'll bring them here. <stopover> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
+			`	"That's the extent of your mission - get to <stopover> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
+			branch hadley
+				has "lifeDebt"
+			`	"No, sir."`
+			`Danforth nods. "You have your orders, Lieutenant - get to it!"`
+				goto end
+			label hadley
+			apply
+				payment 1500000
+			`	"Actually, sir...there is."`
+			`Danforth raises an eyebrow. "Alright, I'm listening."`
+			`	"I met a dockworker at Lodestone named Lucas Hadley. He says that Hines stopped by about a month ago to pick up some materials for the base at New Iceland - is that true?"`
+			`"Let me see," Danforth says, checking his computer. It takes a moment, but he eventually finds his calendar. "Ah, yes. I had sent him out to pick up some framulators for the base. Though I'm curious, <first>...why do you ask?"`
+			`You glance over your shoulder, even though there's no-one who could possibly see you. "Admiral, Hines apparently *decked* Hadley because the latter offended his twisted sense of honor."`
+			`"What?!?" he exclaims, visibly shocked. "Lieutenant, this is a *very* serious claim you're making," he warns, gravely. "I hope you have evidence to back up your statement."`
+			`"One step ahead of you, Admiral," you say as you reach inside your vest. "Hadley provided these photos and holotapes to document the whole event."`
+			`	"Wait," the admiral says. He presses a button on his desk, to which you suddenly hear numerous locking sounds. "Don't want to take any chances, <first> - I've locked all points of access so we can't be disturbed."`
+			`	"Pretty slick, admiral," you reply, impressed. "Now...you need to see these."`
+			`Danforth looks over the photos Hadley gave you, a grim expression on his face as he reviews the events of that day. After he's seen enough, he takes one of the holotapes and plays the security feeds. To your great surprise, the holotapes even have audio - normally, the cost of having audio on security cameras is seen as unnecessary, and too expensive. Listening to Hines threaten Hadley sends both a deep chill of terror and a burning demand for justice down your spine. In that one moment, any doubts Hines was a potential risk to the Republic were gone.`
+			`After watching the tapes, all Danforth can do is sigh and sadly shake his head. "The man has well and truly lost his mind."`
+			`"Admiral," you begin, "Hadley's in danger. I made a promise to him that I would get his family to safety. And I have no intention on breaking that promise. But what are we going to do about Hines?"`
+			`"Leave Hines to me," Danforth replies. "Obviously, we can't do anything right now - Hines is a Lieutenant Commander, which is roughly the naval equivalent of a Major in the Marines. For us to publicly go after someone that far up the chain, people would start asking questions, and Hines would almost certainly suspect Hadley." Danforth opens a secure drawer in his desk, puts the photos and tapes inside, and locks the drawer. "As far as Hadley's family, unfortunately, it will have to wait - we need to keep the supply chain moving. However, the moment we have a lull in the action, I'll send you off to fulfill your promise to Hadley."`
+			`Danforth then does a bit more clicking and typing on his computer. "This information you've provided is invaluable, Lieutenant. You may well have just saved a man's life today, and for that, it's only fitting that you are rewarded." Your communicator suddenly beeps, to which you see an email from your bank account - another 1.5 million credits have been deposited into it from the Navy. Smiling warmly, you look back to the admiral. "That is very gracious of you sir. Thank you."`
+			`	"It's the least I could do, Lieutenant," he nods, smiling proudly. "Now, then. We have some troops and materiél that need to be delivered - the auxiliaries ought to be fully-retrofitted for the trip."`
+			label end
+			`Walking back out of the admiral's quarters, you find the auxiliaries in their "hybrid" configuration - perfect for the retrieval of the new recruits and base defenses.
+
+	npc accompany save
+		government "Republic"
+		personality escort timid
+		fleet
+			names "republic" "capital"
+			variant
+				"Auxiliary" 4
+
+mission "Geminus 2B"
+	name "Rebuilding Geminus: Science Team"
+	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up scientists and their R&D equipment, then return to <destination> to help rebuild the Navy Shipyards there."
+	landing
+	source "Geminus"
+	stopover "Asgard"
+	destination "Geminus"
+	to offer
+		has "Geminus 2A: done"
+		not "chosen sides"
+	on fail
+		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	on offer
+		conversation
+			``
+
+	npc accompany save
+		government "Republic"
+		personality escort timid
+		fleet
+			names "republic" "capital"
+			variant
+				"Auxiliary" 4
+
+event "geminus phase 2"
+	planet Geminus
+		description `Geminus, although not the most hospitable of worlds, is a young enough planet that large stores of iron, titanium, and other metals are easily accessible near the surface. The constant volcanic activity leaves the planet perpetually shrouded in a twilight haze of ash and fog.`
+		description `	The shattered remnants of the old Navy Yard are still left abandoned and slowly rusting away in the planet's caustic atmosphere, but the Republic is now constructing a new shipyard to replace the one destroyed in the bombing, and once again Geminus will become a central hub of technology and industry.`
+		spaceport `Like everything else on Geminus, the spaceport is not terribly pretty, but is functional and efficient. Each of the wide hallways is marked out like a road, with space in the center for electric carts carrying cargo, while pedestrians are relegated to the edges. Video cameras and sensors have been placed at every intersection, and access to the shipbuilding facilities is tightly controlled.`
+		spaceport `	The hub of the spaceport is a food court with a ring of shops in the center and seating on the outside, where you can look out of plate glass windows at the lava fields and caldera outside. By night, you can see the volcanic glow all around the horizon.`
+		shipyard "Basic Ships"
+		shipyard "Navy Basics"
+		shipyard "Betelgeuse Basics"
+		outfitter "Common Outfits"
+		outfitter "Ammo North"
+		outfitter "Syndicate Basics"
+
+mission "Geminus 3A"
+	name "Rebuilding Geminus: Construction Workers"
+	description "Escort several Navy Transport Auxiliaries to <stopover> to pick up construction workers, then return to <destination> to help rebuild the Navy Shipyards there."
+	landing
+	source "Geminus"
+	stopover "New China"
+	destination "Geminus"
+	to offer
+		has "Geminus 2B: done"
+		not "chosen sides"
+	on fail
+		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	on offer
+		conversation
+			``
+
+	npc accompany save
+		government "Republic"
+		personality escort timid
+		fleet
+			names "republic" "capital"
+			variant
+				"Auxiliary (Transport)" 4
+
+event "geminus phase 3"
+	planet Geminus
+		description `Geminus, although not the most hospitable of worlds, is a young enough planet that large stores of iron, titanium, and other metals are easily accessible near the surface. The constant volcanic activity leaves the planet perpetually shrouded in a twilight haze of ash and fog.`
+		description `	The shattered remnants of the old Navy Yard are still left abandoned and slowly rusting away in the planet's caustic atmosphere, but the Republic is now constructing a new shipyard to replace the one destroyed in the bombing, and once again Geminus will become a central hub of technology and industry.`
+		spaceport `Like everything else on Geminus, the spaceport is not terribly pretty, but is functional and efficient. Each of the wide hallways is marked out like a road, with space in the center for electric carts carrying cargo, while pedestrians are relegated to the edges. Video cameras and sensors have been placed at every intersection, and access to the shipbuilding facilities is tightly controlled.`
+		spaceport `	The hub of the spaceport is a food court with a ring of shops in the center and seating on the outside, where you can look out of plate glass windows at the lava fields and caldera outside. By night, you can see the volcanic glow all around the horizon.`
+		shipyard "Basic Ships"
+		shipyard "Navy Basics"
+		shipyard "Betelgeuse Basics"
+		shipyard "Lionheart Basics"
+		outfitter "Common Outfits"
+		outfitter "Ammo North"
+		outfitter "Lovelace Basics"
+		outfitter "Syndicate Basics"
+
+mission "Geminus 3B"
+	name "Rebuilding Geminus: Collegiate Interns"
+	name "Escort several Navy Transport Auxiliaries to <stopover> to pick up some college graduates, then return to <destination> to help rebuild the Navy Shipyards there."
+	landing
+	source "Geminus"
+	stopover "Chiron"
+	destination "Geminus"
+	to offer
+		has "Geminus 3A: done"
+		not "chosen sides"
+	on fail
+		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	on offer
+		conversation
+			``
+	npc accompany save
+		government "Republic"
+		personality escort timid
+		fleet
+			names "republic" "capital"
+			variant
+				"Auxiliary (Transport)" 4
+
+mission "Geminus 3C"
+	name "Rebuilding Geminus: Syndicate Mechanics"
+	description "Escort several Navy Transport Auxiliaries to <stopover> to pick up mechanics from the Syndicate, then return to <destination> to help rebuild the Navy Shipyards there."
+	landing
+	source "Geminus"
+	stopover "Millrace"
+	destination "Geminus"
+	to offer
+		has "Geminus 3B: done"
+		not "chosen sides"
+	on fail
+		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	on offer
+		conversation
+			``
+	npc accompany save
+		government "Republic"
+		personality escort timid
+		fleet
+			names "republic" "capital"
+			variant
+				"Auxiliary (Transport)" 4
 
 event "geminus rebuilt"
 	planet Geminus
 		description `Geminus, although not the most hospitable of worlds, is a young enough planet that large stores of iron, titanium, and other metals are easily accessible near the surface. The constant volcanic activity leaves the planet perpetually shrouded in a twilight haze of ash and fog.`
-		description `	The shattered remnants of the old Navy Yard are still left abandoned and slowly rusting away in the planet's caustic atmosphere, but the Republic has now built a new shipyard to replace the one destroyed in the bombing, and once again Geminus has become a central hub of technology and industry.`
+		description `	The shattered remnants of the old Navy Yard are still left abandoned and slowly rusting away in the planet's caustic atmosphere - but now that the Republic has completed a new shipyard to replace the one destroyed in the bombing, Geminus has once again become a central hub of technology and industry.`
 		spaceport `Like everything else on Geminus, the spaceport is not terribly pretty, but is functional and efficient. Each of the wide hallways is marked out like a road, with space in the center for electric carts carrying cargo, while pedestrians are relegated to the edges. Video cameras and sensors have been placed at every intersection, and access to the shipbuilding facilities is tightly controlled.`
 		spaceport `	The hub of the spaceport is a food court with a ring of shops in the center and seating on the outside, where you can look out of plate glass windows at the lava fields and caldera outside. By night, you can see the volcanic glow all around the horizon.`
 		shipyard "Basic Ships"
@@ -872,7 +1155,7 @@ mission "Tier Boost"
 	source
 		government "Republic"
 	to offer
-		has "Navy Rebuilding Geminus: done"
+		has "Geminus 3C: done"
 		has event "geminus rebuilt"
 	on offer
 		log "Was promoted because of my assistance with rebuilding the shipyards on Geminus."
@@ -883,9 +1166,9 @@ mission "Tier Boost"
 		set "license: Navy Cruiser"
 		set "license: Navy Carrier"
 		conversation
-			`	A message comes in from Danforth: "Lieutenant <last>! As a reward for your assistance in rebuilding the shipyard on Geminus, you have been promoted to Tier II enlistment. Your new salary shall be 2500 credits per day. You also now have access to Cruisers and Carriers. Congradulations!"`
+			`	A message comes in from Danforth: "Lieutenant <last>! As a reward for your assistance in rebuilding the shipyard on Geminus, you have been promoted to Tier II enlistment. Your new salary shall be 2500 credits per day. You also now have access to Cruisers and Carriers."`
 				decline
-	
+
 ########    <electron sequence here>
 
 mission "Reassigned to Sol"
