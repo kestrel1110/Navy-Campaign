@@ -24,7 +24,6 @@ mission "Republic Bounty 1"
 		has "event: war begins"
 		"combat rating" > 150
 		not "chosen sides"
-		random < 65
 
 	on offer
 		conversation
