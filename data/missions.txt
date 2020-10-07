@@ -439,6 +439,7 @@ mission "Joining the Navy"
 		not "event: naval employment earned"
 		has "enlistment announced: offered"
 		not "chosen sides"
+		has "Republic Bounty 3: done"
 	on offer
 		conversation
 			`Your ship's communicator lights with an official announcement from the Republic:`
@@ -502,7 +503,7 @@ mission "Report to Danforth"
 	to offer
 		has "Joining the Navy: done"
 		not "chosen sides"
-	on offer
+	on complete
 		conversation
 			`Before you set out for the spaceport, you decide to try your new uniform on. Amazingly, it fits like a glove - you have to wonder how they managed to get the size so perfectly.`
 			`	Stepping out of your ship, fully-dressed, you make your way to the spaceport. The walk is uneventful, for the most part, but every now and again, some of the locals slightly turn to look at you. Given the current climate, you can't tell if it's because they're looks of awe or suspicion - you decide to settle on the former.`
@@ -3688,7 +3689,6 @@ event "Caph occupied"
 event "Diphda occupied"
 	system "Diphda"
 		government Republic
-
 
 
 
