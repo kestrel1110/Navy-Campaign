@@ -1025,20 +1025,20 @@ mission "Geminus 2A"
 			`	As the last of the troops and hardware get loaded onto the auxiliaries, one of the auxiliary captains walks up beside you. "I feel a bit sad for them," he admits. "All these kids dreamt of seeing the stars, and now they're stuck doing rearguard duty."`
 			choice
 				`	"Well, we all need to start somewhere."`
-				goto somewhere
+					goto somewhere
 				`	"They'll get their chance, eventually."`
-				goto chance
+					goto chance
 			label ranulph
 			`The mining world of New Wales seems like an odd place to create a military base, but as the desolate plains unfold beneath you, suddenly the prospect makes a lot more sense. Plenty of open sky, little to no chance of potential civilian casualties, and the mines being easily fortified means this world would be optimal, indeed, for the training of new recruits.`
 			`	It isn't long before your fleet lands near the spaceport - and more surprisingly, you notice that several platoons of troops, along with crates of what you assume to be the defensive turrets, already waiting for your pickup. You can only surmise that Danforth either called ahead, or High Command had made the announcement to the base. Either way, it certainly helps speed things along.`
 			`	As the last of the troops and hardware get loaded onto the auxiliaries, one of the auxiliary captains walks up beside you. "I feel a bit sad for them," he admits. "All these kids dreamt of seeing the stars, and now they're stuck doing rearguard duty."`
 			choice
 				`	"Well, we all need to start somewhere."`
-				goto somewhere
+					goto somewhere
 				`	"They'll get their chance, eventually."`
-				goto chance
+					goto chance
 				`	"I bet Ranulph was one of those kids, at some point."`
-				goto indeed
+					goto indeed
 			label somewhere
 			`The auxiliary captain nods, solemnly. "It's a fact of life," he quips. "'We must learn to walk before we can run,' and all that."`
 				goto end
