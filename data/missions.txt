@@ -803,24 +803,24 @@ mission "Geminus 1"
 			label missionInfo
 			`	"It seems that the breakthrough at Farpoint has emboldened some of the pirates around here," Danforth notes grimly. "We've received reports of massive fleets gathering in some of the uninhabited systems. Try to stay in populated systems to the best of your ability while you escort the fleet to <stopover> - remember, there's no rush, so if it results in a safer trip, take your time."`
 					accept
-	npc
+	npc evade
 		government "Pirate"
 		personality nemesis harvests plunders
 		system "Rigel"
 		fleet "Small Northern Pirates"
 		fleet "Large Northern Pirates"
-	npc
+	npc evade
 		government "Pirate"
 		personality nemesis entering harvests plunders
 		system "Mirzam"
 		fleet "Large Northern Pirates"
 
-	npc
+	npc evade
 		government "Pirate"
 		personality nemesis entering harvests plunders
 		system "Acamar"
 		fleet "Large Northern Pirates"
-	npc
+	npc evade
 		government "Pirate"
 		personality nemesis staying harvests plunders
 		system "Cardax"
