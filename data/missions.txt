@@ -1092,7 +1092,7 @@ mission "Geminus 2B"
 			`	"Not at the moment," Danforth answers, "which makes it all the more curious. Rest assured, as soon as I find out more, I'll let you know."`
 			label end
 			`As the last of the captains gives you the "all-clear," you climb back aboard the <ship> and warm up the engines.`
-			accept
+				accept
 
 	npc accompany save
 		government "Republic"
