@@ -943,6 +943,7 @@ event "geminus phase 1"
 mission "Geminus 2A"
 	name "Rebuilding Geminus: Troops and Defenses"
 	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up Navy Personnel and defensive emplacements, then return to <destination> to help rebuild the Navy Shipyards there."
+	landing
 	source "Geminus"
 	stopover "New Wales"
 	destination "Geminus"
@@ -953,30 +954,47 @@ mission "Geminus 2A"
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
 		conversation
-			`As you make your way through the "spaceport" (admittedly, more like a clearing with gun emplacements) to Admiral Danforth, you notice the auxiliaries are being modified - their rear halves are still the giant cargo containers, but the front of each auxiliary appears to have gained a set of fins - and a sleeker body. "They're being retrofitted to carry more personnel," Danforth says as he suddenly appears by your side. "For the next stage of the reconstruction, we need to bring in personnel and equipment - in addition to fresh recruits, we also need better defenses than the turrets we currently have."`
+			branch youDoneGoofed
+				has "bad look"
+			`As you make your way through the "shipyard" (admittedly, more like a clearing with gun emplacements) to Admiral Danforth, you notice the auxiliaries are being modified - their rear halves are still the giant cargo containers, but the front of each auxiliary appears to have gained a set of fins - and a sleeker body. "They're being retrofitted to carry more personnel," Danforth says as he suddenly appears by your side. "For the next stage of the reconstruction, we need to bring in personnel and equipment - in addition to fresh recruits, we also need better defenses than the turrets we currently have."`
 			`	"That makes sense," you remark, turning towards the admiral. "If the pirates decide to attack again, we might not be able to drive them off with what we have."`
 			`	"Precisely. Now, Lieutenant <last>, if you would, please follow me to my quarters here."`
 			`The admiral's quarters turns out to be a small grouping of construction trailers connected to each other. "Shut the door, please," he says as you enter the office. As Danforth takes a seat behind his desk, you glance about the room. The walls have tables, filing cabinets, and a few calendars with target objectives to be met.`
-			branch YOUDONEGOOFED
-				has "bad look"
-				goto YOUDONEGOOFED
+				goto debriefing
+			label youDoneGoofed
+			apply
+				payment -1000000
+			`As you make your way through the "shipyard" (admittedly, more like a clearing with gun emplacements) to Admiral Danforth, you notice the auxiliaries are being modified - their rear halves are still the giant cargo containers, but the front of each auxiliary appears to have gained a set of fins - and a sleeker body. "They're being retrofitted to carry more personnel," Danforth says as he suddenly appears by your side. "For the next stage of the reconstruction, we need to bring in personnel and equipment - in addition to fresh recruits, we also need better defenses than the turrets we currently have."`
+			`	"That makes sense," you remark, turning towards the admiral. "If the pirates decide to attack again, we might not be able to drive them off with what we have."`
+			`	"Precisely. Now, Lieutenant <last>, if you would, please follow me to my quarters here."`
+			`The admiral's quarters turns out to be a small grouping of construction trailers connected to each other. "Shut the door, please," he says as you enter the office. As Danforth takes a seat behind his desk, you glance about the room. The walls have tables, filing cabinets, and a few calendars with target objectives to be met.`
+			`	"I understand there was...an incident...on Lodestone. Is that accurate?" Before you can even reply, he shows you a video recording from the docks where you almost got in a fight. Watching in wide-eyed horror as your actions are displayed for all to see, you feel the temperature in the room drop sharply.`
+			`"In case you're wondering, the dockworkers sent me that recording."`
+			`	"Sir, I-"`
+			`	"Don't," he harshly cuts you off, standing up. "I don't need to hear your excuses, <last> - your conduct speaks volumes more than your words. And for every action...there are consequences." Suddenly, you receive an email from your bank account - 1 million credits were just returned to the Navy. In the brief moments you look at your communicator's display, Danforth is already uncomfortably close to you.`
+			`	"Rather than revoke your salary, I opted for something a bit more...immediate," he explains, calmly. "As I gave you the 1.5 million, I can just as easily take it away."`
+			`Danforth walks back to his chair while you stand there, motionless, and suddenly very fearful of the man in front of you. "I don't want to have this discussion again," he says as he sits down, still calm. "Do I make myself clear?"`
+			`	"Yes, sir," you reply.`
+			`	"Good. Now then..."`
 			label debriefing
-			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <stopover>, so we'll bring them here. <stopover> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
-			`	"That's the extent of your mission - get to <stopover> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
 			branch hadley
 				has "lifeDebt"
+			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <stopover>, so we'll bring them here. <stopover> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
+			`	"That's the extent of your mission - get to <stopover> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
 			`	"No, sir."`
 			`Danforth nods. "You have your orders, Lieutenant - get to it!"`
 				goto end
 			label hadley
 			apply
 				payment 1500000
+			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <stopover>, so we'll bring them here. <stopover> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
+			`	"That's the extent of your mission - get to <stopover> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
 			`	"Actually, sir...there is."`
 			`Danforth raises an eyebrow. "Alright, I'm listening."`
 			`	"I met a dockworker at Lodestone named Lucas Hadley. He says that Hines stopped by about a month ago to pick up some materials for the base at New Iceland - is that true?"`
 			`"Let me see," Danforth says, checking his computer. It takes a moment, but he eventually finds his calendar. "Ah, yes. I had sent him out to pick up some framulators for the base. Though I'm curious, <first>...why do you ask?"`
 			`You glance over your shoulder, even though there's no-one who could possibly see you. "Admiral, Hines apparently *decked* Hadley because the latter offended his twisted sense of honor."`
-			`"What?!?" he exclaims, visibly shocked. "Lieutenant, this is a *very* serious claim you're making," he warns, gravely. "I hope you have evidence to back up your statement."`
+			`"What?!?" he exclaims, visibly shocked. "Lieutenant, this is a *very* serious accusation you're making," he warns, gravely. "I hope you have evidence to substantiate your claim."`
 			`"One step ahead of you, Admiral," you say as you reach inside your vest. "Hadley provided these photos and holotapes to document the whole event."`
 			`	"Wait," the admiral says. He presses a button on his desk, to which you suddenly hear numerous locking sounds. "Don't want to take any chances, <first> - I've locked all points of access so we can't be disturbed."`
 			`	"Pretty slick, admiral," you reply, impressed. "Now...you need to see these."`
@@ -986,21 +1004,9 @@ mission "Geminus 2A"
 			`"Leave Hines to me," Danforth replies. "Obviously, we can't do anything right now - Hines is a Lieutenant Commander, which is roughly the naval equivalent of a Major in the Marines. For us to publicly go after someone that far up the chain, people would start asking questions, and Hines would almost certainly suspect Hadley." Danforth opens a secure drawer in his desk, puts the photos and tapes inside, and locks the drawer. "As far as Hadley's family, unfortunately, it will have to wait - we need to keep the supply chain moving. However, the moment we have a lull in the action, I'll send you off to fulfill your promise to Hadley."`
 			`Danforth then does a bit more clicking and typing on his computer. "This information you've provided is invaluable, Lieutenant. You may well have just saved a man's life today, and for that, it's only fitting that you are rewarded." Your communicator suddenly beeps, to which you see an email from your bank account - another 1.5 million credits have been deposited into it from the Navy. Smiling warmly, you look back to the admiral. "That is very gracious of you sir. Thank you."`
 			`	"It's the least I could do, Lieutenant," he nods, smiling proudly. "Now, then. We have some troops and materiél that need to be delivered - the auxiliaries ought to be fully-retrofitted for the trip."`
-			label YOUDONEGOOFED
-			apply
-				payment -1000000
-			`	"I understand there was...an incident...on Lodestone. Is that accurate?" Before you can even reply, he shows you a video recording from the docks where you almost got in a fight. Watching in wide-eyed horror as your actions are displayed for all to see, you feel the temperature in the room drop sharply.`
-			`"In case you're wondering, the dockworkers sent me that recording."`
-			`	"Sir, I-"`
-			`	"Don't," he harshly cuts you off, standing up. "I don't need to hear your excuses, <last> - your conduct speaks volumes more than your words. And for every action...there are consequences." Suddenly, you receive an email from your bank account - 1 million credits were just returned to the Navy. In the brief moments you look at your communicator's display, Danforth is already uncomfortably close to you.`
-			`	"Rather than revoke your salary, I opted for something a bit more...immediate," he explains, calmly. "As I gave you the 1.5 million, I can just as easily take it away."`
-			`Danforth walks back to his chair while you stand there, motionless, and suddenly very fearful of the man in front of you. "I don't want to have this discussion again," he says as he sits down, still calm. "Do I make myself clear?"`
-			`	"Yes, sir," you reply.`
-			`	"Good. Now then..."`
-				goto debriefing
 			label end
 			`Walking back out of the admiral's quarters, you find the auxiliaries in their "hybrid" configuration - perfect for the retrieval of the new recruits and base defenses. After a brief meeting with the captains of the auxiliaries, you make your way back to <ship> and prepare for takeoff.`
-					accept
+			accept
 
 	npc accompany save
 		government "Republic"
@@ -1012,17 +1018,20 @@ mission "Geminus 2A"
 
 	on stopover
 		conversation
+			branch ranulph
+				has "rivalry"
 			`The mining world of New Wales seems like an odd place to create a military base, but as the desolate plains unfold beneath you, suddenly the prospect makes a lot more sense. Plenty of open sky, little to no chance of potential civilian casualties, and the mines being easily fortified means this world would be optimal, indeed, for the training of new recruits.`
 			`	It isn't long before your fleet lands near the spaceport - and more surprisingly, you notice that several platoons of troops, along with crates of what you assume to be the defensive turrets, already waiting for your pickup. You can only surmise that Danforth either called ahead, or High Command had made the announcement to the base. Either way, it certainly helps speed things along.`
 			`	As the last of the troops and hardware get loaded onto the auxiliaries, one of the auxiliary captains walks up beside you. "I feel a bit sad for them," he admits. "All these kids dreamt of seeing the stars, and now they're stuck doing rearguard duty."`
-			branch ranulph
-				has "rivalry"
 			choice
 				`	"Well, we all need to start somewhere."`
 				goto somewhere
 				`	"They'll get their chance, eventually."`
 				goto chance
 			label ranulph
+			`The mining world of New Wales seems like an odd place to create a military base, but as the desolate plains unfold beneath you, suddenly the prospect makes a lot more sense. Plenty of open sky, little to no chance of potential civilian casualties, and the mines being easily fortified means this world would be optimal, indeed, for the training of new recruits.`
+			`	It isn't long before your fleet lands near the spaceport - and more surprisingly, you notice that several platoons of troops, along with crates of what you assume to be the defensive turrets, already waiting for your pickup. You can only surmise that Danforth either called ahead, or High Command had made the announcement to the base. Either way, it certainly helps speed things along.`
+			`	As the last of the troops and hardware get loaded onto the auxiliaries, one of the auxiliary captains walks up beside you. "I feel a bit sad for them," he admits. "All these kids dreamt of seeing the stars, and now they're stuck doing rearguard duty."`
 			choice
 				`	"Well, we all need to start somewhere."`
 				goto somewhere
