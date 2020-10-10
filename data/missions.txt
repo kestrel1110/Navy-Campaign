@@ -1006,7 +1006,7 @@ mission "Geminus 2A"
 			`	"It's the least I could do, Lieutenant," he nods, smiling proudly. "Now, then. We have some troops and materiél that need to be delivered - the auxiliaries ought to be fully-retrofitted for the trip."`
 			label end
 			`Walking back out of the admiral's quarters, you find the auxiliaries in their "hybrid" configuration - perfect for the retrieval of the new recruits and base defenses. After a brief meeting with the captains of the auxiliaries, you make your way back to <ship> and prepare for takeoff.`
-			accept
+				accept
 
 	npc accompany save
 		government "Republic"
