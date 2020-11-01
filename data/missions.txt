@@ -539,7 +539,6 @@ mission "Navy Pirate Patrol 1"
 	waypoint "Gorvi"
 	waypoint "Tortor"
 	source "Farpoint"
-	destination "Farpoint"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
@@ -579,7 +578,6 @@ mission "Navy Pirate Patrol 2"
 	waypoint "Almaaz"
 	waypoint "Unagi"
 	source "Farpoint"
-	destination "Farpoint"
 	to offer
 		has "Navy Pirate Patrol 1: done"
 		not "chosen sides"
@@ -617,7 +615,6 @@ mission "Navy Pirate Patrol 3"
 	waypoint "Alnilam"
 	waypoint "Hatysa"
 	source "Farpoint"
-	destination "Farpoint"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
@@ -675,7 +672,6 @@ mission "Navy vs Pirate"
 		not "chosen sides"
 	source "Farpoint"
 	waypoint "Saiph"
-	destination "Farpoint"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 
@@ -883,7 +879,7 @@ mission "Geminus 1"
 					goto end
 				`	"That looks like Ranulph Hines."
 			`"Know him, eh?" he inquires. "I'd watch myself if I were you - man's got a mean streak a mile wide."`
-				goto end
+					goto end
 			label terror
 			apply
 				set "lifeDebt"
@@ -891,7 +887,7 @@ mission "Geminus 1"
 				log "People" "Lucas Hadley" `A Syndicate dockworker from Lodestone, Lucas Hadley was attacked by Ranulph Hines for challenging Hines' belief that the Republic are the superior force in human space, when the Syndicate is quite capable of defending itself from outside threats. Hadley puts on a gruff exterior (and a colorful tongue, to match), but deep-down, he's a good man who does his best to provide for his family.`
 			choice
 				`	"I had a feeling it might be Ranulph Hines."`
-			`"Really? What makes you say that?" he asks, slightly alarmed."`
+			`"Really? What makes you say that?" he asks, slightly alarmed.`
 			`	You quickly explain what Danforth told you - how Ranulph feels the need to make himself seen as a "hero of the Republic," but his actions prove he is anything *but.* With some trepidation, you even mention how Hines dealt with the slavers to the dockworkers, calling his actions "reprehensible," and can't believe a man such as he would even be allowed to serve in the Navy."`
 			`"Son of a *bitch,*" the dockworker finally says, "he really *is* batshit insane."`
 			`	"That's putting it mildly," you reply. "I can only hope that he sees the fallacy of his actions, and does something about it before it's too late. Do you mind if I get copies of these? I might be able to pull a few strings and keep you and your family safe."`
@@ -945,7 +941,6 @@ mission "Geminus 2A"
 	landing
 	source "Geminus"
 	stopover "New Wales"
-	destination "Geminus"
 	to offer
 		has "Geminus 1: done"
 		not "chosen sides"
@@ -1070,7 +1065,6 @@ mission "Geminus 2B"
 	landing
 	source "Geminus"
 	stopover "Asgard"
-	destination "Geminus"
 	to offer
 		has "Geminus 2A: done"
 		not "chosen sides"
@@ -1169,7 +1163,6 @@ mission "Geminus 3A"
 	landing
 	source "Geminus"
 	stopover "New China"
-	destination "Geminus"
 	to offer
 		has "Geminus 2B: done"
 		not "chosen sides"
@@ -1262,7 +1255,6 @@ mission "Geminus 3B"
 	landing
 	source "Geminus"
 	stopover "Chiron"
-	destination "Geminus"
 	to offer
 		has "Geminus 3A: done"
 		not "chosen sides"
@@ -1300,12 +1292,15 @@ mission "Geminus 3B"
 
 	on stopover
 		conversation
-			`In stark contrast to your previous mission, the planet of <stopover> is `
+			`Flying over Chiron is something like a visual timeline of Humanity's technological progression. The (still functioning) Old Port is in the middle of nowhere, back when Chiron was first settled without use of a Hyperdrive. As such, the old nuclear propulsion (or "Orion Drive" as it was known) ships wouldn't contaminate settlers with their radioactive exhaust.`
+			`In stark contrast, however, is the New Port in the heart of Chiron's capital of New Sydney. Crystalline spires of mirrored glass reach for the heavens, and ships regularly land and take off here with little issue. It is here that you also find the institute housing the graduates you seek: Uluru University. Named for the famous monolith on Earth, New Sydney's Uluru University is acclaimed for its high graduation rates, and many boast Master's and Philosopher's Degrees across all fields of studies.`
+			`It also appears that the university was expecting you, as you find hundreds of graduates lined up for their transport back to Geminus. As you watch them file into the transports you note their excitement at the prospect of working with Heisenberg's team. The man is clearly a legend among them, and it makes you ponder what technological wonders will be produced with their assistance.`
+			`Once the transports have been filled, you head back to your ship for departure.`
 
 	on complete
-		payment
+		payment 2500000
 		dialog
-			``
+			`[I trust you had a safe trip,] Danforth radios in. [We're almost done, Lieutenant - the usual 2.5 million credits have been added to your account.]`
 	on visit
 		dialog phrase "generic arrived-without-npc dialog"
 
@@ -1323,7 +1318,30 @@ mission "Geminus 3C"
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
 		conversation
-			``
+			`Between the lab techs, the construction workers, the spaceport defenses and now the interns, Geminus feels like an actual place to live and work. Several shops and public restaurants have sprung up since you started, and the shipyards are almost ready to start producing the Navy's heavy warships. It's while you're admiring just how far the spaceport has come that Danforth turns up again.`
+			`	"We've made a thing of beauty, haven't we, sir?" you ask.`
+			`	"Indeed we have, Lieutenant. There's just one final piece of the puzzle before I could safely say Geminus is fully-operational once again. Having the facilities to build our ships is desirable, to be sure - but it means little if we don't have machinists and mechanics on hand to assist with production."`
+			branch warning
+				has "bad look"
+			`Danforth procures his holographic display of the nearby systems once more. "I'm sending you to Millrace, <last>. The planet is well-known for having countless factories and manufacturing plants - as such, it also has a significant number of mechanics, many of which are either seasonal, part-time or still searching for a job. I won't allow their plight to continue any longer, and so I've put the call out to any mechanics who are interested. The pre-screening process has already been completed, so we won't have to worry about sending anyone home."`
+				goto next
+			label warning
+			`The admiral then turns to you with a stern expression. "I also trust there will be no other...problems on this go-around, correct?"`
+			`You do your best to hide your panic, remembering the encounter with the dock worker on Lodestone. "No, sir. None at all."`
+			`"Good. Now, be on your way, Lieutenant - you've got a bit of a hike ahead of you."`
+				goto end
+			label next
+			branch hadley
+				has "rescue"
+			`"Anything else I should know, sir?"`
+			`"Not really. Just remember it's the Syndicate - despite our best intentions, they may still regard you warily. But don't let them get to you.`
+				goto end
+			label hadley
+			`"Anything else I should know, sir?"`
+			`"There is one other thing," Danforth begins, softly. "I've been told some of the dockworkers are friends of Hadley's. I don't know how much they know of you, but I'm willing to bet your gesture to him has not gone unnoticed. Odds are good that they'll be more than willing to cooperate, and some might even have ideas where Hadley and his family could be safe. Even so, be careful - not everyone in the Syndicate can be trusted."`
+			`You nod with resolution. "Understood, sir."`
+			label end
+			`Right as you make it back to your ship, one of the one of the auxiliary captains calls in. "Lieutenant <last>, we're all set to disembark. Just waiting on you, now."`
 				accept
 
 	npc accompany save
@@ -1337,12 +1355,79 @@ mission "Geminus 3C"
 	on stopover
 		event "geminus rebuilt"
 		conversation
-			``
+			`Your arrival on Millrace is similar to the arrival on Lodestone - rusted sheetmetal and spalling concrete intermingle with soot and grime to make for a fantastically unpleasant sight. Though you have to give the Syndicate credit for one thing: all their technology may be ugly, but it's efficient.`
+			`It's a familiar scene as you watch the mechanics lined up to be seated aboard their transports. Standing near one of the lines, a machinist looks over at you with a curious glance - almost like he recognizes you. It soon turns out to be the case as he asks, "Hey, aren't you that Navy Lieutenant who was on Lodestone a while back?"`
+			choice
+			`	"I have no idea what you're talking about."`
+				goto no
+			`	"I've been all over the galaxy - it's hard to say where I have and haven't been."`
+				goto maybe
+			`	"Yes, I am."`
+				goto yes
+			label no
+			`	The dockworker studies you for a long minute before he shrugs and returns his gaze forward.`
+				goto end
+			label maybe
+			`	"Pretty sure I saw you there," he comments, almost goading you on. "Maybe I'm getting you confused with the other Navy prick who was there.`
+			choice
+			`	(say nothing)`
+				goto end
+			`	(attack him)`
+			`Right as you move in to defend your honor, he procures a hidden blaster pistol from his shirt. Before you can realize your error, he suddenly shoots you several times in the stomach. You have just enough life in you to watch him be carted off by other Navy personnel before your vision is obscured by blackness.`
+			`You are dead. Not big surprise.`
+				die
+			label yes
+			`	"I thought I recognized you," he remarks with a hard look. "You wouldn't happen to know the name 'Lucas Hadley,' would you?"`
+			branch uhoh
+				has "bad look"
+			`	"Maybe. Why do you ask?"`
+				goto next
+			label uhoh
+			`Though you don't display it outwardly, you realize that must be the dockworker you almost attacked on Lodestone. Better choose your words carefully, or things might get ugly.`
+			choice
+			`	"No...why do you ask? And what does he want?"`
+				goto oops
+			`	"I know I acted out of line on Lodestone - I promise it won't happen again."`
+				goto glare
+			label oops
+			`"Justice," he says as he procures a hidden blaster pistol from his shirt. Before you can realize your error, he suddenly shoots you several times in the stomach. You have just enough life in you to watch him be carted off by other Navy personnel before your vision is obscured by blackness.`
+			`You are dead. Let this be a lesson to you - if you act like an asshole, the galaxy tends to respond in kind.`
+				die
+			label glare
+			`"I'm gonna hold you to that, Blue Streak," he says, referencing your uniform. "Just know that not all of us are that forgiving."`
+				goto end
+			label next
+			branch help
+				has "rescue"
+			`	"No real reason. Just curious."`
+			`With some slight confusion, you just shrug and continue to wait while the rest of the mechanics are loaded aboard the transports.`
+				goto end
+			label help
+			apply
+				set "plan"
+				log "people" "Henry Radcliff" `An associate of Lucas Hadley, Radcliff and Hadley go way back. The two are practically brothers, and have vowed to keep an eye out for each other if anything went sideways. He also vows to be a private informant in case he sees anything sketchy.`
+			`	His expression suddenly softens. "The name's Henry Radcliff. I need to talk to you in private, if you don't mind." You nod, then turn to the other auxiliary captains. "I'll handle this one," you say to them.`
+			`Back aboard your ship, you lock the doors to your quarters before you and Radcliff sit down. "I'm glad I found you, Lieutenant," he begins. "Ever since we both started working for the Syndicate, Lucas and I made a promise to watch each others' backs. And it's my understanding that you made a promise to him, as well?"`
+			`	You nod. "When I learned that one of our officers had threatened Hadley, I wasn't about to let something like that slide."`
+			`	"And I thank you for that - there's no way I could bring that to my boss, and anyone else would just ignore me. But with you here, I think we have a real chance at getting Hadley and his family to safety."`
+			`	"So what's the plan?"`
+			`Henry procures a small holo-projector. "When the bombings happened, Lucas and I knew we had to come up with a contingency in case things got ugly. After considering our options, we decided to select this place." The projector highlights Hermes in the Capella System.`
+			`	"Hermes?" you say, with a sly grin. "That makes perfect sense. The planet's got orbital bombardment stations trained on the planet around the clock - if someone tried to tail you there, it's almost certain they'd be atomized by the relays."`
+			`	"That's exactly what we were thinking. And it's still close enough to Syndicate Space that it wouldn't be that far of a trip. Ideally, we wanted to settle in the Deep, but that's too far away."`
+			`The pair of you stand up. "I'll be sure to relay this to my superior officer, Henry," you reply, shaking his hand. "He's been trying to come up with a plan to get Hadley to safety, and this will be the break he needs."`
+			`	"I want to thank you once again, Lieutenant...?"`
+			`	"<last>. <first> <last>, if you want, Henry."`
+			`	"Thank you, <first>. Really, I can't thank you enough."`
+			`A thought enters your head. "Henry...I know this might be asking a lot, but if it's possible, I have a favor to ask. I'm sure you're well-aware of the bombings of Geminus and Martini at this point - if you get any leads, can I ask you to be my eyes and ears?"`
+			`"You got it, <last>," he replies without hesitation. "After all, you're bending over backwards to make sure one of my best friends is safe and sound. I'll let my other buddies know to keep an eye out for you - the more feelers we can put out, the better."`
+			`The pair of you soon exit your ship and head back to the auxiliary captains. "I won't let you down, Lieutenant," Henry says as he gets back in line. "Thanks for giving me this chance!"`
+			label end
+			`It takes a couple hours before all the mechanics have loaded onto the auxiliaries. With your errand complete, you board the <ship> and get ready to head back to Geminus.
 
 	on complete
-		payment
+		payment 2500000
 		dialog
-			``
+			`As you break through the clouds over Geminus, you are treated to the awe-inspiring sight of the new shipyard unfold before you. [Welcome to the new Geminus, <last>,] Danforth congratulates you. [This represents the first step of many on the road to victory. To celebrate, take these 2.5 million credits - I'm sure there's something in the shipyard you might want.]`
 
 event "geminus rebuilt"
 	planet Geminus
