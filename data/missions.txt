@@ -1618,7 +1618,7 @@ mission "Report to Seginus"
 		log "Was assigned to an attack fleet for attacking the Free Worlds."
 		conversation
 			`	As you land, <ship>'s communicator beeps again, and Commodore Cruz comes on. "Good evening, Lieutenant <last>! As you have now acquired your cruiser, please report to Seginus immediately for preparations on the Kornephoros attack.`
-				accept
+				decline
 
 mission "Seginus Gathering"
 	landing
