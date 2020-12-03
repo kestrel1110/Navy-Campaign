@@ -1499,22 +1499,13 @@ mission "Reassigned to Sol [completion]"
 		event "deep sky tech available"
 		event "navy using mark ii ships"
 		conversation
-			`	As you land on earth, <ship>'s communicator beeps, and a Navy officer who you presume is Cruz comes on. "Good evening, Lieutenant <last>! The Geminus Bombing Investigation believes that the culprit for the Geminus bombing is the Free Worlds. Because of this, the Navy shall be attacking the system of Kornephoros under orders from Parliament. Therefore, as the new shipyards are complete, you shall be given a single Cruiser and four combat drones with the hope of it serving you well. It is already launched and in orbit, with zero crew. They are painted red to set them apart from other ships. Please use a transport to put your own crew on it and then land for final registration. Then, please head south to the system of Seginus where the Navy will prepare to attack. Good Luck!`
-			`	Don't forget that you must board the ships first if you want them! [Boarding is the 'b' key by default.]`
-				launch
+			`	As you land on earth, <ship>'s communicator beeps, and a Navy officer who you presume is Cruz comes on. "Good evening, Lieutenant <last>! The Geminus Bombing Investigation believes that the culprit for the Geminus bombing is the Free Worlds. Because of this, the Navy shall be attacking the system of Kornephoros under orders from Parliament. Therefore, as the new shipyards are complete, you shall be given a single Cruiser and four combat drones with the hope of it serving you well. 
 
-	npc kill
-		personality derelict staying heroic target
-		system "Sol"
-		government "Donation"
-		fleet
-			names "republic capital"
-			fighters "republic fighter"
-			variant
-				"Cruiser (Mark II)(empty)"
-				"Combat Drone" 4
-
-
+		give ship "Cruiser (Mark II)(empty)" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
 government "Donation"
 	swizzle 6
 	color .78 0 0
@@ -1578,8 +1569,6 @@ ship "Cruiser" "Cruiser (Mark II)(empty)"
 		"A520 Atomic Thruster"
 		"A525 Atomic Steering"
 		"Hyperdrive"
-		"Bunk Lock"
-		"Individual Lock" 136
 	gun "Sidewinder Missile Launcher"
 	gun "Sidewinder Missile Launcher"
 	gun "Sidewinder Missile Launcher"
@@ -1590,20 +1579,6 @@ ship "Cruiser" "Cruiser (Mark II)(empty)"
 	turret "Electron Turret"
 	turret "Electron Turret"
 	turret "Heavy Anti-Missile Turret"
-
-outfit "Bunk Lock"
-	category "Systems"
-	"cost" 0
-	"lock capacity" 150
-	description "Computer virus for temporarily automating a ship, and removing any crew that could still be on it. Remove to use this ship as your flagship."
-
-outfit "Individual lock"
-	category "Systems"
-	cost 0
-	"lock capacity" -1
-	"bunks" -1
-	description "Removes 1 bunk to prevent'stowaways.'"
-	description "If you want any bunks on this ship you need to remove this!"
 
 mission "Report to Seginus"
 	landing
@@ -2088,20 +2063,29 @@ mission "DONATIONS"
 	on offer
 		log "Picking up some more donations because there is such a hard set of battles lying ahead."
 		conversation
-			`You land on <planet> and see a massive Navy fleet. Then you realize that you are probably going to have to liberate the entire Republic territory with this fleet. When you meet up with a Navy officer and he tells you that there is a large donation in orbit for you. You should probably pick it up and then land. When you're done, go to the  spaceport for instructions.
+			`You land on <planet> and see a massive Navy fleet. Then you realize that you are probably going to have to liberate the entire Republic territory with this fleet. When you meet up with a Navy officer and he tells you that there is a large donation for you. Go to the  spaceport for instructions.
+		give ship "Cruiser (Mark II)(empty)" "placeholder"
+		give ship "Cruiser (Mark II)(empty)" "placeholder"
+		give ship "Carrier (Mark II)(empty)" "placeholder"
+		give ship "Lance (empty)" "placeholder"
+		give ship "Lance (empty)" "placeholder"
+		give ship "Lance (empty)" "placeholder"
+		give ship "Lance (empty)" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
+		give ship "Combat Drone" "placeholder"
 				accept
-	npc
-		personality derelict staying heroic target mute
-		system "Vega"
-		government "Donation"
-		fleet
-			names "republic capital"
-			fighters "republic fighter"
-			variant
-				"Cruiser (Mark II)(empty)" 2
-				"Combat Drone" 14
-				"Lance(empty)" 4
-				"Carrier (Mark II)(empty)"
 
 
 ship "Lance" "Lance(empty)"
@@ -2113,8 +2097,6 @@ ship "Lance" "Lance(empty)"
 		"D14-RN Shield Generator"
 		"X1700 Ion Thruster"
 		"X1200 Ion Steering"
-		"Placeholder"
-		"No crew"
 
 
 		event "dreadnoughts for sale"
