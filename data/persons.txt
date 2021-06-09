@@ -8,29 +8,6 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-person "Commodore Cruz"
-	government "Republic"
-	personality
-		heroic surveillance frugal entering 
-	phrase
-		word
-			"It takes courage to achieve naval honor."
-			"Naval honor is for those who have what it takes to earn it."
-	ship "Cruiser (Jump)" "Recruiter"
-	frequency 300
-
-person "Admiral Danforth"
-	government "Republic"
-	personality
-		heroic surveillance frugal entering 
-	phrase
-		word
-			"It takes courage to achieve naval honor."
-			"Naval honor is for those who have what it takes to earn it."
-	ship "Cruiser (Jump)" "R.N.S. Peacemaker"
-	frequency 300
-
-
 person "Irex"
 	government "Unity"
 	frequency 3000
@@ -48,7 +25,6 @@ person "Irex"
 			"I have 15e+10 plugins!"
 	ship "Unity Carrier Long" "Unity"
 	ship "Unity Carrier" "CNS Nebuchadnezaar"
-	ship "
 
 
 
@@ -58,128 +34,145 @@ ship "Unity Carrier"
 	attributes
 		category "Heavy Warship"
 		cost 35200000
-		mass 1310
+		mass 710
 		bunks 460
 		"cargo space" 350
 		cloak 0.01
 		"cloaking energy" 1
 		"cloaking fuel" 0.2
 		drag 17.7
-		"engine capacity" 300
+		"engine capacity" 400
 		"fuel capacity" 1000
 		gaslining 1
 		"gun ports" 11
 		"heat dissipation" 0.45
-		hull 19400
-		"outfit space" 2100
+		hull 59400
+		"outfit space" 2200
 		ramscoop 3
 		"required crew" 5
-		shields 29400
-		"turret mounts" 8
+		"spinal mount" 2
+		shields 79400
+		"turret mounts" 11
 		"weapon capacity" 1000
 	outfits
-		"Thunderhead Launcher" 2
-		"Thunderhead Missile" 120
-		"Thunderhead Storage Array" 2
-		"Type 3 Radiant Thruster"
-		"Type 3 Radiant Steering"
-		"Quantum Keystone" 2
-		"Fuel Pod"
-		"Type 4 Radiant Steering"
-		"Jump Drive"
-		"Korath Disruptor" 3
-		"Wanderer Ramscoop" 13
-		"Outfits Expansion" 10
-		"Outfit Scanner"
-		"Smelter-Class Steering"
-		"Ionic Afterburner" 2
-		"Scram Drive"
-		"Quarg Skylance" 3
-		"Antimatter Core" 3
-		"Nanotech Battery"
-		"Quantum Shield Generator" 2
-		"Nuclear Missile"
-		"Korath Slicer" 4
-		"Large Repair Module" 4
+		"Vareti Engine Block"
+		"Antimatter Core" 2
 		"Asteroid Scanner"
-		"Smelter-Class Thruster"
+		"Bellows-Class Afterburner"
+		"Cloaking Device"
+		"Control Transceiver"
+		"Dragonflame Cannon"
+		"Finisher Pod" 2
+		"Finisher Storage Tube" 8
+		"Finisher Torpedo" 240
+		"Floating Crystal"
 		"Fuel Processor"
-		"Ka'het Shield Restorer" 2
-		"Korath Minelayer" 4
-		"Korath Mine" 158
-		"Korath Mine Rack" 10
-		"Emergency Ramscoop"
-		"Salvage Scanner" 2
-		"Ka'het Primary Cooling" 2
-		"Quantum Key Stone"
-		"Tier 3 Anti-Missile" 2
+		"Fusion Drive"
+		"Heavy Ion Cyclotron" 8
+		"Red Jump Drive"
+		"Korath Disruptor"
+		"Large Hybrid Cooling" 2
+		"Mass Expansion" 10
+		"Nanotech Battery"
+		"Outfit Scanner"
 		"Pug Biodefenses" 180
 		"Pug Peacekeeping Staff" 180
+		"Quantum Key Stone"
+		"Quantum Keystone"
+		"Quarg Skylance" 7
+		"Research Laboratory"
+		"Salvage Scanner" 2
+		"Scram Drive"
+		"Small Hybrid Cooling" 2
+		"Tier 3 Anti-Missile" 2
 		"Void Rifle" 2
-		"AR120 Reverse Thruster"
-	crew 13
-	fuel 1500
-	shields 29400
-	hull 19400
-	position -135.17373 -244.88163
-	engine -65.5 231 1
-	engine 65.5 231 1
-	engine -138 128.5 1
-	engine 138 128.5 1
-	engine -46.5 237 1
-	engine 46.5 237 1
-	engine -24.5 235.5 1
-	engine 24.5 235.5 1
-	engine -15.5 225 1
-	engine 15.5 225 1
-	engine 0 227 1
-	gun -32.5 -160.5 "Korath Slicer"
-	gun 32.5 -160.5 "Korath Minelayer"
-	gun -32.5 -160.5 "Korath Minelayer"
-	gun 32.5 -160.5 "Korath Slicer"
-	gun -25.5 -168 "Korath Slicer"
-	gun 25.5 -168 "Korath Minelayer"
-	gun -25.5 -168 "Korath Minelayer"
-	gun 25.5 -168 "Korath Slicer"
-	gun -84 -34 "Thunderhead Launcher"
-	gun 84 -34 "Thunderhead Launcher"
-	turret -42.5 -15.5 "Korath Disruptor"
-	turret 42.5 -15.5 "Korath Disruptor"
-	turret -41 105 "Quarg Skylance"
-	turret 41 105 "Quarg Skylance"
-	gun 0.5 -230 "Nuclear Missile"
-	turret 0.5 -39.5 "Quarg Skylance"
-	turret 0 40 "Korath Disruptor"
-	turret 0 69 "Quarg Skylance"
-	turret 0 159.5 "Korath Disruptor"
-	fighter -43.5 -46
+		"Wanderer Ramscoop" 5
+	engine -182.5 191
+		zoom 1
+		angle 0
+		under
+	engine 182.5 191
+		zoom 1
+		angle 0
+		under
+	engine -63.5 306.5
+		zoom 1
+		angle 0
+		under
+	engine 63.5 306.5
+		zoom 1
+		angle 0
+		under
+	engine -25.5 308.5
+		zoom 1
+		angle 0
+		under
+	engine 25.5 308.5
+		zoom 1
+		angle 0
+		under
+	engine 0 304
+		zoom 1
+		angle 0
+		under
+	"reverse engine" -173 102.5
+		zoom .6
+		angle 0
+		under
+	"reverse engine" 173 102.5
+		zoom .6
+		angle 0
+		under
+	turret -28.5 -213.5 "Tier 3 Anti-Missile"
+	turret 28.5 -213.5 "Quarg Skylance"
+	turret -56.5 -29.5 "Quarg Skylance"
+	turret 56.5 -29.5 "Quarg Skylance"
+	turret 0 -61 "Quarg Skylance"
+	turret 0 46.5 "Korath Disruptor"
+	turret 0 82.5 "Tier 3 Anti-Missile"
+	turret -54 117 "Quarg Skylance"
+	turret 54 117 "Quarg Skylance"
+	turret 0 205 "Quarg Skylance"
+	gun -43.5 -225 "Heavy Ion Cyclotron"
+	gun 43.5 -225 "Heavy Ion Cyclotron"
+	gun -22.5 -229 "Heavy Ion Cyclotron"
+	turret 0 0 "Floating Crystal"
+	gun 22.5 -229 "Heavy Ion Cyclotron"
+	gun -43.5 -225 "Heavy Ion Cyclotron"
+	gun 43.5 -225 "Heavy Ion Cyclotron"
+	gun -22.5 -229 "Heavy Ion Cyclotron"
+	gun 22.5 -229 "Heavy Ion Cyclotron"
+	gun 0 -321 "Dragonflame Cannon"
+	gun -111 -85.5 "Finisher Pod"
+	gun 111 -85.5 "Finisher Pod"
+	bay Fighter -43.5 -46
 		"launch effect" "basic launch"
-	fighter 43.5 -46
+	bay Fighter 43.5 -46
 		"launch effect" "basic launch"
-	drone -75.5 -27.5
+	bay Drone -75.5 -27.5
 		"launch effect" "basic launch"
-	drone 75.5 -27.5
+	bay Drone 75.5 -27.5
 		"launch effect" "basic launch"
-	fighter -49 64.5
+	bay Fighter -49 64.5
 		"launch effect" "basic launch"
-	fighter 49 64.5
+	bay Fighter 49 64.5
 		"launch effect" "basic launch"
-	drone -83 84
+	bay Drone -83 84
 		"launch effect" "basic launch"
-	drone 83 84
+	bay Drone 83 84
 		"launch effect" "basic launch"
-	drone -111 84
+	bay Drone -111 84
 		"launch effect" "basic launch"
-	drone 111 84
+	bay Drone 111 84
 		"launch effect" "basic launch"
 	leak leak 30 50
 	leak flame 30 80
 	leak "big leak" 30 30
+	explode "huge explosion" 10
+	explode "large explosion" 40
+	explode "medium explosion" 50
 	explode "small explosion" 45
 	explode "tiny explosion" 20
-	explode "medium explosion" 50
-	explode "large explosion" 40
-	explode "huge explosion" 10
 	"final explode" "final explosion large" 1
 
 
@@ -191,107 +184,132 @@ ship "Unity Carrier" "Unity Carrier Long"
 	attributes
 		category "Heavy Warship"
 		cost 35200000
-		mass 1310
+		mass 710
 		bunks 460
 		"cargo space" 350
 		cloak 0.01
 		"cloaking energy" 1
 		"cloaking fuel" 0.2
 		drag 17.7
-		"engine capacity" 300
+		"engine capacity" 400
 		"fuel capacity" 1000
 		gaslining 1
 		"gun ports" 11
 		"heat dissipation" 0.45
-		hull 19400
-		"outfit space" 2100
+		hull 59400
+		"outfit space" 2200
 		ramscoop 3
 		"required crew" 5
-		shields 29400
-		"turret mounts" 8
+		"spinal mount" 2
+		shields 79400
+		"turret mounts" 11
 		"weapon capacity" 1000
 	outfits
-		"Thunderhead Launcher" 2
-		"Thunderhead Missile" 120
-		"Thunderhead Storage Array" 2
-		"Type 3 Radiant Thruster"
-		"Type 3 Radiant Steering"
-		"Quantum Keystone" 2
-		"Fuel Pod"
-		"Type 4 Radiant Steering"
-		"Jump Drive"
-		"Korath Disruptor" 3
-		"Wanderer Ramscoop" 13
-		"Outfits Expansion" 10
-		"Outfit Scanner"
-		"Smelter-Class Steering"
-		"Ionic Afterburner" 2
-		"Scram Drive"
-		"Quarg Skylance" 3
-		"Antimatter Core" 3
-		"Nanotech Battery"
-		"Quantum Shield Generator" 2
-		"Nuclear Missile"
-		"Korath Slicer" 4
-		"Large Repair Module" 4
+		"Vareti Engine Block"
+		"Antimatter Core" 2
 		"Asteroid Scanner"
-		"Smelter-Class Thruster"
+		"Bellows-Class Afterburner"
+		"Cloaking Device"
+		"Control Transceiver"
+		"Dragonflame Cannon"
+		"Finisher Pod" 2
+		"Finisher Storage Tube" 8
+		"Finisher Torpedo" 240
+		"Floating Crystal"
 		"Fuel Processor"
-		"Ka'het Shield Restorer" 2
-		"Korath Minelayer" 4
-		"Korath Mine" 158
-		"Korath Mine Rack" 10
-		"Emergency Ramscoop"
-		"Salvage Scanner" 2
-		"Ka'het Primary Cooling" 2
-		"Quantum Key Stone"
-		"Tier 3 Anti-Missile" 2
+		"Fusion Drive"
+		"Heavy Ion Cyclotron" 8
+		"Red Jump Drive"
+		"Korath Disruptor"
+		"Large Hybrid Cooling" 2
+		"Mass Expansion" 10
+		"Nanotech Battery"
+		"Outfit Scanner"
 		"Pug Biodefenses" 180
 		"Pug Peacekeeping Staff" 180
+		"Quantum Key Stone"
+		"Quantum Keystone"
+		"Quarg Skylance" 7
+		"Research Laboratory"
+		"Salvage Scanner" 2
+		"Scram Drive"
+		"Small Hybrid Cooling" 2
+		"Tier 3 Anti-Missile" 2
 		"Void Rifle" 2
-		"AR120 Reverse Thruster"
+		"Wanderer Ramscoop" 5
 	crew 13
 	fuel 1500
 	shields 29400
 	hull 19400
 	position -135.17373 -244.88163
-	gun -45.5 -208
-	gun 45.5 -208
-	gun -45.5 -208
-	gun 45.5 -208
-	gun -32 -205.5
-	gun 32 -205.5
-	gun -32 -205.5
-	gun 32 -205.5
-	turret -29 -197
-	turret 29 -197
-	turret -58.5 -8
-	turret 58.5 -8
-	fighter -59.5 -52.5
-	fighter 59.5 -52.5
-	drone -102.5 -30
-	drone 102.5 -30
-	gun -117 -34
-	gun 117 -34
-	turret -55.5 154.5
-	turret 55.5 154.5
-	fighter -61.5 102
-	fighter 61.5 102
-	drone -115 123
-	drone 115 123
-	drone -153.5 123.5
-	drone 153.5 123.5
-	engine -192.5 187
-	engine 192.5 187
-	engine -65.5 340.5
-	engine 65.5 340.5
-	engine -20 335
-	engine 20 335
-	gun 0 -309
-	turret 0.5 -44.5
-	turret -1 66
-	turret 0 105
-	turret 0 231.5
+	turret -54.5 -7.5
+	turret 54.5 -7.5
+	turret -52 147
+	turret 52 147
+	turret -26.5 -182.5
+	turret 26.5 -182.5
+	turret 0 -40
+	turret 0 65
+	turret 0 100.5
+	turret 0 217.5
+	turret 0 0
+	gun 0 -293
+	gun -42 -195.5
+	gun 42 -195.5
+	gun -42 -195.5
+	gun 42 -195.5
+	gun -13.5 -205.5
+	gun 13.5 -205.5
+	gun -13.5 -205.5
+	gun 13.5 -205.5
+	gun -104.5 -47
+	gun 104.5 -47
+	bay "Drone" -144 115
+	bay "Drone" 144 115
+	bay "Drone" -105.5 115
+	bay "Drone" 105.5 115
+	bay "Drone" -92.5 -31
+	bay "Drone" 92.5 -31
+	bay "Fighter" -58.5 -51
+	bay "Fighter" 58.5 -51
+	bay "Fighter" -60.5 88.5
+	bay "Fighter" 60.5 88.5
+	engine -176.5 213
+		zoom 1
+		angle 0
+		under
+	engine 176.5 213
+		zoom 1
+		angle 0
+		under
+	"reverse engine" -126.5 -10.5
+		zoom .6
+		angle 0
+		under
+	"reverse engine" 126.5 -10.5
+		zoom .6
+		angle 0
+		under
+	engine -60.5 321.5
+		zoom 1
+		angle 0
+		under
+	engine 60.5 321.5
+		zoom 1
+		angle 0
+		under
+	engine -25.5 323.5
+		zoom 1
+		angle 0
+		under
+	engine 25.5 323.5
+		zoom 1
+		angle 0
+		under
+	engine 0 321
+		zoom 1
+		angle 0
+		under
 	leak leak 30 50
 	leak flame 30 80
 	leak "big leak" 30 30
@@ -323,8 +341,32 @@ government "Unity"
 		"Navy (Oathkeeper)" 1000
 	"bribe" 1
 
+outfit "Red Jump Drive"
+    category "Systems"
+    cost 1000000
+    thumbnail "outfit/jump drive red"
+    "mass" 20
+    "outfit space" 20
+    "jump speed" 500
+    "hyperdrive" 1
+    "jump drive" 1
+    "jump fuel" 100
+    "fuel generation" 10
+    "gaslining" 1
+    "quantum keystone" 1
+    "engine capacity" 100
+    "jump range" 150
+    "jump effect" "jump drive red"
+    "jump sound" "jump drive red"
+    "jump in sound" "jump in red"
+    "jump out sound" "jump out red"
+    "fuel capacity" 100
+    description "Nobody knows the origin of the mythical Warp Drive, more commonly known as the Red Jump Drive. After their falures trying to figure out a normal jump drive, human engineers didn't dare to touch this one. It make longer jumps than a normal jump drive, and seems to have a built in ramscoop array. It can also navigate unstable wormholes due to what appears to be a glowing red keystone."
 
-
-
-
-
+shipyard Unity
+	"Unity Carrier"
+	"Unity Carrier Long"
+planet Forge
+	shipyard Unity
+planet Everything
+	shipyard Unity
