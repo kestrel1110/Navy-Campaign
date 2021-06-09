@@ -3851,38 +3851,3 @@ mission "syndicate attack [3]"
 				"Combat Drone" 18
 				"Cruiser (Mark II)" 3
 				"Combat Drone" 12
-
-
-
-
-
-
-
-
-event "Fomalhaut occupied"
-	system "Diphda"
-		government Republic
-event "Caph occupied"
-	system "Diphda"
-		government Republic
-event "Diphda occupied"
-	system "Diphda"
-		government Republic
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
