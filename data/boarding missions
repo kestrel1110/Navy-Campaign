@@ -8,57 +8,10 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
-mission "Assisting Navy 1"
-	assisting
-	repeat
-	to offer
-		random < 25
-		not "event: naval employment earned"
-	source
-		government Republic
-	on offer
-		payment 10000
-		conversation
-			`The captain of the <origin> is pleased with your service and gives you a payment of <payment>.`
-				decline
-	destination Farpoint
-
-
-mission "Assisting Navy 2"
-	assisting
-	repeat
-	to offer
-		random < 25
-		not "event: naval employment earned"
-	source
-		government Republic
-	on offer
-		payment 15000
-		conversation
-			`The captain of the <origin> is pleased with your service and gives you a payment of <payment>.`
-				decline
-	destination Farpoint
-
-
-mission "Assisting Navy 3"
-	assisting
-	repeat
-	to offer
-		random < 25
-		not "event: naval employment earned"
-	source
-		government Republic
-	on offer
-		payment 25000
-		conversation
-			`The captain of the <origin> is pleased with your service and gives you a payment of <payment>.`
-				decline
-	destination Farpoint
-
-
 mission "Player Assisting Navy"
 	assisting
 	repeat
+	invisible
 	to offer
 		has "event: naval employment earned"
 	source
