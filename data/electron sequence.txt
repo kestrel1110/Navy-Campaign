@@ -1,6 +1,7 @@
 mission "Electrons 1A"
 	name `Weapons Development`
-	description `Report to Epsilon Leonis to aid in weapons development.`to offer
+	description `Report to Epsilon Leonis to aid in weapons development.`
+	to offer
 		has "Electrons 1A: done"
 	deadline
 	destination "Valhalla"
