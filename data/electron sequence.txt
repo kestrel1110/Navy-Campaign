@@ -396,6 +396,47 @@ mission "Typhoons 1A"
 	to offer
 		has "event: 30-day-leave"
 	on offer
+		log "People" "Peter Stanley" `A Deep Scientist who works on developing new weapons for the Navy.`
 		conversation
-			`As you come in for a landing, you find you have received another communique from John: "Captain, before "`
-	
+			`As you come in for a landing, you find you have received another communique from John: "Captain, instead of coming to the warehouse, head to the spaceport where you'll meet your contact for your next assignment."`
+			`You follow his directions and soon arrive at the spaceport bar, where you immediately recognize your contact: Peter, the scientist with John when you began his assignment. You walk over to him, and he calls out to you. "<first>? There you are! I was hoping I'd recognize you. Well, let's get straight to buisiness. Your next task will be to assist in the development of a new weapon. However, instead of a beam weapon, you shall test a new projectile weapon. As this is not a secure location, I cannot tell you more at this time, but if you'll follow my ship to a protected location on Valhalla, we may discuss this in detail."`
+			choice
+				`"Sounds good. Let's go!"`
+					accept
+				`"Sure, but how did you know I'd be heading here?"`
+					goto notthecia
+				`"Actually, I have a more pressing matter at this time, but I'll get back to you as soon as possible."`
+					defer
+			label notthecia
+				`He laughs and winks at you, and begins walking to his ship. You shrug your shoulders and head to your own ship, and prepare to follow him to Valhalla.`
+					accept
+	npc accompany save
+		personality escort timid
+		government "Deep Security"
+		ship "Flivver" "Peter's Ship"
+mission "Typhoons 1B"
+	source Valhalla
+	stopover Lodestone
+	destination Valhalla
+	name "Ferry materials"
+	description "Escort a Navy frieghter to Lodestone and back to bring Peter's team the materials for the new Torpedo Launcher."
+	deadline
+	on offer
+		conversation
+			`You slowly bring your ship into a low orbit while you are waiting for your acknowledgement from the control tower. You look off to your left and see Peter's Flivver mirroring your approach. Finally you recieve your clearance from the tower, but instead of a landing slot, you are given a set of coordinates to (unsurprisingly) an abandoned factory, which you guess is the 'secure location' Peter mentioned. You see Peter's ship already accelerating, and so you quickly order the helm to follow suite.`
+			`Several minutes later, you get a notification that you are closing on the designated coordinates, and you begin to descend. Quickly, the factory comes into view, but as you look closely, you notice several slightly hidden anti-aircraft guns trained on your ship. You continue to descend, and as you come within a reasonable distance, you get another notification- you're being scanned. As soon as the scan completes, you watch the AAA guns cease to lock on to your ship, and begin scanning the skies once more. Soon, the automatic landing gear extend, and you touch down on the landing pad. After you complete your post-flight checks, you leave your ship and meet Peter outside. He beckons you to follow, with a smirk. As you follow a similar pattern of security checks and descending elevators as the last facility.`
+			`Eventually, you reach another white shiny room full of tech way beyond your understandin, half of which looks like it would desintegrate you with a mere fraction of its possibly power. In the missle of it all, is a stairway, which Peter escorts you down. At the bottom is a large bay in which the largest torpedoe you have ever seen rests. Pulsing with a radioactive green energy, you wonder what sorcery these crazy scientists have concocted up now. However, you soon discover it is not sorcery, but just another powerful bomb. As Peter jumps in with another scienc-ey explanation, which you cannot decipher at all, you think to yourself, "Bigger bome make bigger boom" and suddenly you understand some of it. However, Peter is still talking, and you find yourself wanting to get straight to the task at hand.`
+			choice
+				`Interrupt him`
+					goto interrupt
+				`Let him finish`
+			`He continues for a few more minutes but notices your eyes glazing over, and apologizes for taking so long. He then tells you what you will have to do:`
+				goto task
+			label interrupt
+				`You interject, saying, "Yes, yes, but what must I do for you?" For a moment, a slightly annoyed look passes over his face, but then he covers it up and gives you your instructions:`
+			label task
+				`"For this assignment, we will need you to escort some more ships from the Syndicate to Valhalla. We have built a number of the prototype torpedos, but we need a few more items for the launcher. So, please escort one Auxilliary from here to Lodestone and back in order to bring us the necessary materials."`
+			choice
+				`"Yes sir!"`
+					accept
+#need to finish mission
