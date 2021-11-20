@@ -655,7 +655,7 @@ mission "Navy Pirate Patrol 3"
 			`	You quickly disembark the <ship> to find Danforth's aide waiting for you. The two of you quickly hurry to the Admiral's quarters, and find he's joined by other Navy officers. As you enter the room, instictively saluting as you do so, all eyes shift away from the table and towards you - and the looks you receive, in particular Danforth's, make you feel uneasy.`
 			`	"Ensign <last>, your timing is impeccable," Danforth says. "We just obtained your sensor logs, and it may have just been enough to prevent things from getting worse."`
 			`	"...Worse, sir?" you ask, cautiously.`
-			`	"Indeed," one of the officers says. "Shit well and truly hit the fan right as you got here."`
+			`	"Indeed," one of the officers says. "Crap well and truly hit the fan right as you got here."`
 			`	"Hines, please," Danforth exasperatedly shushes the officer, raising his hand. "Just as we finished downloading your logs, a pirate fleet suddenly warped in. Most of them were either destroyed or routed back into the North, but one ship managed to escape. Most of us believe it's thanks to your sensor logs that we were able to halt their advance as much as we did."`
 			`	"Even so, that one ship is now running amok amongst the systems South of us," another officer adds. "We could have done more if we'd-"`
 			`	"We did as much as we could," you interrupt, silencing the room. "None of us could have possibly anticipated, let alone prepared for anything more than what those logs indicated."`
