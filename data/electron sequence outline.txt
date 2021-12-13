@@ -23,13 +23,13 @@ Outline:
 	x    report
 	x    thanks + 30 day leave
 	Typhoon Torpedo
-	    orders to return + arrival at the deep
-	    material departure + hindered by FW mercenaries
-	    arrive at syndicate for materials + departure, hindered by more mercenaries
-	    13 day delay + orders to return
-	    combat test on the same mule
-	    report
-	    thanks + delay of ~17 days
+	x    orders to return + arrival at the deep
+	x    material departure + hindered by FW mercenaries
+	x    arrive at syndicate for materials + departure, hindered by more mercenaries
+	x    13 day delay + orders to return
+	x    combat test on the same mule
+	x    report
+	x    thanks + delay of ~17 days
 	Catalytic Ramscoop
 	    orders to return + arrival
 	    materials, but find the planet with them under attack by massive fleets of pirates + alphas
