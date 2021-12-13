@@ -425,22 +425,65 @@ mission "Typhoons 1B"
 		conversation
 			`You slowly bring your ship into a low orbit while you are waiting for your acknowledgement from the control tower. You look off to your left and see Peter's Flivver mirroring your approach. Finally you recieve your clearance from the tower, but instead of a landing slot, you are given a set of coordinates to (unsurprisingly) an abandoned factory, which you guess is the 'secure location' Peter mentioned. You see Peter's ship already accelerating, and so you quickly order the helm to follow suite.`
 			`Several minutes later, you get a notification that you are closing on the designated coordinates, and you begin to descend. Quickly, the factory comes into view, but as you look closely, you notice several slightly hidden anti-aircraft guns trained on your ship. You continue to descend, and as you come within a reasonable distance, you get another notification- you're being scanned. As soon as the scan completes, you watch the AAA guns cease to lock on to your ship, and begin scanning the skies once more. Soon, the automatic landing gear extend, and you touch down on the landing pad. After you complete your post-flight checks, you leave your ship and meet Peter outside. He beckons you to follow, with a smirk. As you follow a similar pattern of security checks and descending elevators as the last facility.`
-			`Eventually, you reach another white shiny room full of tech way beyond your understandin, half of which looks like it would desintegrate you with a mere fraction of its possibly power. In the missle of it all, is a stairway, which Peter escorts you down. At the bottom is a large bay in which the largest torpedoe you have ever seen rests. Pulsing with a radioactive green energy, you wonder what sorcery these crazy scientists have concocted up now. However, you soon discover it is not sorcery, but just another powerful bomb. As Peter jumps in with another scienc-ey explanation, which you cannot decipher at all, you think to yourself, "Bigger bomb make bigger boom" and suddenly you understand some of it. However, Peter is still talking, and you find yourself wanting to get straight to the task at hand.`
-			choice
-				`Interrupt him`
-					goto interrupt
-				`Let him finish`
-			`He continues for a few more minutes but notices your eyes glazing over, and apologizes for taking so long. He then tells you what you will have to do:`
-				goto task
-			label interrupt
-				`You interject, saying, "Yes, yes, but what must I do for you?" For a moment, a slightly annoyed look passes over his face, but then he covers it up and gives you your instructions:`
-			label task
+			`Eventually, you reach another white shiny room full of tech way beyond your understandin, half of which looks like it would desintegrate you with a mere fraction of its possibly power. In the missle of it all, is a stairway, which Peter escorts you down. At the bottom is a large bay in which the largest torpedoe you have ever seen rests. Pulsing with a radioactive green energy, you wonder what sorcery these crazy scientists have concocted up now. However, you soon discover it is not sorcery, but just another powerful bomb. Peter begins explaining how much more advanced this weapon is than the atom bombs of old, but soon you zone out. He continues for a few more minutes but notices your eyes glazing over, and apologizes for taking so long. He then gives you your instructions.`
 				`"For this assignment, we will need you to escort some more ships from the Syndicate to Valhalla. We have built a number of the prototype torpedos, but we need a few more items for the launcher. So, please escort one Auxilliary from here to Lodestone and back in order to bring us the necessary materials."`
 			choice
 				`"Yes sir!"`
 					accept
 		on stopover
 			conversation
-				`Despite the harassment from the mercenaries, you manage to safely touch down in the Lodestone spaceport. Thankfully, the Auxiliary has survived without major damage, and after a short inspection, Syndicate dockworkers begin loading it up with heavily armored crates with an atomic symbol on it. After an hour or two, the load is complete, and you head to the .control center?.
+				`Despite the harassment from the mercenaries, you manage to safely touch down in the Lodestone spaceport. Thankfully, the Auxiliary has survived without major damage, and after a short inspection, Syndicate dockworkers begin loading it up with heavily armored crates with an atomic symbol on it. After an hour or two, the load is complete, and you head to the control center?.
+	on complete
+		conversation
+			`With surprisinly no resistence, you manage to bring the Auxiliary home relatively unscathed, with all its cargo intact. As you touch down on the pad, you recieve another message from Peter informing you to meet him inside the lab.`
+	npc accompany save
+		personality escort timid
+		fleet
+			names "republic" "capital"
+			variant
+				"Auxiliary (Cargo)"
+	npc (ADD PIRATE FLEET)
 
-#need to finish mission
+
+mission "Typhoons 1C"
+	source Valhalla
+	destination Valhalla
+	waypoint Aspidiske
+	name "Conduct weapons testing"
+	decription "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
+	on offer
+		conversation
+			`You follow the instructions left for you, and after a few minutes you catch sight of Peter in an office. You go up to the door and knock, and he shouts, "Come in. Ah, <first>! Glad you could make it. Now that we have those materials, it shouldn't be long until the torpedo is finished. And after that, we will conduct another combat test- which I'm sure you're excited for. Remember, please don't destroy the testing ship, as it costs a lot of money, and we do not want to have to replace it. Any questions?"`
+			choice
+				`"No, Sir!"`
+					accept
+	on complete
+		conversation
+			`
+	npc disable save
+		personality staying disables nemesis target
+		government "Test Dummy"
+		system Aspidiske
+		ship "Mule Test Dummy (Typhoons)" "Test Dummy"
+		ship "Lance" "Test Dummy"
+
+ship "Mule" "Mule Test Dummy (Typhoons)"
+	outfits
+		"A370 Atomic Thruster"
+		"A375 Atomic Steering"
+		"Anti-Missile Turret" 2
+		"Breeder Reactor"
+		Brig
+		"D41-HY Shield Generator"
+		"Heavy Laser Turret"
+		Hyperdrive
+		"LP144a Battery Pack"
+		"Laser Rifle" 43
+		"Laser Turret"
+		"Liquid Helium Cooler"
+		"Outfits Expansion" 5
+		Ramscoop
+		"Small Radar Jammer" 2
+		"Typhoon Launcher" 2
+		"Typhoon Storage Tube" 2
+		"Typhoon Torpedo" 90
