@@ -220,6 +220,7 @@ mission "Electrons 1F"
 		system Aspidiske
 		ship "Mule Test Dummy (Electrons)" "Test Dummy"
 		ship "Barb Test Dummy (Electrons)" "Test Dummy"
+		dialogue "You've killed the Test ships you were supposed to disable. Congradulations? Now I suggest you reload your save and try again."
 	on complete
 		event "e-beam delay 2" 8		
 		payment 1750000
@@ -371,6 +372,7 @@ mission "Electrons 2C"
 		system Aspidiske
 		ship "Mule Test Dummy (Electrons+Turret)" "Test Dummy"
 		ship "Barb Test Dummy (Electrons)" "Test Dummy"
+		dialogue "You've killed the Test ships you were supposed to disable. Congradulations? Now I suggest you reload your save and try again."
 	on complete
 		event "30-day-leave" 30
 		conversation
@@ -442,7 +444,17 @@ mission "Typhoons 1B"
 			names "republic" "capital"
 			variant
 				"Auxiliary (Cargo)"
-	npc (ADD PIRATE FLEET)
+	npc
+		government "Pirate"
+		personality heroic staying harvests plunders entering
+		system Diphda
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality heroic staying harvests plunders entering
+		system Ankaa
+		fleet "Large Northern Pirates"
+		fleet "Small Northern Pirates"
 
 
 mission "Typhoons 1C"
@@ -458,14 +470,28 @@ mission "Typhoons 1C"
 				`"No, Sir!"`
 					accept
 	on complete
+		event "typhoons ending" 3
 		conversation
-			`
+			`You land on Valhalla once again, and repeat the procedures that are now routine to you, and finally find yourself again in John's office, where he welcomes you back. "Coffee, Captain?"`
+			choice
+				`"Yes, please."`
+				`"No, thank you though."`
+				goto aftercoffee
+			`You gratefully accept his offer, and a moment later you find yourself with a steaming cup of homebrewed natural coffee, which is a welcome surprise from the processed drink you're used to. You take a sip, and listen to what John has to say.`
+			label aftercoffee
+			`John opens a computer and pulls up the logs you submitted after the battle. He gives a cursory scan, and then asks you for your report.`
+			choice
+				`"The weapons performed perfectly, and although they were a little slow, when one did hit, it was definitely powerful enough for its purpose."`
+			`"Wondeful, Captain! In that case, as soon as we make a few more adjustments they should be ready for commercial use! I suppose now it's farewell, however, as your work with us is over."`
+			`A bit shocked with the suddeness of the happenings, you shake his hand and take the elevator up too the surface, and step out into the sunlight, ready for your next mission...`
+				done
 	npc disable save
 		personality staying disables nemesis target
 		government "Test Dummy"
 		system Aspidiske
 		ship "Mule Test Dummy (Typhoons)" "Test Dummy"
 		ship "Lance" "Test Dummy"
+		dialogue "You've killed the Test ships you were supposed to disable. Congradulations? Now I suggest you reload your save and try again."
 
 ship "Mule" "Mule Test Dummy (Typhoons)"
 	outfits
@@ -487,3 +513,12 @@ ship "Mule" "Mule Test Dummy (Typhoons)"
 		"Typhoon Launcher" 2
 		"Typhoon Storage Tube" 2
 		"Typhoon Torpedo" 90
+
+event "typhoons ending"
+
+mission "Catalyctic Ramscoops 1A"
+mission "Catalyctic Ramscoops 1B"
+mission "Catalyctic Ramscoops 1C"
+mission "Catalyctic Ramscoops 1D"
+mission "Catalyctic Ramscoops 1E"
+mission "Catalyctic Ramscoops 1F"
