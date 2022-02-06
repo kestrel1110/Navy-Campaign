@@ -483,7 +483,7 @@ mission "Typhoons 1C"
 			choice
 				`"The weapons performed perfectly, and although they were a little slow, when one did hit, it was definitely powerful enough for its purpose."`
 			`"Wondeful, Captain! In that case, as soon as we make a few more adjustments they should be ready for commercial use! I suppose now it's farewell, however, as your work with us is over."`
-			`A bit shocked with the suddeness of the happenings, you shake his hand and take the elevator up too the surface, and step out into the sunlight, ready for your next mission...`
+			`A bit shocked with the suddeness of the happenings, you shake his hand and take the elevator up to the surface, and step out into the sunlight, ready for your next mission...`
 				done
 	npc disable save
 		personality staying disables nemesis target
@@ -517,7 +517,24 @@ ship "Mule" "Mule Test Dummy (Typhoons)"
 event "typhoons ending"
 
 mission "Catalyctic Ramscoops 1A"
+	name "A New Task"
+	description "Your presence has once again been requested on Valhalla, please report there to assist in what ways you are needed."
+	to offer
+		has "Typhoons 1C: done"
+	landing
+	source
+		government "Republic"
+		not Valhalla
+	destination Valhalla
+	on offer
+		conversation
+			`Upon settling the <ship> into its berth on <source>, you are relayed another message from the science team: Captain, please report back to Valhalla, as once again your assistance is required.`
+	on complete
+		conversation
+			`Once again you have arrived on Valhalla to participate in the endless experiments of the science team based there. Figuring that you will find more directions there, you go to the spaceport authorities, and sure enough, there you find directions to Peter's lab. You catch a taxi back to your ship, and prepare for a short ride through the atmosphere.`
+
 mission "Catalyctic Ramscoops 1B"
+	
 mission "Catalyctic Ramscoops 1C"
 mission "Catalyctic Ramscoops 1D"
 mission "Catalyctic Ramscoops 1E"
