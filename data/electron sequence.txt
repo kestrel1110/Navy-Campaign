@@ -7,7 +7,7 @@ mission "Electrons 1A"
 	destination "Valhalla"
 	landing
 	on offer
-		dialog `You receive a message from Naval Command: "Captain <last>, please report to Epsilon Leonis. They need you to help with developing some new tech.`
+		dialog `You receive a message from Naval Command: "Captain <last>, please report to Epsilon Leonis. They need you to help with certain reasearch and development.`
 	on complete
 		log "People" "John Withers" `A Deep Scientist who works on developing new weapons for the Navy.`
 		conversation 
@@ -418,26 +418,26 @@ mission "Typhoons 1A"
 		ship "Flivver" "Peter's Ship"
 mission "Typhoons 1B"
 	source Valhalla
-	stopover Lodestone
+	stopover Crossroads
 	destination Valhalla
 	name "Ferry materials"
-	description "Escort a Navy frieghter to Lodestone and back to bring Peter's team the materials for the new Torpedo Launcher."
+	description "Escort a Navy frieghter to Crossroads and back to bring Peter's team the materials for the new Torpedo Launcher."
 	deadline
 	on offer
 		conversation
 			`You slowly bring your ship into a low orbit while you are waiting for your acknowledgement from the control tower. You look off to your left and see Peter's Flivver mirroring your approach. Finally you recieve your clearance from the tower, but instead of a landing slot, you are given a set of coordinates to (unsurprisingly) an abandoned factory, which you guess is the 'secure location' Peter mentioned. You see Peter's ship already accelerating, and so you quickly order the helm to follow suite.`
 			`Several minutes later, you get a notification that you are closing on the designated coordinates, and you begin to descend. Quickly, the factory comes into view, but as you look closely, you notice several slightly hidden anti-aircraft guns trained on your ship. You continue to descend, and as you come within a reasonable distance, you get another notification- you're being scanned. As soon as the scan completes, you watch the AAA guns cease to lock on to your ship, and begin scanning the skies once more. Soon, the automatic landing gear extend, and you touch down on the landing pad. After you complete your post-flight checks, you leave your ship and meet Peter outside. He beckons you to follow, with a smirk. As you follow a similar pattern of security checks and descending elevators as the last facility.`
 			`Eventually, you reach another white shiny room full of tech way beyond your understandin, half of which looks like it would desintegrate you with a mere fraction of its possibly power. In the missle of it all, is a stairway, which Peter escorts you down. At the bottom is a large bay in which the largest torpedoe you have ever seen rests. Pulsing with a radioactive green energy, you wonder what sorcery these crazy scientists have concocted up now. However, you soon discover it is not sorcery, but just another powerful bomb. Peter begins explaining how much more advanced this weapon is than the atom bombs of old, but soon you zone out. He continues for a few more minutes but notices your eyes glazing over, and apologizes for taking so long. He then gives you your instructions.`
-				`"For this assignment, we will need you to escort some more ships from the Syndicate to Valhalla. We have built a number of the prototype torpedos, but we need a few more items for the launcher. So, please escort one Auxilliary from here to Lodestone and back in order to bring us the necessary materials."`
+				`"For this assignment, we will need you to escort some more ships from the Syndicate to Valhalla. We have built a number of the prototype torpedos, but we need a few more items for the launcher. So, please escort one Auxilliary from here to Crossroads and back in order to bring us the necessary materials."`
 			choice
 				`"Yes sir!"`
 					accept
 		on stopover
 			conversation
-				`Despite the harassment from the mercenaries, you manage to safely touch down in the Lodestone spaceport. Thankfully, the Auxiliary has survived without major damage, and after a short inspection, Syndicate dockworkers begin loading it up with heavily armored crates with an atomic symbol on it. After an hour or two, the load is complete, and you head to the control center?.
+				`Despite the harassment from the mercenaries, you manage to safely touch down roughly within your landing beacons on the pad. Thankfully, the Auxiliary has survived without major damage, and after a short inspection, Syndicate dockworkers begin loading it up with heavily armored crates with an atomic symbol on it. After an hour or two, the load is complete, and you head to the control center?.
 	on complete
 		conversation
-			`With surprisinly no resistence, you manage to bring the Auxiliary home relatively unscathed, with all its cargo intact. As you touch down on the pad, you recieve another message from Peter informing you to meet him inside the lab.`
+			`With surprisingly no resistence, you manage to bring the Auxiliary home relatively unscathed, with all its cargo intact. As you touch down on the pad, you recieve another message from Peter informing you to meet him inside the lab.`
 	npc accompany save
 		personality escort timid
 		fleet
@@ -533,8 +533,69 @@ mission "Catalyctic Ramscoops 1A"
 		conversation
 			`Once again you have arrived on Valhalla to participate in the endless experiments of the science team based there. Figuring that you will find more directions there, you go to the spaceport authorities, and sure enough, there you find directions to Peter's lab. You catch a taxi back to your ship, and prepare for a short ride through the atmosphere.`
 
+#antipode- electronics/rare earth metals
+#crossroads- uranium/radioactive metals
+#lodestone- general mining
+
 mission "Catalyctic Ramscoops 1B"
-	
+	name "Escort to Lodestone"
+	description "Escort two Navy Auxiliaries to Antipode and back, to bring back critical components of a new technology that Peter's Science team is developing."
+	to offer
+		has "Catalyctic Ramscoops 1A: done"
+	landing
+	source Valhalla
+	destination Antipode
+	on fail
+		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
+	on offer
+		conversation
+			arrive on valhalla
+			relayed to a new location, floating city-ship? baccy?
+			discuss long-range attacks w/ships, expanding that
+			show off plans for catalyctic ramscoop
+			'we have most of the items we need already, but it has been extremely hard to get the final thing
+			-electronics/silicon circuitboards/circuitry/whatever from the south of syndicate space- too many pirates
+			will you escort 2 auxes to matar and back?
+			y/n?
+			accept
+	on enter Antipode
+		conversation
+			`Faced with minimal difficulties on the way, you are shocked as you enter the system to find a large Pirate fleet in orbit. And, even more to your chagrin, they all immediately begin turning towards you, some of them already training their turrets on you. Evidently, your convoy is the target of a coordinated attack...but for now you focus on something more important- your own survival.`
+	on visit
+		dialogue "You have not destroyed all of the Pirate raiders yet. Relaunch and destroy them as soon as possible."
+			launch
+	on complete
+		payment 510200
+		conversation
+			`Having destroyed the Pirate fleet in orbit, you can now safely load the cargo onto the Auxiliaries. When you radio the control tower for your landing confirmation, a very impressed-sounding operator quickly replies, giving you your landing pad designation, and adds that the local government is very grateful for your assistance, and has relayed you an alotted compensation of 510,200 credits in order to express their gratitude. You politely thank him and proceed with your landing checks.`
+			`A few hours later, the cargo is loaded, and you are ready to depart.`
+	npc kill
+		government Pirate
+		system Matar
+		personality heroic nemesis staying target
+		fleet
+			names "pirate"
+			variant
+				"Splinter (Laser)" 2
+				"Manta" 3
+				"Quicksilver" 6
+				"Vanguard (Particle)" 2
+				"Protector (Laser)"
+		conversation
+			`That should be the last of the ships; it should be safe to land on the planet now.`
+	npc
+		government Pirate
+		system Zozma
+		personality heroic staying
+		fleet
+			names "pirate"
+			variant
+				"Leviathan (Heavy)"
+				"Firebird (Plasma)" 2
+	npc accompany save
+		personality escort timid
+		ship "Auxiliary (Cargo)" "R.N.S. Hector"
+		ship "Auxiliary (Cargo)" "R.N.S. Achilles"
 mission "Catalyctic Ramscoops 1C"
 mission "Catalyctic Ramscoops 1D"
 mission "Catalyctic Ramscoops 1E"
