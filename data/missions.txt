@@ -2475,10 +2475,9 @@ mission "ATTACK [7]"
 			`"Captain <last>, well done on securing a foothold in Free Worlds territory. As much as we would like to capitalize on our gains, there are some other matters we need to attend to."`
 			`	"Why? What's wrong?" you ask, confused.`
 			`	"Have a look at this."`
-			``
 			`Your primary display changes to show a newsreel of several Syndicate ships in orbit above Earth. On many of the ships, your eyes are drawn to launchers that are several times the size of any missile or rocket launcher - even torpedo tubes wouldn't come close to that size.`
 			`	"Yesterday, a Syndicate fleet appeared in orbit above Earth - it wasn't long before we determined that the ships were armed with multiple nuclear warheads, and began issuing demands.`
-			`	(Wait...armed with WHAT?!) you think to yourself.`
+			`	(Wait...armed with nukes?!) you think to yourself.`
 			`Suddenly, new ships materialize out of nowhere in a haze of bluish particles and surround the Syndicate ships. The new ships are almost organic in their designs - the best description you can give likens them to yellow-colored coral. "Only a few hours after the fleet's arrival, the fleet of unknown alien design you see appeared, apparently using hyperdrives like those possessed by the Quarg. And as soon as they arrived..."`
 			`Right as Cruz narrates, the unknown ships open fire on the Syndicate fleet with their weapons, and reduce the Syndicate ships to little more than drifting hulks. And as swiftly as they appeared, the unknown ships vanish, and the feed goes dead.`
 			``
