@@ -460,7 +460,7 @@ mission "Joining the Navy"
 		personality heroic staying nemesis target
 		government "Test Dummy"
 		system "Castor"
-		ship "Raven" "Blackfury"
+		ship "Raven" "Combat Test Dummy"
 				
 	on complete
 		"reputation: Republic" += 10
