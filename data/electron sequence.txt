@@ -684,14 +684,14 @@ mission "Catalytic Ramscoops 1D"
 				`	"Are you sure about this..?"`
 			`	"Yes, of course!"
 			label end
-			`	 "And, I've worked things out with Admiral Danforth so that you can double-task and run a patrol for him too! So head to the outfitter, make sure you've got space for it, and install that ramscoop on you ship!"`
+			`	 "And, I've worked things out with Admiral Danforth so that you can double-task and run a patrol for him too! So head to the outfitter, make sure you've got space for it, and install that ramscoop on your ship!"`
 			choice
 				`	"Will do!"`
 		
 mission "Catalytic Ramscoops 1E"
 	landing
 	name "Efficiency Test"
-	description "Use the Catalytic Ramscoop to travel through the uninhabited systems in the north-east, then stop by Farpoint to drop off your sensor logs with Admiral Danforth. Then return to Valhalla for the test results. The best method would be to start in the southern part of the route, in Nihal, then head to Farpoint, then back to Valhalla."
+	description "Use the Catalytic Ramscoop to travel through the uninhabited systems in the north-east, then stop by Farpoint to drop off your sensor logs with Admiral Danforth. Then return to Valhalla for the test results."
 	source Valhalla
 	waypoint Nihal
 	waypoint Volax
@@ -699,13 +699,24 @@ mission "Catalytic Ramscoops 1E"
 	waypoint Sumar
 	waypoint Hassaleh
 	waypoint Rigel
-	stopover Farpoint
-	destination Valhalla
+	destination Farpoint
 	to offer
 		has "Catalytic Ramscoops 1D: done"
-	on stopover
+	on complete
 		conversation
-			`<todo>`
+			`Having safely made it through the dead stretch of northern systems and arrived at Farpoint, you begin your descent through the atmosphere. The skies are clear today, and you see the desert stretching far away on all sides, and the relatively small compaund begins to loom up to you. You radio control for clearance, and after a short wait it is granted.`
+			`Following the tower's guidance, you land on the designated pad and step out into the hot air. A slight breeze is blowing, and the compound seems relatively quiet today. The serenity is suddenly broken, however, when your communicator loudly buzzes. It's from Admiral Daforth, whom you realize you actually haven't seen in a while.`
+			`	[Hello captain! Please report to my office, it's been a while (and I need those logs). See you in a few.]`
+			`You head to Danforth's office, following the old familiar route, and soon find yourself knocking on the door again.`
+			`	"Come in!"`
+			`As you enter, you`
+
+mission "Catalytic Ramscoops 1F"
+	landing
+	name "Efficiency Test"
+	decription "Now that you have completed your patrol, return to Valhalla to submit the test results."
+	source Farpoint
+	destination Valhalla
 	on complete
 		event "deep sky tech available" 3
 		event "mk ii ships for sale" 7
