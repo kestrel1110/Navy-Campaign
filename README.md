@@ -2,4 +2,16 @@
 My Navy campaign which I hope to get implemented when finished.
 Thanks to Warlord Mike, Disiuze, Kiko, Moonbeam, and Kat for helping.
 
-Porting over to https://github.com/kestrel1110/endless-sky/tree/Navy-Campaign once I finish the electron sequence.
+TO DO LIST:
+
+[x] intro missions (parallel of southern mutual defense pact)
+[x] joining the navy
+[x] pirate recon sequence
+[x] geminus
+[] Electron sequence
+[x] kornephoros attack
+[] navy intelligence sequence (when the prowler is developed)
+[] infiltrating the FW (stealing data on all new FW tech)
+[] counterattacking against FW expansion
+
+[] to be continued...
