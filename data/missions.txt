@@ -1499,7 +1499,8 @@ mission "Electrons Final"
 	landing
 	source Farpoint
 	to offer
-		has " :done"
+		has "Catalytic Ramscoops 1F :done"
+		has "event: mk ii ships for sale"
 	on offer
 		log "Was promoted to the rank of Captain. Ironic, how they refer to civilian captains as the same, and then have their own rank, with the only difference being a capital 'C'"
 		"reputation: Republic" += 10
