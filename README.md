@@ -12,7 +12,7 @@ TO DO LIST:
 
 [x] geminus
 
-[] Electron sequence
+[x] Electron sequence
 
 [x] kornephoros attack
 
