@@ -212,6 +212,8 @@ shipyard prowler
 	"Battleship (Salvo)"
 planet Forge
 	shipyard prowler
+planet Everything
+	shipyard prowler
 planet Geminus
 	shipyard prowler
 	
@@ -234,7 +236,7 @@ ship "Prowler"
 		"fuel capacity" 1200
 		"cargo space" 80
 		"outfit space" 650
-		"weapon capacity" 318
+		"weapon capacity" 218
 		"engine capacity" 160
 		"radar jamming" 500
 		"tactical scan power" 128
@@ -246,6 +248,10 @@ ship "Prowler"
 		"atmosphere scan" 100
 		"scan interference" 15
 		"gaslining" 1
+		"cloak" .02
+		"cloaking shows on radar" 1
+		"cloaking energy" 1
+		"cloaked action" .001
 		weapon
 			"blast radius" 280
 			"shield damage" 2800
@@ -253,17 +259,18 @@ ship "Prowler"
 			"hit force" 4200
 	outfits
 		"Scram Drive"
-		"Anti-Missile Turret"
+		"Heavy Anti-Missile Turret"
 		"A525 Atomic Steering"
 		"A520 Atomic Thruster"
-		"Afterburner"
-		"Catalyctic Ramscoop" 2
+		"Volcano Afterburner"
+		"Catalytic Ramscoop" 2
 		"Breeder Reactor"
+		"LP072a Battery Pack"
 		"Liquid Nitrogen Cooler"
-		"Typhoon Launcher" 8
-		"Typhoon Torpedo" 300
-		"Typhoon Storage Tube" 4
-		"AR120 Reverse Thruster"
+		"Typhoon Pod" 8
+		"Typhoon Torpedo" 166
+		"Typhoon Storage Tube" 10
+		"AR120 Reverse Thruster" 2
 	turret 0 -91.5 "Anti-Missile Turret"
 	gun -21.5 -184 
 	gun 21.5 -184
@@ -309,5 +316,14 @@ ship "Prowler"
 		angle -105
 		under
 		left
+	leak "leak" 30 50
+	leak "flame" 50 80
+	leak "big leak" 40 30
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
 	description "Stylized in the shape of old Earth submarines, the Navy Prowler provides the same role as its aquatic forebears - a silent killer. Its onboard sensor masking suite makes the ship all but invisible to enemy radar, and its multiple Electron Beams and Typhoon Torpedo launchers allow for swift hit-and-run tactics against targets. Its defenses are relatively light, however, so it relies on its speed and sensor suite for protection."
 	description "This is also the heaviest ship you can buy with only a navy license."
