@@ -536,7 +536,7 @@ event "typhoons ending"
 		"Typhoon Storage Tube"
 		"Electron Turret"
 
-mission "Catalyctic Ramscoops 1A"
+mission "Catalytic Ramscoops 1A"
 	name "A New Task"
 	description "Your presence has once again been requested on Valhalla, please report there to assist in what ways you are needed."
 	to offer
@@ -557,11 +557,11 @@ mission "Catalyctic Ramscoops 1A"
 #crossroads- uranium/radioactive metals
 #lodestone- general mining
 
-mission "Catalyctic Ramscoops 1B"
+mission "Catalytic Ramscoops 1B"
 	name "Escort to Lodestone"
 	description "Escort two Navy Auxiliaries to Antipode and back, to bring back critical components of a new technology that John's Science team is developing."
 	to offer
-		has "Catalyctic Ramscoops 1A: done"
+		has "Catalytic Ramscoops 1A: done"
 	landing
 	source Valhalla
 	destination Antipode
@@ -572,7 +572,7 @@ mission "Catalyctic Ramscoops 1B"
 			`Several minutes later, you spot the new location- a third warehouse. After going through the usual checks with security, you are escorted down to John's office.`
 			`	"Sergeant! Good to see you again. I have once again been contracted to develop something- so naturally I called on your aid. What I have been asked to build this time is not a weapon of war- but a device of exploration. You see, the ramscoops we have today are quite outdated- and although it is quite rare to run out of fuel nowadays, it seems the Navy felt they wanted to increase the operational range of their ships."`
 			`	"And so, as you might have guessed, I have been requested to build a new ramscoop. Here's my design."`
-			scene "outfit/catalyctic ramscoop"
+			scene "outfit/Catalytic ramscoop"
 			`	"I've increased the filter quality, gotten a better collection funnel design, and increased the amount of funnels, all for a definite increase in efficiency. However, these are just the blueprints. We haven't even begun building it. And that's where you come in. You see, we need some special circuitry and rare metal filters that are only available on the Syndicate world of Antipode. The drawback is, that system, Matar, is so far south near the pirate systems that our typical Deep Sky escorts will not go, as they are 'over-extending themselves.' Whatever their real motives may be, I need you to escort two Auxiliaries that Logistics kindly let us use to Antipode and back. There shouldn't be too much trouble, but keep an eye out. Can you do this"`
 			choice
 				`	"Absolutely!"`
@@ -616,14 +616,14 @@ mission "Catalyctic Ramscoops 1B"
 		ship "Auxiliary (Cargo)" "R.N.S. Hector"
 		ship "Auxiliary (Cargo)" "R.N.S. Achilles"
 
-mission "Catalyctic Ramscoops 1C"
+mission "Catalytic Ramscoops 1C"
 	name "Escort to Valhalla"
 	description "Return the Auxiliaries and their cargo to Valhalla safely. John is counting on you."
 	landing
 	source Antipode
 	destination Valhalla
 	to offer
-		has "Catalyctic Ramscoops 1B: done"
+		has "Catalytic Ramscoops 1B: done"
 	on complete
 		event "c ramscoop built" 18
 		payment 2000000
@@ -655,10 +655,10 @@ mission "Catalyctic Ramscoops 1C"
 event "c ramscoop built"
 
 
-mission "Catalyctic Ramscoops 1D"
+mission "Catalytic Ramscoops 1D"
 	landing
 	name "Efficiency test"
-	description "John has requested your presence back on Valhalla to help him run an efficiency test on the Catalyctic Ramscoop he has built."
+	description "John has requested your presence back on Valhalla to help him run an efficiency test on the Catalytic Ramscoop he has built."
 	source
 		government Republic
 		not Valhalla
@@ -671,9 +671,9 @@ mission "Catalyctic Ramscoops 1D"
 				accept
 	on complete
 		log "People" "John Withers" "John was then hired by the Navy to build a new and improved, more efficient ramscoop."
-		outfit "Catalyctic Ramscoop" 1
+		outfit "Catalytic Ramscoop" 1
 		conversation
-			`Following the procedure which has become muscle memory by now, you soon arrive at John's lab. Once inside you meet up with him, this time on a catwalk above a construction area, where you can see two loading pallets with what you assume to be catalyctic ramscoops aboard.`
+			`Following the procedure which has become muscle memory by now, you soon arrive at John's lab. Once inside you meet up with him, this time on a catwalk above a construction area, where you can see two loading pallets with what you assume to be Catalytic ramscoops aboard.`
 			`	John says, "Well captain, its done. The first prototypes. You may be wondering, though, how will we test them-"`
 			choice
 				`	"Yeah, I mean these aren't weapons that you can put on a ship and fight in a combat test."`
@@ -688,10 +688,10 @@ mission "Catalyctic Ramscoops 1D"
 			choice
 				`	"Will do!"`
 		
-mission "Catalyctic Ramscoops 1E"
+mission "Catalytic Ramscoops 1E"
 	landing
 	name "Efficiency Test"
-	description "Use the Catalyctic Ramscoop to travel through the uninhabited systems in the north-east, then stop by Farpoint to drop off your sensor logs with Admiral Danforth. Then return to Valhalla for the test results. The best method would be to start in the southern part of the route, in Nihal, then head to Farpoint, then back to Valhalla."
+	description "Use the Catalytic Ramscoop to travel through the uninhabited systems in the north-east, then stop by Farpoint to drop off your sensor logs with Admiral Danforth. Then return to Valhalla for the test results. The best method would be to start in the southern part of the route, in Nihal, then head to Farpoint, then back to Valhalla."
 	source Valhalla
 	waypoint Nihal
 	waypoint Volax
@@ -702,7 +702,7 @@ mission "Catalyctic Ramscoops 1E"
 	stopover Farpoint
 	destination Valhalla
 	to offer
-		has "Catalyctic Ramscoops 1D: done"
+		has "Catalytic Ramscoops 1D: done"
 	on stopover
 		conversation
 			`<todo>`
