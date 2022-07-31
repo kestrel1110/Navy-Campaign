@@ -434,7 +434,7 @@ mission "Typhoons 1B"
 	description "Escort a Navy frieghter to Crossroads and back to bring John's team the materials for the new Torpedo Launcher."
 	deadline
 	on offer
-		log "People" "John Withers" "It seems that John has also expanded his development to missile systems- who knows what he'll do next..."
+		log "People" "John Withers" "It seems that John has also expanded his knowledge area in development projects to missile & torpedo systems- who knows what he'll do next..."
 		conversation
 			`You slowly bring your ship into a low orbit while you are waiting for your acknowledgement from the control tower. You look off to your left and see John's Flivver mirroring your approach. Finally you recieve your clearance from the tower, but instead of a landing slot, you are given a set of coordinates to (unsurprisingly) an abandoned factory, which you guess is the 'secure location' John mentioned. You see John's ship already accelerating, and so you quickly order the helm to follow suite.`
 			`Several minutes later, you get a notification that you are closing on the designated coordinates, and you begin to descend. Quickly, the factory comes into view, but as you look closely, you notice several slightly hidden anti-aircraft guns trained on your ship. You continue to descend, and as you come within a reasonable distance, you get another notification- you're being scanned. As soon as the scan completes, you watch the AAA guns cease to lock on to your ship, and begin scanning the skies once more. Soon, the automatic landing gear extend, and you touch down on the landing pad. After you complete your post-flight checks, you leave your ship and meet John outside. He beckons you to follow, with a smirk. As you follow a similar pattern of security checks and descending elevators as the last facility.`
@@ -703,13 +703,37 @@ mission "Catalytic Ramscoops 1E"
 	to offer
 		has "Catalytic Ramscoops 1D: done"
 	on complete
+		payment 100000
 		conversation
 			`Having safely made it through the dead stretch of northern systems and arrived at Farpoint, you begin your descent through the atmosphere. The skies are clear today, and you see the desert stretching far away on all sides, and the relatively small compaund begins to loom up to you. You radio control for clearance, and after a short wait it is granted.`
 			`Following the tower's guidance, you land on the designated pad and step out into the hot air. A slight breeze is blowing, and the compound seems relatively quiet today. The serenity is suddenly broken, however, when your communicator loudly buzzes. It's from Admiral Daforth, whom you realize you actually haven't seen in a while.`
 			`	[Hello captain! Please report to my office, it's been a while (and I need those logs). See you in a few.]`
 			`You head to Danforth's office, following the old familiar route, and soon find yourself knocking on the door again.`
 			`	"Come in!"`
-			`As you enter, you`
+			`As you enter, you notice Danforth sitting in his chair behind a monitor reading intently, but upon seeing you, he looks up and smiles.`
+			branch hines
+				has "rivalry"
+			`	"Sit down, Sergeant. How are you doing these days?"`
+			choice
+				`	"Great. The tasks are enjoyable, and I like my work!"`
+				`	"Poorly. The work is unenjoyable, but orders are orders."`
+			`Danforth nods, and asks what you've been doing for the scientists in the Deep. You describe your work, and before you know it, an hour has passed while you were chatting.`
+			label hines
+			choice
+				`Ask Danforth how Hines is doing.`
+					goto hines2
+			label end
+			choice
+				`Give Danforth your sensor logs
+			`	"Thank you Captain. It really is so helpful for you to be able to take one more ship off of patrol duty. Oh, and by the way- here's a small bonus as compensation for that long detour."`
+			`You tank the Admiral and say goodbye, and walk out of the base into the sun.`
+				done
+			label hines2
+			`	"How is Ranulf Hines doing, Admiral?" you ask.`
+			`	"He's managed to stay out of trouble," Danforth replies, "probably because the war is brewing and he is focusing less on his rivalry with you and more on getting to the front when the time comes, because sadly, it looks like it will come. Anyways Sergeant, it's been good catching up with you. Now, if you have those sensor logs, that would be great," he says in an exaggerated Bill Lumbergh accent, winking at you. Your mind quickly flashes to a 20th century comedy, and then the momentary vision dissapears.`
+				goto end
+			
+### http://media.makeameme.org/created/ThatD-be-great.jpg
 
 mission "Catalytic Ramscoops 1F"
 	landing
@@ -718,12 +742,16 @@ mission "Catalytic Ramscoops 1F"
 	source Farpoint
 	destination Valhalla
 	on complete
+		payment 2500000
 		event "deep sky tech available" 3
 		event "mk ii ships for sale" 7
 		conversation
-			`<todo>`
-
-
+			`Upon reaching your final destination of Valhalla, you proceed as before to John's lab. Entering his office, you find him pouring over a monitor filled with what looks to be data and specifications on the new ramscoop. You get his attention and he says,`
+			`	"Ah Sergeant! You're back- it felt like it took so long but it was really only a few weeks! How did my ramscoop perform?"`
+			choice
+				`	"Very well, it certainly is an improvement over the previous generation."`
+				`	"It worked well, but the size might be a problem at some point."`
+			`	"Well, thak you for the feedback. I'm glad it served you well. He hands you a credit chip worth <payment> credits. Give me a few days, and I should have everything set to begin production. It's been great working with you, <first>." You shake hands with him, and then go to your ship.`
 
 event "mk ii ships for sale"
 	shipyard "Navy Basics"
