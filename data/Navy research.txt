@@ -251,7 +251,8 @@ ship "Prowler"
 		"cloak" .02
 		"cloaking shows on radar" 1
 		"cloaking energy" 1
-		"cloaked action" .001
+		"cloaked action" .0025
+		"action whilst cloaking"
 		weapon
 			"blast radius" 280
 			"shield damage" 2800
