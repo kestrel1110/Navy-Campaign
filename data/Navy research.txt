@@ -228,17 +228,17 @@ ship "Prowler"
 		"cost" 12420000
 		"shields" 23500
 		"hull" 4500
-		"required crew" 55
-		"bunks" 123
+		"required crew" 36
+		"bunks" 88
 		"mass" 469
 		"drag" 4.20
 		"heat dissipation" .69
 		"fuel capacity" 1200
 		"cargo space" 80
-		"outfit space" 650
+		"outfit space" 690
 		"weapon capacity" 218
 		"engine capacity" 160
-		"radar jamming" 500
+		"radar jamming" 5
 		"tactical scan power" 128
 		"asteroid scan power" 40
 		"outfit scan power" 50
@@ -253,6 +253,9 @@ ship "Prowler"
 		"cloaking energy" 1
 		"cloaked action" .0025
 		"action whilst cloaking"
+		"cloaking hull delay" 1
+		"cloaking shield delay" 0.5
+		"minimal hull for cloaking" .9
 		weapon
 			"blast radius" 280
 			"shield damage" 2800
@@ -268,10 +271,11 @@ ship "Prowler"
 		"Breeder Reactor"
 		"LP072a Battery Pack"
 		"Liquid Nitrogen Cooler"
-		"Typhoon Pod" 8
-		"Typhoon Torpedo" 166
-		"Typhoon Storage Tube" 10
+		"Typhoon Pod" 10
+		"Typhoon Torpedo" 200
+		"Typhoon Storage Tube" 12
 		"AR120 Reverse Thruster" 2
+		"D41-HY Shield Generator"
 	turret 0 -91.5 "Anti-Missile Turret"
 	gun -21.5 -184 
 	gun 21.5 -184
@@ -281,6 +285,13 @@ ship "Prowler"
 	gun 11 -212.5
 	gun -6.5 -224
 	gun 6.5 -224
+	#rear launchers
+	gun -10.5 201
+		over
+		angle 180
+	gun 10.5 201
+		over
+		angle 180
 	engine -16 220.5
 		zoom 1
 		angle 0
@@ -326,5 +337,5 @@ ship "Prowler"
 	explode "large explosion" 40
 	explode "huge explosion" 10
 	"final explode" "final explosion large"
-	description "Stylized in the shape of old Earth submarines, the Navy Prowler provides the same role as its aquatic forebears - a silent killer. Its onboard sensor masking suite makes the ship all but invisible to enemy radar, and its multiple Electron Beams and Typhoon Torpedo launchers allow for swift hit-and-run tactics against targets. Its defenses are relatively light, however, so it relies on its speed and sensor suite for protection."
-	description "This is also the heaviest ship you can buy with only a navy license."
+	description "Stylized in the shape of old Earth submarines, the Navy Prowler provides the same role as its aquatic forebears - a silent killer. Its onboard sensor masking suite makes the ship all but invisible to enemy radar, and its multiple Typhoon Torpedo launchers allow for swift hit-and-run tactics against targets. It is the first human ship to carry anything that can be called close to a 'cloaking device,' although its properties are rather limited, only allowing for visual cloaking through the use of special projector systems, and unable to hide from radar. However, that does have its uses, as most ship turrets track optically, and so it can hide from those. Due to its hull being covered in so many delicate projector arrays, its hull cannot be accessed while cloaked, and therefore it may not conduct any repair of its hull while the cloaking device is engaged, and, if the hull takes any significant damage, the cloaking device is disabled and can no longer work. While cloaked it also regenerates shields significantly slower due to interference from the cloak. Its defenses are relatively light, however, so it usually relies on its speed and sensor masking suite for protection."
+	description "This is also the heaviest ship you can buy with only a Navy license."
