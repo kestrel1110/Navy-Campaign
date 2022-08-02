@@ -252,7 +252,7 @@ ship "Prowler"
 		"cloaking shows on radar" 1
 		"cloaking energy" 1
 		"cloaked action" .002
-		"action whilst cloaking"
+		"action whilst cloaking" 1
 		"cloaking hull delay" 1
 		"cloaking shield delay" 0.5
 		"minimal hull for cloaking" .9
