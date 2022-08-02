@@ -1490,7 +1490,12 @@ mission "Electrons 1A"
 	description `Report to Epsilon Leonis to aid in weapons development.`
 	to offer
 		has event "geminus2weekleave"
+		has "Tier Boost: declined"
+		has "Geminus 3C: done"
 	deadline
+	source
+		government Republic
+		not Valhalla
 	destination "Valhalla"
 	landing
 	on offer
