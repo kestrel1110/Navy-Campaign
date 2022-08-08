@@ -2479,14 +2479,14 @@ mission "Escort Intelligence Prisoners"
 		conversation
 			`Upon entering the system, your radar lights up with dozens of contacts. They seem to identify as Merchants, but have hostile beacons. As they begin to attack, you have no choice but to defend yourself...`
 	on complete
-		log "Was promoted again to Lieutenant Commander due to my performance at Kornephoros and in the convoy escort. I now have access to purchasing every navy ship, and a substantial salary. It's a wonder how I am managing to fly through the ranks like this. Also, I'm noting that I am now the same rank as Ranulf Hines..I wonder what he may do because of this..."
+		log "Was promoted again to Lieutenant Commander due to my performance at Kornephoros and in the convoy escort. I now have access to purchasing every navy ship, and a substantial salary. It's a wonder how I am managing to fly through the ranks like this. Also, I'm noting that I am now the same rank as Ranulf Hines..I wonder what may happen because of this..."
 		"reputation: Republic" += 10
 		"reputation: Free Worlds" = 500
 		"reputation: Escort" = 500
 		"salary: Navy" = 3000
 		set "license: Navy Carrier"
 		conversation
-			`	As you dock with the station, thankfully with the Auxiliary still intact, you recieve a message from Naval High Command: [Captain <last>, congratulations on successfully bringing back the Intelligence transport. In order to express our gratitude for completing such a sensitive mission, we are promoting you to the rank of Lieutenant Commander, with full access to the Navy shipyards. You will be temporarily reassigned to the Navy Intelligence branch to work on a new research project based on Mars. Please report there promptly. Thank you.]
+			`	As you dock with the station, thankfully with the Auxiliary still intact, you recieve a message from Naval High Command: [Captain <last>, congratulations on successfully bringing back the Intelligence transport. In order to express our gratitude for completing such a sensitive mission, we are promoting you to the rank of Lieutenant Commander, with full access to the Navy shipyards. You will be temporarily reassigned to the Navy Intelligence branch to work on a new research project based on Luna. Please report there promptly. Thank you.]
 	npc evade
 		personality staying disables heroic
 		government "Free Worlds Sympathiser"
@@ -2570,23 +2570,21 @@ mission "NavyIntel [0]"
 	description "Report to a Navy Intelligence base on Mars
 	landing
 	source "Huginn Station"
-	destination Mars
+	destination Luna
 	to offer
 		has "Escort Intelligence Prisoners: done"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on complete
-		log "Factions" "Oathkeepers" `The "Oathkeepers" are a regiment of Navy officers who were captured by the Free Worlds and paroled on the condition that they take no further part in fighting against the Free Worlds. Led by none other than Admiral William Danforth, himself, their "official" mission is to protect the Paradise Worlds from the pirates who live on the anarchist worlds in the far north of human space. Unofficially, however, Danforth and the Oathkeepers are using their new position to investigate the bombings of Geminus and Martini.`
-		log "People" "William Danforth" `Due to recent events in the South, Danforth has been placed in charge of the Navy regiment who call themselves the "Oathkeepers."`
 		event "recapture of Kornephoros"
 		event "temporary ceasefire"
 		event "start of hostilities" 8
 		event "oathkeepers founded navy pov" 50
 		conversation
-			`As you are landing you notice a news report stating that the Navy attacked the Free Worlds system Sabik, but was repulsed. This was followed by a swift counterattack on Kornephoros leading to its recapture by the Free Worlds. Many Navy personnel were captured, but the Free Worlds decided to give anyone who swore an oath to abstain from the war parole, and so a ceasefire of about a week was negotiated to give the Free Worlds transports time to return the prisoners.`
+			`As you are landing you notice a news report stating that the Navy attacked the Free Worlds system Sabik, but was repulsed. This was followed by a swift counterattack on Kornephoros leading to its recapture by the Free Worlds. Many Navy personnel were captured, but the Free Worlds decided to give anyone who swore an oath to abstain from the war parole, and so a ceasefire lasting for around a week was negotiated to give the Free Worlds time to transport the prisoners to Republic space.`
 			``
-			``
-			`	<SUBMARINE SEQUENCE`
+			`	Your communicator lights up with a notification from Naval Command:`
+			`	[Lieutenant Commander <last>, ]
 
 
 
@@ -2600,6 +2598,8 @@ mission "oathkeepers founded [navy]"
 	source
 		government "Republic"
 	on offer
+		log "Factions" "Oathkeepers" `The "Oathkeepers" are a regiment of Navy officers who were captured by the Free Worlds and paroled on the condition that they take no further part in fighting against the Free Worlds. Led by none other than Admiral William Danforth, himself, their "official" mission is to protect the Paradise Worlds from the pirates who live on the anarchist worlds in the far north of human space. Unofficially, however, Danforth and the Oathkeepers are using their new position to investigate the bombings of Geminus and Martini.`
+		log "People" "William Danforth" `Due to recent events in the South, Danforth has been placed in charge of the Navy regiment who call themselves the "Oathkeepers."`
 		conversation
 			`When you land on <origin>, it seems that everyone in the spaceport is talking about a recent news story: the Navy has just announced the formation of a new regiment, called the Oathkeepers. This regiment is staffed mostly by prisoners paroled from Kornephoros, who want to honor their oath to take no further part in the conflict against the Free Worlds. They will be headquartered on Farpoint, in the far north, to defend that region of space against pirate incursions.`
 			`	Furthermore, the leader of the Oathkeepers will be Admiral Danforth, your good friend. Although he was not one of the paroled prisoners, he has become an outspoken advocate for a diplomatic solution to the Free Worlds conflict.`
