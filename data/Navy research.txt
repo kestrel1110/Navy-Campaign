@@ -253,8 +253,8 @@ ship "Prowler"
 		"cloaking energy" 1
 		"cloaked firing" .04
 		"cloaked deployment"
-		"cloak repair delay" 1
-		"cloak shield delay" 0.5
+		"cloaking repair delay" 1
+		"cloaking shield delay" 0.5
 		"cloak hull threshold" .9
 		weapon
 			"blast radius" 280
