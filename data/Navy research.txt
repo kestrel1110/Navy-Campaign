@@ -1,100 +1,224 @@
-#world-forge
-shipyard prowler
-	"Prowler"
-	"Prowler (Direct Fire)"
-planet Forge
-	shipyard prowler
-planet Everything
-	shipyard prowler
-planet "Everything "
-	shipyard prowler
-planet Geminus
-	shipyard prowler
-	
-ship "Prowler" "Prowler (Direct Fire)"
+ship "Battleship"
+	sprite "ship/nvybattleship"
+	thumbnail "thumbnail/nvybattleship"
+	attributes
+		category "Heavy Warship"
+		licenses
+			Navy
+			Battleship
+		"cost" 19200000
+		"shields" 25400
+		"hull" 10600
+		"required crew" 160
+		"bunks" 212
+		"mass" 1010
+		"drag" 19.4
+		"heat dissipation" .35
+		"fuel capacity" 1000
+		"cargo space" 230
+		"outfit space" 940
+		"weapon capacity" 500
+		"engine capacity" 200
+		weapon
+			"blast radius" 340
+			"shield damage" 3400
+			"hull damage" 1700
+			"hit force" 5100
 	outfits
-		"A520 Atomic Thruster"
-		"A525 Atomic Steering"
-		"Breeder Reactor"
-		"Catalytic Ramscoop" 2
+		Hyperdrive
+		"Heavy Anti-Missile Turret" 5
+		"Liquid Helium Cooler" 2
 		"D94-YV Shield Generator"
-		"Electron Beam" 8
-		"Heavy Anti-Missile Turret"
-		"LP036a Battery Pack"
-		"Liquid Helium Cooler"
-		"Scram Drive"
-		"Sidewinder Missile" 238
-		"Sidewinder Missile Pod" 2
-		"Sidewinder Missile Rack" 10
-		"Small Radar Jammer" 2
-		"Volcano Afterburner"
-	turret 0 -91.5 "Anti-Missile Turret"
-	gun -21.5 -184 
-	gun 21.5 -184
-	gun -16 -198.5
-	gun 16 -198.5
-	gun -11 -212.5
-	gun 11 -212.5
-	gun -6.5 -224
-	gun 6.5 -224
-	bay "Drone" -41 -85
-		angle -90
-	bay "Drone" 41 -85
-		angle 90
-	#rear launchers
-	gun -10.5 201 "Sidewinder Missile Pod"
-		over
-		angle 180
-	gun 10.5 201 "Sidewinder Missile Pod"
-		over
-		angle 180
-	engine -16 220.5
-		zoom 1
-		angle 0
-		under
-	engine 16 220.5
-		zoom 1
-		angle 0
-		under
-	"reverse engine" -31 146.5
-		zoom 1
-		angle -35
-		under
-	"reverse engine" 31 146.5
-		zoom 1
-		angle 35
-		under
-	"steering engine" -11.5 166
-		zoom 1
-		angle 45
-		under
-		left
-	"steering engine" 11.5 166
-		zoom 1
-		angle -45
-		under
-		right
-	"steering engine" -1 -91
-		zoom 1
-		angle 105
-		under
-		right
-	"steering engine" 1 -91
-		zoom 1
-		angle -105
-		under
-		left
-	leak "leak" 30 50
-	leak "flame" 50 80
-	leak "big leak" 40 30
+		"A375 Atomic Steering"
+		"Electron Turret" 2
+		"A370 Atomic Thruster"
+		"Heavy Laser Turret" 4
+		"Tactical Scanner"
+		"LP288a Battery Pack"
+		"Catalytic Ramscoop"
+		"Heavy Rocket" 40
+		"Armageddon Core"
+		"Heavy Rocket Launcher" 2
+		
+	engine 47.5 188.5
+	engine 25 201
+	engine -47.5 188.5
+	engine -25 201
+	engine 0 210.5
+	gun 24.5 -172.5
+	gun 19.5 -188
+	gun 14 -204 "Heavy Rocket Launcher"
+	gun -24.5 -172.5
+	gun -19.5 -188
+	gun -14 -204 "Heavy Rocket Launcher"
+	turret 0 -151 "Electron Turret" 
+	turret 0 -97 "Electron Turret" 
+	turret 0 69.5 "Heavy Anti-Missile Turret"
+	turret 32.5 66.5 "Heavy Anti-Missile Turret"
+	turret 31.5 95.5 "Heavy Anti-Missile Turret"
+	turret 66 108 "Heavy Laser Turret"
+	turret 27.5 149.5 "Heavy Laser Turret"
+	turret -32.5 66.5 "Heavy Anti-Missile Turret"
+	turret -31.5 95.5 "Heavy Anti-Missile Turret"
+	turret -66 108 "Heavy Laser Turret"
+	turret -27.5 149.5 "Heavy Laser Turret"
 	explode "tiny explosion" 20
 	explode "small explosion" 45
 	explode "medium explosion" 50
 	explode "large explosion" 40
 	explode "huge explosion" 10
 	"final explode" "final explosion large"
+	description "The largest ship made by the navy so far, it is hoped to help repel any future invasions by aliens in human space. Its design leans towards turrets more than guns and has the equivilent armament of a small fleet"
+
+ship "Battleship" "Battleship (Heavy)"
+	outfits
+		Hyperdrive
+		"Outfits Expansion" 5
+		"A375 Atomic Steering"
+		"A370 Atomic Thruster"
+		"Heavy Anti-Missile Turret" 3
+		"Liquid Helium Cooler" 2
+		"Electron Turret" 4
+		Supercapacitor
+		"Heavy Laser Turret" 2
+		"Tactical Scanner"
+		"Liquid Nitrogen Cooler"
+		"Heavy Laser" 4
+		"Anti-Missile Turret" 2
+		"LP288a Battery Pack"
+		"S-970 Regenerator" 2
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Catalytic Ramscoop"
+		"Armageddon Core"
+	engine 47.5 188.5 1
+	engine 25 201 1
+	engine -47.5 188.5 1
+	engine -25 201 1
+	engine 0 210.5 1
+	gun 24.5 -172.5 "Heavy Laser"
+	gun 19.5 -188 "Heavy Laser"
+	gun 14 -204 "Meteor Missile Launcher"
+	gun -24.5 -172.5 "Heavy Laser"
+	gun -19.5 -188 "Heavy Laser"
+	gun -14 -204 "Meteor Missile Launcher"
+	turret 0 -151 "Electron Turret"
+	turret 0 -97 "Electron Turret"
+	turret 0 69.5 "Heavy Anti-Missile Turret"
+	turret 32.5 66.5 "Anti-Missile Turret"
+	turret 31.5 95.5 "Heavy Anti-Missile Turret"
+	turret 66 108 "Heavy Laser Turret"
+	turret 27.5 149.5 "Electron Turret"
+	turret -32.5 66.5 "Anti-Missile Turret"
+	turret -31.5 95.5 "Heavy Anti-Missile Turret"
+	turret -66 108 "Heavy Laser Turret"
+	turret -27.5 149.5 "Electron Turret"
+
+ship "Battleship" "Battleship (Salvo)"
+	outfits
+		"Laser Turret" 4
+		Hyperdrive
+		"Outfits Expansion" 5
+		"A375 Atomic Steering"
+		"A370 Atomic Thruster"
+		"D94-YV Shield Generator"
+		"Heavy Anti-Missile Turret" 2
+		"Liquid Helium Cooler" 2
+		"Electron Turret"
+		Supercapacitor
+		"Heavy Laser Turret"
+		"Tactical Scanner"
+		"Liquid Nitrogen Cooler"
+		"Anti-Missile Turret" 3
+		"LP288a Battery Pack"
+		"S-270 Regenerator"
+		"Catalytic Ramscoop"
+		"Armageddon Core"
+		"Typhoon Torpedo" 180
+		"Typhoon Launcher" 6
+	engine 47.5 188.5 1
+	engine 25 201 1
+	engine -47.5 188.5 1
+	engine -25 201 1
+	engine 0 210.5 1
+	gun 24.5 -172.5 "Typhoon Launcher"
+	gun 19.5 -188 "Typhoon Launcher"
+	gun 14 -204 "Typhoon Launcher"
+	gun -24.5 -172.5 "Typhoon Launcher"
+	gun -19.5 -188 "Typhoon Launcher"
+	gun -14 -204 "Typhoon Launcher"
+	turret 0 -151 "Electron Turret"
+	turret 0 -97 "Heavy Laser Turret"
+	turret 0 69.5 "Anti-Missile Turret"
+	turret 32.5 66.5 "Anti-Missile Turret"
+	turret 31.5 95.5 "Anti-Missile Turret"
+	turret 66 108 "Laser Turret"
+	turret 27.5 149.5 "Laser Turret"
+	turret -32.5 66.5 "Heavy Anti-Missile Turret"
+	turret -31.5 95.5 "Heavy Anti-Missile Turret"
+	turret -66 108 "Laser Turret"
+	turret -27.5 149.5 "Laser Turret"
+
+ship "Battleship" "Battleship (Particle)"
+	outfits
+		"Laser Turret" 5
+		Hyperdrive
+		"Outfits Expansion" 5
+		"A375 Atomic Steering"
+		"A370 Atomic Thruster"
+		"D94-YV Shield Generator"
+		"Heavy Anti-Missile Turret" 5
+		"Liquid Helium Cooler" 3
+		"Electron Turret"
+		"Tactical Scanner"
+		"Particle Cannon" 6
+		"LP288a Battery Pack"
+		"Catalytic Ramscoop"
+		"Armageddon Core"
+	engine 47.5 188.5 1
+	engine 25 201 1
+	engine -47.5 188.5 1
+	engine -25 201 1
+	engine 0 210.5 1
+	gun 24.5 -172.5 "Particle Cannon"
+	gun 19.5 -188 "Particle Cannon"
+	gun 14 -204 "Particle Cannon"
+	gun -24.5 -172.5 "Particle Cannon"
+	gun -19.5 -188 "Particle Cannon"
+	gun -14 -204 "Particle Cannon"
+	turret 0 -151 "Electron Turret"
+	turret 0 -97 "Laser Turret"
+	turret 0 69.5 "Heavy Anti-Missile Turret"
+	turret 32.5 66.5 "Heavy Anti-Missile Turret"
+	turret 31.5 95.5 "Heavy Anti-Missile Turret"
+	turret 66 108 "Laser Turret"
+	turret 27.5 149.5 "Laser Turret"
+	turret -32.5 66.5 "Heavy Anti-Missile Turret"
+	turret -31.5 95.5 "Heavy Anti-Missile Turret"
+	turret -66 108 "Laser Turret"
+	turret -27.5 149.5 "Laser Turret"
+
+outfit "Battleship License"
+	category "Special"
+	thumbnail "outfit/battleship license"
+	description "Awarded to those who have proven loyalty to the republic in their greatest times of need"
 	
-ship "Prowler"
+	
+	
+	
+#world-forge
+shipyard prowler
+	"Prowler"
+	"Battleship (Salvo)"
+planet Forge
+	shipyard prowler
+planet Everything
+	shipyard prowler
+planet Geminus
+	shipyard prowler
+	
+	
+ship "Submarine"
 	sprite "ship/submarine"
 	thumbnail "thumbnail/submarine"
 	attributes
@@ -138,21 +262,20 @@ ship "Prowler"
 			"hull damage" 1400
 			"hit force" 4200
 	outfits
-		"A520 Atomic Thruster"
-		"A525 Atomic Steering"
-		"AR120 Reverse Thruster" 2
-		"Breeder Reactor"
-		"Catalytic Ramscoop" 2
-		"D41-HY Shield Generator"
+		"Scram Drive"
 		"Heavy Anti-Missile Turret"
+		"A525 Atomic Steering"
+		"A520 Atomic Thruster"
+		"Volcano Afterburner"
+		"Catalytic Ramscoop" 2
+		"Breeder Reactor"
 		"LP072a Battery Pack"
 		"Liquid Nitrogen Cooler"
-		"Outfits Expansion" 2
-		"Scram Drive"
 		"Typhoon Pod" 10
-		"Typhoon Storage Tube" 16
-		"Typhoon Torpedo" 260
-		"Volcano Afterburner"
+		"Typhoon Torpedo" 200
+		"Typhoon Storage Tube" 12
+		"AR120 Reverse Thruster" 2
+		"D41-HY Shield Generator"
 	turret 0 -91.5 "Anti-Missile Turret"
 	gun -21.5 -184 
 	gun 21.5 -184

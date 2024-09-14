@@ -10,9 +10,9 @@
 
 person "Irex"
 	government "Unity"
-	frequency 3000
+	frequency 30
 	personality
-		mining harvests opportunistic frugal unconstrained disables
+		disables
 	phrase
 		phrase
 			"friendly author"
