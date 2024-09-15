@@ -187,7 +187,7 @@ mission "Republic Scouting 1"
 	on complete
 		payment 30000
 		dialog
-			`As you land on <destination>, Jane approaches you again. "Thank you on behalf of not only the Republic, but everyone who uses this network. I've transfered <payment> to your account."`
+			`As you land on <destination>, Jane approaches you again. "Thank you on behalf of not only the Republic, but everyone who uses this network. I've transferred <payment> to your account."`
 
 
 
@@ -271,7 +271,7 @@ mission "Republic Scouting 3"
 
 	on complete
 		"assisted republic" ++
-		dialog `Soon after you land, Jane comes to your ship and pays you <payment> in exchange for your sensor logs regarding <npc>. "No alien tech, I see," she says, sounding dissapointed. "While that would have been a great find, I will admit I'm happy I don't have to figure out how to defend against it. I've let my supervisors know how helpful you've been, hopefully we can work together again soon." `
+		dialog `Soon after you land, Jane comes to your ship and pays you <payment> in exchange for your sensor logs regarding <npc>. "No alien tech, I see," she says, sounding disappointed. "While that would have been a great find, I will admit I'm happy I don't have to figure out how to defend against it. I've let my supervisors know how helpful you've been, hopefully we can work together again soon." `
 		payment 50000
 		log "Captain Melgrew says she has put a good word in for me with her superiors."
 
@@ -454,7 +454,7 @@ mission "Joining the Navy"
 					accept
 
 	on accept
-		log "Accepted a commision into the Republic Navy."
+		log "Accepted a commission into the Republic Navy."
             
 	npc disable
 		personality heroic staying nemesis target
@@ -583,7 +583,7 @@ mission "Navy Pirate Patrol 1"
 		has "chosen sides"
 	on offer
 		conversation
-			`Not long after you begin to land your ship, you communicator alerts you to an incoming hail from Admiral Danforth. "I'm glad you could make it, Captain <last> - I just finished reading the dossier Colonel Howell compiled on you. Your combat skills are certainly impressive, and I commend your bravery. Right now, however, we are in need of a more critical skill: reconaissance."`
+			`Not long after you begin to land your ship, you communicator alerts you to an incoming hail from Admiral Danforth. "I'm glad you could make it, Captain <last> - I just finished reading the dossier Colonel Howell compiled on you. Your combat skills are certainly impressive, and I commend your bravery. Right now, however, we are in need of a more critical skill: reconnaissance."`
 			``
 			`	Danforth brings up a display of the Galaxy map, highlighting three systems. "This is what we would call a 'mid-range' scouting mission - nothing too hard, but it won't be a cakewalk, either. Your mission is to fly through Mintaka, Gorvi and Tortor - record pirate fleet presence in those systems, and return here so we can analyze your sensor logs."`
 			choice
@@ -652,7 +652,7 @@ mission "Navy Pirate Patrol 3"
 		has "chosen sides"
 	on offer
 		conversation
-			`	While there are scant few establishments to begin with, the Stardust Pub appears to be one of the more popular places to eat, judging by the crowd at the entrance. Among those gathered, you notice, and subsequently join, Admiral Danforth; however, his expression is one that you can only describe as "hesistant."`
+			`	While there are scant few establishments to begin with, the Stardust Pub appears to be one of the more popular places to eat, judging by the crowd at the entrance. Among those gathered, you notice, and subsequently join, Admiral Danforth; however, his expression is one that you can only describe as "hesitant."`
 			`	"You've done a fantastic job so far, Captain <last>," he begins, looking straight ahead, "and I need your talents once more. We're sending you straight into the heart of the Northern Pirates to track their fleet presence in Arneb, Alnilam and Hatsya. I won't lie to you - even most Navy recruits tend to be wary operating so remotely, and you will be compensated appropriately."`
 			`	Danforth then turns his head slightly in your direction. "Can I count on you to scan these systems?"`
 			choice
@@ -1514,7 +1514,7 @@ mission "Electrons 1A"
 	destination "Valhalla"
 	landing
 	on offer
-		dialog `You receive a message from Naval Command: "Sergeant <last>, please report to Epsilon Leonis. The scientists there require you to aid with certain reasearch and development.`
+		dialog `You receive a message from Naval Command: "Sergeant <last>, please report to Epsilon Leonis. The scientists there require you to aid with certain research and development.`
 	on complete
 		log "People" "John Withers" "A Deep Scientist who works on developing new weapons and technology for the Navy. Him and his associate, Walter Heisenburg, are directly responsible for the development of the heavy laser. Now, it seems, he is working on a new project."
 		conversation 
@@ -1522,7 +1522,7 @@ mission "Electrons 1A"
 			`	[Sergeant <last>, please redirect to the following coordinates- you are expected:]`
 			`The message then lists a set of global coordinates about 20 miles to the west of the spaceport. Following the instructions, you redirect to the designated spot.`
 			`After about two minutes, you see a old dilapidated warehouse with several concrete landing pads in front of it. You land at one of the pads and are greeted by a scientist in a white lab coat.`
-			`	"Hello Sergeant! My name is John Withers," as he reaches out and shakes your hand. "I'm sure you've met my collegue, Dr. Heisenberg. He and I worked on the Heavy Laser back in the day. Now though, I have a new project, and for this one I'll be needing your help."`
+			`	"Hello Sergeant! My name is John Withers," as he reaches out and shakes your hand. "I'm sure you've met my colleague, Dr. Heisenberg. He and I worked on the Heavy Laser back in the day. Now though, I have a new project, and for this one I'll be needing your help."`
 			`As the mechanic refuels your ship, you follow the scientist to a shuttle waiting nearby. The shuttle starts moving, and heads into the warehouse, which seems much larger on the inside, large enough to fit a frigate at least, and is full of what looks to be prototypes of ships and weapons. The shuttle stops, and you all climb out.`
 			`You follow the scientists down a short corridor leaving the main area of the warehouse, ending in a well-lit elevator lobby. John puts a code into a keypad, which opens the elevator doors. You walk in and it begins its descent. You step into a sleek lab, filled with scientists hunched over various displays and devices, of which you can guess the purpose of very few. John leads you down a long hallway to a sealed room, flanked by two marines with rifles. He pulls a key card out of his pocket, motions to one of the guards, who pulls out a card of his own, and they swipe them simultaneously. The door opens with a hiss and reveals a perfectly white room, and a table on which is seated a long device, which appears to be the latest from the Deep.`
 			scene "outfit/electron beam"
@@ -1726,7 +1726,7 @@ mission "Electrons 1F"
 		system Aspidiske
 		ship "Mule Test Dummy (Electrons)" "Test Dummy"
 		ship "Barb Test Dummy (Electrons)" "Test Dummy"
-		dialogue "You've killed the Test ships you were supposed to disable. Congradulations? Now I suggest you reload your save and try again."
+		dialogue "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
 	on complete
 		event "e-beam delay 2" 8		
 		payment 1750000
@@ -1882,7 +1882,7 @@ mission "Electrons 2C"
 		system Aspidiske
 		ship "Mule Test Dummy (Electrons+Turret)" "Test Dummy"
 		ship "Barb Test Dummy (Electrons)" "Test Dummy"
-		dialogue "You've killed the Test ships you were supposed to disable. Congradulations? Now I suggest you reload your save and try again."
+		dialogue "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
 	on complete
 		event "30-day-leave" 30
 		event "all-electrons-available" 10
@@ -1918,7 +1918,7 @@ mission "Typhoons 1A"
 	on offer
 		conversation
 			`As you come in for a landing, you find you have received another communique from John: "Captain, instead of coming to the warehouse, head to the spaceport where I'll meet you for your next assignment."`
-			`You follow his directions and soon arrive at the spaceport bar, where you immediately recognize John. You walk over to him, and he calls out to you. "<first>? There you are! Well, let's get straight to buisiness. Your next task will be to assist in the development of a new weapon. However, instead of a beam weapon, you shall test a new projectile weapon. As this is not a secure location, I cannot tell you more at this time, but if you'll follow my ship to a protected location on Valhalla, we may discuss this in detail."`
+			`You follow his directions and soon arrive at the spaceport bar, where you immediately recognize John. You walk over to him, and he calls out to you. "<first>? There you are! Well, let's get straight to business. Your next task will be to assist in the development of a new weapon. However, instead of a beam weapon, you shall test a new projectile weapon. As this is not a secure location, I cannot tell you more at this time, but if you'll follow my ship to a protected location on Valhalla, we may discuss this in detail."`
 			choice
 				`"Sounds good. Let's go!"`
 					accept
@@ -1946,7 +1946,7 @@ mission "Typhoons 1B"
 			`You slowly bring your ship into a low orbit while you are waiting for your acknowledgement from the control tower. You look off to your left and see John's Flivver mirroring your approach. Finally you receive your clearance from the tower, but instead of a landing slot, you are given a set of coordinates to (unsurprisingly) an abandoned factory, which you guess is the 'secure location' John mentioned. You see John's ship already accelerating, and so you quickly order the helm to follow suite.`
 			`Several minutes later, you get a notification that you are closing on the designated coordinates, and you begin to descend. Quickly, the factory comes into view, but as you look closely, you notice several slightly hidden anti-aircraft guns trained on your ship. You continue to descend, and as you come within a reasonable distance, you get another notification- you're being scanned. As soon as the scan completes, you watch the AAA guns cease to lock on to your ship, and begin scanning the skies once more. Soon, the automatic landing gear extend, and you touch down on the landing pad. After you complete your post-flight checks, you leave your ship and meet John outside. He beckons you to follow, with a smirk. As you follow a similar pattern of security checks and descending elevators as the last facility.`
 			`Eventually, you reach another white shiny room full of tech way beyond your understanding, half of which looks like it would disintegrate you with a mere fraction of its possible power. In the middle of it all is a stairway, which John escorts you down. At the bottom is a large bay in which the largest torpedoe you have ever seen rests. Pulsing with a radioactive green energy, you wonder what sorcery these crazy scientists have concocted up now. However, you soon discover it is not sorcery, but just another powerful bomb. John begins explaining how much more advanced this weapon is than the atom bombs of old, but soon you zone out. He continues for a few more minutes but notices your eyes glazing over, and apologizes for taking so long. He then gives you your instructions.`
-				`"For this assignment, we will need you to escort some more ships from the Syndicate to Valhalla. We have built a number of the prototype torpedos, but we need a few more items for the launcher. So, please escort one Auxilliary from here to Crossroads and back in order to bring us the necessary materials."`
+				`"For this assignment, we will need you to escort some more ships from the Syndicate to Valhalla. We have built a number of the prototype torpedoes, but we need a few more items for the launcher. So, please escort one Auxiliary from here to Crossroads and back in order to bring us the necessary materials."`
 			choice
 				`"Yes sir!"`
 					accept
@@ -1955,7 +1955,7 @@ mission "Typhoons 1B"
 				`Despite the harassment from the mercenaries, you manage to safely touch down roughly within your landing beacons on the pad. Thankfully, the Auxiliary has survived without major damage, and after a short inspection, Syndicate dockworkers begin loading it up with heavily armored crates with an atomic symbol on it. After an hour or two, the load is complete, and you head to the control center?.
 	on complete
 		conversation
-			`With surprisingly no resistence, you manage to bring the Auxiliary home relatively unscathed, with all its cargo intact. As you touch down on the pad, you receive another message from John informing you to meet him inside the lab.`
+			`With surprisingly no resistance, you manage to bring the Auxiliary home relatively unscathed, with all its cargo intact. As you touch down on the pad, you receive another message from John informing you to meet him inside the lab.`
 	npc accompany save
 		personality escort timid
 		fleet
@@ -1980,7 +1980,7 @@ mission "Typhoons 1C"
 	destination Valhalla
 	waypoint Aspidiske
 	name "Conduct weapons testing"
-	decription "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
+	description "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
 	on offer
 		conversation
 			`You follow the instructions left for you, and after a few minutes you catch sight of John in an office. You go up to the door and knock, and he shouts, "Come in! Ah, <first>. Glad you could make it. Now that we have those materials, it shouldn't be long until the torpedo is finished. And after that, we will conduct another combat test- which I'm sure you're excited for. Remember, please don't destroy the testing ship, as it costs a lot of money, and is crewed by real people, and we cannot replace them. Any questions?"`
@@ -2093,7 +2093,7 @@ mission "Catalytic Ramscoops 1B"
 	on complete
 		payment 510200
 		conversation
-			`Having destroyed the Pirate fleet in orbit, you can now safely load the cargo onto the Auxiliaries. When you radio the control tower for your landing confirmation, a very impressed-sounding operator quickly replies, giving you your landing pad designation, and adds that the local government is very grateful for your assistance, and has relayed you an alotted compensation of 510,200 credits in order to express their gratitude. You politely thank him and proceed with your landing checks.`
+			`Having destroyed the Pirate fleet in orbit, you can now safely load the cargo onto the Auxiliaries. When you radio the control tower for your landing confirmation, a very impressed-sounding operator quickly replies, giving you your landing pad designation, and adds that the local government is very grateful for your assistance, and has relayed you an allotted compensation of 510,200 credits in order to express their gratitude. You politely thank him and proceed with your landing checks.`
 			`A few hours later, the cargo is loaded, and you are ready to depart.`
 	npc kill
 		government Pirate
@@ -2146,10 +2146,10 @@ mission "Catalytic Ramscoops 1C"
 				`	"I hope I never have to do that again. There were so many pirates, we nearly lost the entire fleet!"`
 					goto hard
 				label ez
-				`	"Well, I'm glad you fared well. Now to buisiness."`
+				`	"Well, I'm glad you fared well. Now to business."`
 					goto end
 				label hard
-				`	"I do too. Hopefully at leaast that'll prove that we can't just send unprotected convoys marching past anarchist space. Now, though, to buisiness."
+				`	"I do too. Hopefully at least that'll prove that we can't just send unprotected convoys marching past anarchist space. Now, though, to business."
 				label end
 				`	"In reward for your services, you have been given a bonus of two million credits. I hope it serves you well. My team will be spending the next few weeks assembling this device, after which we shall request your services again. Until then, you are on leave."`
 
@@ -2237,7 +2237,7 @@ mission "Catalytic Ramscoops 1E"
 				done
 			label hines2
 			`	"How is Ranulf Hines doing, Admiral?" you ask.`
-			`	"He's managed to stay out of trouble," Danforth replies, "probably because the war is brewing and he is focusing less on his rivalry with you and more on getting to the front when the time comes, because sadly, it looks like it will come. Anyways Sergeant, it's been good catching up with you. Now, if you have those sensor logs, that would be great," he says in an exaggerated Bill Lumbergh accent, winking at you. Your mind quickly flashes to a 20th century comedy, and then the momentary vision dissapears.`
+			`	"He's managed to stay out of trouble," Danforth replies, "probably because the war is brewing and he is focusing less on his rivalry with you and more on getting to the front when the time comes, because sadly, it looks like it will come. Anyways Sergeant, it's been good catching up with you. Now, if you have those sensor logs, that would be great," he says in an exaggerated Bill Lumbergh accent, winking at you. Your mind quickly flashes to a 20th century comedy, and then the momentary vision disappears.`
 				goto end
 			
 ### http://media.makeameme.org/created/ThatD-be-great.jpg
@@ -2245,7 +2245,7 @@ mission "Catalytic Ramscoops 1E"
 mission "Catalytic Ramscoops 1F"
 	landing
 	name "Efficiency Test"
-	decription "Now that you have completed your patrol, return to Valhalla to submit the test results."
+	description "Now that you have completed your patrol, return to Valhalla to submit the test results."
 	source Farpoint
 	destination Valhalla
 	on complete
@@ -2359,7 +2359,7 @@ mission "Report to Seginus"
 	on offer
 		log "Was assigned to an attack fleet for attacking the Free Worlds."
 		conversation
-			`	As you land, <ship>'s communicator beeps again, and Commodore Cruz appears again. "Good evening, Captain! As you have now aquired your ships, report to Seginus immediately with your fleet for preparations to attack Kornephoros.`
+			`As you land, <ship>'s communicator beeps again, and Commodore Cruz appears again. "Good evening, Captain! As you have now acquired your ships, report to Seginus immediately with your fleet for preparations to attack Kornephoros.`
 			choice
 				`	"Yes, sir!"`
 				accept
