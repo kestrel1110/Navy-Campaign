@@ -14,8 +14,8 @@
 # 
 
 mission "Republic Bounty 1"
-	name "Republic Bounty Hunting"
-	description `Hunt down the <npc>, a pirate ship that has been assaulting miners in the Boral system.`
+	name "Republic Bounty ing"
+	description ` down the <npc>, a pirate ship that has been assaulting miners in the Boral system.`
 	minor
 	source
 		government "Republic"
@@ -31,12 +31,12 @@ mission "Republic Bounty 1"
 			`	"You have a face that says you're looking for work," he says, in a surprisingly cheerful tone. "We're in need of someone to deal some pirates that have been causing trouble near Boral. Not normally something we'd contract out, but, luckily for you, we're a little short on free ships right now."`
 			choice
 				`	"Sure."`
-				`	"Sorry, I'm not really into bounty hunting."`
+				`	"Sorry, I'm not really into bounty ing."`
 					defer
 			`	"Much obliged," he says. "It's a ship called the <npc>. It's a small little devil, but don't let it take you off guard."`
 				accept
 	on accept
-		log `Hunting a pirate ship called the "<npc>," which has been plundering ships near Boral.`
+		log `ing a pirate ship called the "<npc>," which has been plundering ships near Boral.`
 
 	npc kill
 		personality heroic staying nemesis target
@@ -53,7 +53,7 @@ mission "Republic Bounty 1"
 
 
 mission "Republic Bounty 2"
-	name "Republic Bounty Hunting"
+	name "Republic Bounty ing"
 	description `Kill a known criminal aboard the <npc>, which was last spotted in the Alnasl system.`
 	source
 		government "Republic"
@@ -93,7 +93,7 @@ mission "Republic Bounty 2"
 		dialog `The <npc> has been eliminated. You can claim the bounty payment by returning to <destination>.`
 
 	on accept
-		log `Hunting a pirate ship called the "<npc>," which is wanted by the Republic. It was last spotted in the Alnasl system.`
+		log `ing a pirate ship called the "<npc>," which is wanted by the Republic. It was last spotted in the Alnasl system.`
 
 	on complete
 		payment 200000
@@ -104,7 +104,7 @@ mission "Republic Bounty 2"
 
 
 mission "Republic Bounty 3"
-	name "Republic Bounty Hunting"
+	name "Republic Bounty ing"
 	description `Disable the <npc> which seems to be holding merchants for ransom. Do not destroy or attempt to capture the ship. It was last spotted in the Tais system`
 	source
 		government "Republic"
@@ -136,7 +136,7 @@ mission "Republic Bounty 3"
 		dialog `The <npc> has been disabled. You can claim the bounty payment by returning to <destination>.`
 
 	on accept
-		log `Hunting a pirate ship called the "<npc>," which has captured multiple merchant captains. The ship was last sighted in the Tais system.`
+		log `ing a pirate ship called the "<npc>," which has captured multiple merchant captains. The ship was last sighted in the Tais system.`
 
 	on complete
 		"assisted republic" ++
@@ -741,7 +741,7 @@ mission "Navy Pirate Patrol: Hunt"
 				`	"If you don't mind me asking, Admiral, could you elaborate on underhanded?"`
 					goto ranulph
 				`	"I see."`
-					goto pirateHunt
+					goto pirate
 
 			label ranulph
 			apply
@@ -753,7 +753,7 @@ mission "Navy Pirate Patrol: Hunt"
 			`	"Indeed. And that's what worries me. But no sense in dwelling on that now; there's a fight to be had."`
 				goto mission
 
-			label pirateHunt
+			label pirate
 			`	"That's a topic for another day, though. For now, we have bigger fish to fry."`
 				goto mission
 
@@ -797,7 +797,7 @@ mission "Navy Pirate Patrol: Hunt"
 			apply
 				log "People" "Ranulph Hines" `A perfect example of the dark side of ambition, Ranulph Hines has served in the Republic for several years. Deluded by visions of grandeur, Hines has resorted to borderline illegal methods to complete his assignments - most notably capturing a slavery ring through the very explosive collars the ring used to control their slaves. Why Danforth keeps this "thug with a badge" around is anyone's guess.`
 				set "rivalry"
-			`	And if it turns out he's as vicious to protect that status as he was when he dealt with the slavery ring, then Ranulph is truly more dangerous to the Republic than the very pirates he hunts. You decide to keep a watchful eye on him - whatever is in that twisted mind of his, it can't be anything good.`
+			`	And if it turns out he's as vicious to protect that status as he was when he dealt with the slavery ring, then Ranulph is truly more dangerous to the Republic than the very pirates he s. You decide to keep a watchful eye on him - whatever is in that twisted mind of his, it can't be anything good.`
 			label end
 			`"In addition to your payment of 350,000 credits," Danforth begins, "your promotion also carries an increase of salary pay. However, there's a few formalities that need to be sorted out by High Command before that goes into effect. In the meantime, find me in the spaceport when you're ready for more work."`
 
@@ -1944,6 +1944,8 @@ mission "Typhoons 1B"
 	name "Ferry materials"
 	description "Escort a Navy frieghter to Crossroads and back to bring John's team the materials for the new Torpedo Launcher."
 	deadline
+	to offer
+		has "Typhoons 1B: done"
 	on offer
 		log "People" "John Withers" "It seems that John has also expanded his knowledge area in development projects to missile & torpedo systems- who knows what he'll do next..."
 		conversation
@@ -1985,6 +1987,8 @@ mission "Typhoons 1C"
 	waypoint Aspidiske
 	name "Conduct weapons testing"
 	description "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
+	to offer
+		has "Typhoons 1B: done"
 	on offer
 		conversation
 			`You follow the instructions left for you, and after a few minutes you catch sight of John in an office. You go up to the door and knock, and he shouts, "Come in! Ah, <first>. Glad you could make it. Now that we have those materials, it shouldn't be long until the torpedo is finished. And after that, we will conduct another combat test- which I'm sure you're excited for. Remember, please don't destroy the testing ship, as it costs a lot of money, and is crewed by real people, and we cannot replace them. Any questions?"`
@@ -2169,7 +2173,7 @@ event "c ramscoop built"
 mission "Catalytic Ramscoops 1D"
 	landing
 	name "Efficiency test"
-	description "John has requested your presence back on Valhalla to help him run an efficiency test on the Catalytic Ramscoop he has built."
+	description `John has requested your presence back on Valhalla to help him run an efficiency test on the Catalytic Ramscoop he has built.`
 	source
 		government Republic
 		not Valhalla
@@ -3101,7 +3105,7 @@ mission "Syndicate investigation [1]"
 				`	"If it isn't you, then who is it?"`
 					goto who
 			
-			`	Alastair says, "That terrorism was the action of a certain extremist faction that we have since purged from our ranks, and we were in the process of hunting down the perpetrators."`
+			`	Alastair says, "That terrorism was the action of a certain extremist faction that we have since purged from our ranks, and we were in the process of ing down the perpetrators."`
 			choice
 				`	"I think you're lying. You had years to turn over those extremists, and you did not."`
 				`	"Very well. Who is this common foe? You seem to know more than we do."`
