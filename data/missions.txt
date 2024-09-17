@@ -1635,7 +1635,7 @@ mission "Electrons 1D"
 				`"Well done, and you got the cargo back after all, so all is well. If that had been lost we would have been set back weeks. And now, come with me to the facility, I have something to speak about with you."`
 					goto end
 			label end
-				`You follow him into the warehouse and through the elevator. Once again you find yourself in a white, polished, lab with devices you could never guess about what they do. Crossing the large rooms between the scientists you find a path with him to his office, and he bids you to follow him inside. Sitting down, he reaches under the desk and opens a small safe, and gives you <payment> credits and sends you on your way.`
+				`You follow him into the warehouse and through the elevator. Once again you find yourself in a white, polished, lab with devices you could never guess about what they do. Crossing the large rooms between the scientists you find a path with him to his office, and he bids you to follow him inside. Sitting down, he reaches under the desk and opens a small safe, gives you <payment> credits, and sends you on your way.`
 					done
 
 event "e-beam delay 1"
