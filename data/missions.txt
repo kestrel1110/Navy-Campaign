@@ -1492,7 +1492,7 @@ mission "Tier Boost"
 		has event "geminus rebuilt"
 	on offer
 		event "geminus2weekleave" 14
-		log "Recieved a promotion because of my assistance with rebuilding the shipyards on Geminus."
+		log "Received a promotion because of my assistance with rebuilding the shipyards on Geminus."
 		"reputation: Republic" += 10
 		"reputation: Free Worlds" = 500
 		"reputation: Escort" = 500
