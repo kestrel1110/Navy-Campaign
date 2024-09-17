@@ -423,6 +423,7 @@ mission "Republic Shipping 3"
 mission "Joining the Navy"
 	autosave
 	name "Navy Commission"
+	clearance
 	description "Destroy the pirate vessel named <npc> near the <system> system and return to <planet> for an opportunity to join the republic navy."
 	source
 		government "Republic"
@@ -645,6 +646,7 @@ mission "Navy Pirate Patrol 3"
 	waypoint "Alnilam"
 	waypoint "Hatysa"
 	source "Farpoint"
+	destination Farpoint
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	to offer
@@ -698,7 +700,7 @@ mission "Navy Pirate Patrol: Hunt"
 	name "Destroy the <npc>"
 	description "A pirate vessel named <npc> has broken through the Navy defenses in Alnitak and is currently in the Saiph system. Destroy it before it can move further into Republic space and return to <planet> for additional orders."
 	to offer
-		has "Navy Pirate Patrol 3: done"
+		has "Navy Pirate Patrol 3: offered"
 		has "chosen sides"
 	source "Farpoint"
 	waypoint "Saiph"
@@ -809,7 +811,7 @@ mission "Geminus 1"
 	stopover "Lodestone"
 	destination "Geminus"
 	to offer
-		has "Navy vs Pirate: done"
+		has "Navy Pirate Patrol: Hunt: done"
 		has "chosen sides"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
@@ -829,7 +831,7 @@ mission "Geminus 1"
 				`	"Do you have any information about my route, Admiral?"`
 					goto missionInfo
 			label missionInfo
-			`	"It seems that the breakthrough at Farpoint has emboldened some of the pirates around here," Danforth notes grimly. "We've received reports of massive fleets gathering in some of the uninhabited systems. Try to stay in populated systems to the best of your ability while you escort the fleet to <stopover> - remember, there's no rush, so if it results in a safer trip, take your time."`
+			`	"It seems that the breakthrough at Farpoint has emboldened some of the pirates around here," Danforth notes grimly. "We've received reports of massive fleets gathering in some of the uninhabited systems. Try to stay in populated systems to the best of your ability while you escort the fleet to Lodestone - remember, there's no rush, so if it results in a safer trip, take your time."`
 					accept
 	npc
 		government "Pirate"
@@ -975,6 +977,7 @@ mission "Geminus 2A"
 	landing
 	source "Geminus"
 	stopover "New Wales"
+	destination Geminus
 	to offer
 		has "Geminus 1: done"
 	on fail
@@ -1949,6 +1952,8 @@ mission "Typhoons 1B"
 	name "Ferry materials"
 	description "Escort a Navy frieghter to Crossroads and back to bring John's team the materials for the new Torpedo Launcher."
 	deadline
+	to offer
+		has "Typhoons 1A: done"
 	on offer
 		log "People" "John Withers" "It seems that John has also expanded his knowledge area in development projects to missile & torpedo systems- who knows what he'll do next..."
 		conversation
@@ -1990,6 +1995,8 @@ mission "Typhoons 1C"
 	waypoint Aspidiske
 	name "Conduct weapons testing"
 	description "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
+	to offer
+		has "Typhoons 1B: done"
 	on offer
 		conversation
 			`You follow the instructions left for you, and after a few minutes you catch sight of John in an office. You go up to the door and knock, and he shouts, "Come in! Ah, <first>. Glad you could make it. Now that we have those materials, it shouldn't be long until the torpedo is finished. And after that, we will conduct another combat test- which I'm sure you're excited for. Remember, please don't destroy the testing ship, as it costs a lot of money, and is crewed by real people, and we cannot replace them. Any questions?"`
