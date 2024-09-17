@@ -803,7 +803,7 @@ mission "Navy Pirate Patrol: Hunt"
 			label end
 			`"In addition to your payment of 350,000 credits," Danforth begins, "your promotion also carries an increase of salary pay. However, there's a few formalities that need to be sorted out by High Command before that goes into effect. In the meantime, find me in the spaceport when you're ready for more work."`
 
-mission "Geminus 1"
+mission "Geminus 1A"
 	name "Rebuilding Geminus: Groundbreaking"
 	description "Escort several Navy Cargo Auxiliaries to <stopover> to pick up building materials, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
@@ -975,11 +975,11 @@ mission "Geminus 2A"
 	name "Rebuilding Geminus: Troops and Defenses"
 	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up Navy Personnel and defensive emplacements, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
-	source "Geminus"
+	source Geminus
 	stopover "New Wales"
 	destination Geminus
 	to offer
-		has "Geminus 1: done"
+		has "Geminus 1A: done"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
@@ -1638,7 +1638,7 @@ mission "Electrons 1D"
 				`"Well done, and you got the cargo back after all, so all is well. If that had been lost we would have been set back weeks. And now, come with me to the facility, I have something to speak about with you."`
 					goto end
 			label end
-				`You follow him into the warehouse and through the elevator. Once again you find yourself in a white, polished, lab with devices you could never guess about what they do. Crossing the large rooms between the scientists you find a path with him to his office, and he bids you to follow him inside. Sitting down, he reaches under the desk and opens a small safe, and gives you <payment> credits and sends you on your way.`
+				`You follow him into the warehouse and through the elevator. Once again you find yourself in a white, polished, lab with devices you could never guess about what they do. Crossing the large rooms between the scientists you find a path with him to his office, and he bids you to follow him inside. Sitting down, he reaches under the desk, opens a small safe, gives you <payment> credits, and sends you on your way.`
 					done
 
 event "e-beam delay 1"
@@ -1730,7 +1730,7 @@ mission "Electrons 1F"
 			`After taking care of some business, you head back to the main planetary spaceport and to the spaceport lounge as you remember John saying, and sure enough, you see him there waiting. You go over to him, and he tells you what your task is. "Lt. Commander, your job is to get to the <waypoint> system. There you will find a Mule and a Barb in orbit, and you are to disable them without destroying them. My engineers are installing analysis cameras on your hull as we speak. They will film the interaction for my analysts to deal with, and I will need your ships logs as well. Once you're done, report back to me and give me an honest assessment of the engagement so I may finalize our adjustments. Any questions?"
 			choice
 				`	"No questions."`
-			`Grinning, he says "All right then, good. Have fun captain!"`
+			`With a grin that could only be described as 'cheeky,' he says "All right then, good. Have fun captain!"`
 				accept
 	npc disable save
 		personality staying disables nemesis target
@@ -1745,9 +1745,9 @@ mission "Electrons 1F"
 		conversation
 			`You arrive on Valhalla and proceed to the secure facility where John works, and he meets you outside of your ship. "Well, how was the fight, <first>?"
 			choice
-				`	"It was pretty hard, but I managed to pull through. Those were some pretty impressive weapons though!"`
+				`	"It was pretty hard, but I managed to pull through. Those were some impressive weapons though!"`
 					goto hard
-				`	"It was decently easy, but they put up a good fight, I think it was more the difference in ships than weapons. So those were the Electron beams, huh?"`
+				`	"It was on the easier side, but they put up a good fight, I think it was more the difference in ships than weapons. So those were the Electron beams, huh?"`
 					goto easy
 			label hard
 			`	"Well, I am glad to have you back, and I'm glad they worked so well- I'll be reviewing the resources from your ship and we should have these ready in the coming days.`
@@ -1756,6 +1756,8 @@ mission "Electrons 1F"
 			`	"Yes they were, and I'm glad you weren't harmed- I'll be reviewing the resources from your ship and we should have these ready in the coming days."
 			label end
 			`John hands you a credit chip worth <payment> credits, and sends you on your way. "Take care, <first>, and I will see you later!"`
+			`You shake his hand and walk up to the elevator. A short wait later, you step out of the elevator and hanger and into the afternoon sun.`
+			`With some time to yourself now, it would probably be a good idea to get some extra work done.`
 					done
 
 event "e-beam delay 2"
@@ -1778,7 +1780,8 @@ mission "Electrons 1G"
 		has "event: e-beam delay 2"
 	on offer
 		conversation
-			`You receive a communique from John, the scientist who is working on the electron beams: "<first> <last>, please report to Valhalla immediately, your assistance is required."`
+			`You receive a communique from John, the scientist who was working on electron beams: "<first> <last>, please report to Valhalla immediately, your assistance is required."`
+			`The message is very brief, but you expect you can get more details later.`
 
 mission "Electrons 2A"
 	source Valhalla
@@ -1791,7 +1794,8 @@ mission "Electrons 2A"
 		has "Electrons 1G: done"
 	on offer
 		conversation
-			`You land on Valhalla once more and head to the old warehouse. You take the elevator down to the lab, escorted by two uniformed guards. Once you reach the lab, you head to John's office, where he meets you. "Ah, <first>, you're just in time! I have a task that I need you to do. Please escort two Auxiliaries to Lodestone and back to retrieve some materials for a new prototype we have been working on."`
+			`You land on Valhalla once more and head to the old warehouse. You take the elevator down to the lab, escorted by two uniformed guards. Once you reach the lab, you head to John's office, where he meets you.`
+			`	"Ah, <first>, you're just in time! I have your latest assignment. We need a few things from the Syndicate, so you must escort two Auxiliaries to Lodestone and back. The materials they will bring will allow us to adapt our recent technologies, such as the Electron beams."`
 			choice
 				`"What are these materials?"`
 					goto what
