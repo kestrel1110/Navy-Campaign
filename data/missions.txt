@@ -1937,6 +1937,7 @@ mission "Typhoons 1A"
 		personality escort timid
 		government "Deep Security"
 		ship "Flivver" "John's Ship"
+
 mission "Typhoons 1B"
 	source Valhalla
 	stopover Crossroads
@@ -1944,6 +1945,8 @@ mission "Typhoons 1B"
 	name "Ferry materials"
 	description "Escort a Navy frieghter to Crossroads and back to bring John's team the materials for the new Torpedo Launcher."
 	deadline
+	to offer
+		has "Typhoons 1A: done"
 	on offer
 		log "People" "John Withers" "It seems that John has also expanded his knowledge area in development projects to missile & torpedo systems- who knows what he'll do next..."
 		conversation
@@ -1985,6 +1988,8 @@ mission "Typhoons 1C"
 	waypoint Aspidiske
 	name "Conduct weapons testing"
 	description "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy Mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla with the results."
+	to offer
+		has "Typhoons 1B: done"
 	on offer
 		conversation
 			`You follow the instructions left for you, and after a few minutes you catch sight of John in an office. You go up to the door and knock, and he shouts, "Come in! Ah, <first>. Glad you could make it. Now that we have those materials, it shouldn't be long until the torpedo is finished. And after that, we will conduct another combat test- which I'm sure you're excited for. Remember, please don't destroy the testing ship, as it costs a lot of money, and is crewed by real people, and we cannot replace them. Any questions?"`
