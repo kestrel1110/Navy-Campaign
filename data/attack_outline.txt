@@ -1,8 +1,8 @@
 rough outline (beginning)
-
--navy push through kornephoros
-	-prisoner transfer for intelligence
-		-katya
+	-promoted to commander
+	-navy push through kornephoros
+		-prisoner transfer for intelligence
+			-katya
 	-sabik attack - hines?
 		-evacuate troops from clink/deep
 		-cover retreat from free space
@@ -46,3 +46,32 @@ rough outline (beginning)
 
 notes:
 	-raven needs to be introduced during the intelligence sections
+
+
+----------------------------
+reread 2024
+-up through electrons final
+----------------------------
+
+
+
+
+
+
+# Ranking system is as follows:
+
+# following commission, captain's ranking includes:
+
+# Lieutenant
+# Seargeant		} not applicable, crew on a ship
+# Warrant Officer
+
+# Rank		     status	events near promotion
+
+# Captain		x	beginning
+# Captain First-Class	x	piracy quelling
+# Lieutenant Commander	x	geminus
+# Commander		x	r & d
+# Commodore			fw
+# Rear Admiral			intelligence
+# Admiral			pug/syndicate

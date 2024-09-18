@@ -363,7 +363,7 @@ mission "Navy Pirate Patrol: Hunt"
 	on accept
 		log "Have been assigned to take out a pirate that broke through the Navy defenses and is ambushing merchants in Saiph."
 	on complete
-		log "Succeeded in destroying the pirate ship in Saiph. For my efforts, I have been promoted to the rank of Captain First Class, with an impending increase to my salary."
+		log "Succeeded in destroying the pirate ship in Saiph. For my efforts, I have been promoted to the rank of Captain First Class, with an impending increase to my salary. Ironic, how they refer to civilian captains as the same, and then have their own rank, with the only difference being a capital 'C'"
 		payment 350000
 		conversation
 			`As your ship pierces <destination>'s atmosphere, you notice that the base has reverted to its much-less active state. It isn't long before the control tower radios in: "Captain <last>, proceed to Hangar 357 - Admiral Danforth is expecting you."`
@@ -1771,41 +1771,42 @@ event "c ramscoop built"
 mission "Catalytic Ramscoops 1D"
 	landing
 	name "Efficiency test"
-	description "John has requested your presence back on Valhalla to help him run an efficiency test on the Catalytic Ramscoop he has built."
+	description "John has requested your presence back on Geminus to help him run an efficiency test on the Catalytic Ramscoop he has built."
 	source
 		government Republic
-		not Valhalla
-	destination Valhalla
+		not Geminus
+	destination Geminus
 	to offer
 		has "event: c ramscoop built"
 	on offer
 		conversation
-			`You receive a message from John: [Lieutenant Commander, my team has completed the first of the new ramscoops. Please meet me on Valhalla to conduct an efficiency test on them. Thank you!]
+			`You receive a message from John: [Lieutenant Commander, my team has completed the first prototype of the new ramscoops. Please meet me on Geminus to conduct an efficiency test on them. Thank you!]`
 				accept
 	on complete
 		log "People" "John Withers" "John was then hired by the Navy to build a new and improved, more efficient ramscoop."
 		outfit "Catalytic Ramscoop" 1
 		conversation
-			`Following the procedure which has become muscle memory by now, you soon arrive at John's lab. Once inside you meet up with him, this time on a catwalk above a construction area, where you can see two loading pallets with what you assume to be Catalytic ramscoops aboard.`
-			`	John says, "Well captain, its done. The first prototypes. You may be wondering, though, how will we test them-"`
+			`Landing on the isolated pads, you walk out of your ship and into the building holding John's office. Once inside, you meet up with him, and he leads you to the back of the building to a window looking down into one of the warehouses. Down inside, you can see a large loading pallets with what you assume to be the prototype Catalytic ramscoop.`
+			scene "outfit/catalytic ramscoop"
+			`	"Well <first>, its done. The first prototype. Only took us a year of doing the math wrong time and time again. You may think it is simple, but the calculations of designing the most efficient passive collector of raw hyperspace fuel are extremely complicated. You may be wondering, though, how will we test them-"`
 			choice
 				`	"Yeah, I mean these aren't weapons that you can put on a ship and fight in a combat test."`
-			`	"Exactly. So, I've come up with a different test. I want you to use the ramscoops to explore. I will send you a route through some of the northern uninhabited systems, and you can fly through them, using the ramscoop to refuel. How does that sound?"
+			`	"Exactly. So, I've come up with a different test. I want you to use the ramscoop to explore. I will send you a route through some of the northern uninhabited systems, and you can fly through them, using the ramscoop to refuel. How does that sound?"`
 			choice
 				`	"Great! I trust your invention completely!"`
 					goto end
 				`	"Are you sure about this..?"`
-			`	"Yes, of course!"
+			`	"Oh stop, I'm sure everything will be alright!"
 			label end
-			`	 "And, I've worked things out with Admiral Danforth so that you can double-task and run a patrol for him too! So head to the outfitter, make sure you've got space for it, and install that ramscoop on your ship!"`
+			`	 "And, I've worked things out with Admiral Danforth so that you can double-task and run a patrol for him too! I do recommend you head east through Syndicate space, and then north to Farpoint- so head to the outfitter, make sure you've got space for it, and have that ramscoop installed on your ship!"`
 			choice
 				`	"Will do!"`
 		
 mission "Catalytic Ramscoops 1E"
 	landing
 	name "Efficiency Test"
-	description "Use the Catalytic Ramscoop to travel through the uninhabited systems in the north-east, then stop by Farpoint to drop off your sensor logs with Admiral Danforth. Then return to Valhalla for the test results."
-	source Valhalla
+	description "Use the Catalytic Ramscoop to travel through the uninhabited systems in the north-east, ending at Farpoint to drop off your sensor logs with Admiral Danforth. Then, return to Geminus for the test results."
+	source Geminus
 	waypoint Nihal
 	waypoint Volax
 	waypoint Cardax
@@ -1816,13 +1817,13 @@ mission "Catalytic Ramscoops 1E"
 	to offer
 		has "Catalytic Ramscoops 1D: done"
 	on complete
-		payment 100000
+		payment 400000
 		conversation
-			`Having safely made it through the dead stretch of northern systems and arrived at Farpoint, you begin your descent through the atmosphere. The skies are clear today, and you see the desert stretching far away on all sides, and the relatively small compaund begins to loom up to you. You radio control for clearance, and after a short wait it is granted.`
-			`Following the tower's guidance, you land on the designated pad and step out into the hot air. A slight breeze is blowing, and the compound seems relatively quiet today. The serenity is suddenly broken, however, when your communicator loudly buzzes. It's from Admiral Daforth, whom you realize you actually haven't seen in a while.`
-			`	[Hello captain! Please report to my office, it's been a while (and I need those logs). See you in a few.]`
-			`You head to Danforth's office, following the old familiar route, and soon find yourself knocking on the door again.`
-			`	"Come in!"`
+			`Having safely made it through the dead stretch of northern systems and arrived at Farpoint, you begin your descent through the atmosphere. The skies are clear today, and you see the desert stretching far away on all sides, and the relatively small compound begins to loom up to you. You radio control for clearance, and after a short wait it is granted.`
+			`Following the tower's guidance, you land on the designated pad and step out into the hot air. A slight breeze is blowing, and the compound seems relatively quiet today. The serenity is suddenly broken, however, when your communicator loudly buzzes. It's from Admiral Danforth, whom you realize you actually haven't seen in a while.`
+			`	"Hello captain! Please report to my office to drop off your logs, it's been a good bit. See you in a few."`
+			`You walk through the base until you reach the operations facility where Danforth's office is located. Following the old familiar route, you soon find yourself knocking on the door again.`
+			`	"Come!"`
 			`As you enter, you notice Danforth sitting in his chair behind a monitor reading intently, but upon seeing you, he looks up and smiles.`
 			branch hines
 				has "rivalry"
@@ -1830,7 +1831,7 @@ mission "Catalytic Ramscoops 1E"
 			choice
 				`	"Great. The tasks are enjoyable, and I like my work!"`
 				`	"Poorly. The work is unenjoyable, but orders are orders."`
-			`Danforth nods, and asks what you've been doing for the scientists in the Deep. You describe your work, and before you know it, an hour has passed while you were chatting.`
+			`Danforth nods, and asks what you've been doing for the scientists from the Deep. You describe your work, and before you know it, an hour has passed while you were chatting.`
 			label hines
 			choice
 				`Ask Danforth how Hines is doing.`
@@ -1851,20 +1852,20 @@ mission "Catalytic Ramscoops 1E"
 mission "Catalytic Ramscoops 1F"
 	landing
 	name "Efficiency Test"
-	description "Now that you have completed your patrol, return to Valhalla to submit the test results."
+	description "Now that you have completed your patrol, return to Geminus to submit the test results."
 	source Farpoint
-	destination Valhalla
+	destination Geminus
 	on complete
-		payment 2500000
+		payment 1500000
 		event "deep sky tech available" 3
 		event "mk ii ships for sale" 7
 		conversation
-			`Upon reaching your final destination of Valhalla, you proceed as before to John's lab. Entering his office, you find him pouring over a monitor filled with what looks to be data and specifications on the new ramscoop. You get his attention and he says,`
+			`Upon reaching your final destination of Geminus, you once again head to John's building. Entering his office, you find him pouring over a monitor filled with what looks to be data and specifications on the new ramscoop. You clear your throat and he looks up and says,`
 			`	"Ah Lieutenant Commander! You're back- it felt like it took so long but it was really only a few weeks! How did my ramscoop perform?"`
 			choice
 				`	"Very well, it certainly is an improvement over the previous generation."`
 				`	"It worked well, but the size might be a problem at some point."`
-			`	"Well, thak you for the feedback. I'm glad it served you well. He hands you a credit chip worth <payment> credits. Give me a few days, and I should have everything set to begin production. It's been great working with you, <first>." You shake hands with him, and then go to your ship.`
+			`	"Well, thank you for the feedback. I'm glad it served you well. He hands you a credit chip worth <payment> credits. Give me a few days, and I should have everything set to begin production. It's been great working with you, <first>." You shake hands with him, and then go to your ship.`
 
 event "mk ii ships for sale"
 	shipyard "Navy Basics"
@@ -1887,12 +1888,11 @@ event "mk ii ships for sale"
 
 mission "Electrons Final"
 	landing
-	source Farpoint
 	to offer
 		has "Catalytic Ramscoops 1F: done"
 		has "event: mk ii ships for sale"
 	on offer
-		log "Was promoted to the rank of Captain. Ironic, how they refer to civilian captains as the same, and then have their own rank, with the only difference being a capital 'C'"
+		log "Was promoted to the rank of Commander, and given access to the Navy Cruiser license. Pay has also substantially increased.
 		"reputation: Republic" += 10
 		"reputation: Free Worlds" = 500
 		"reputation: Escort" = 500
