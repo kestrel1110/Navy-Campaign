@@ -952,8 +952,6 @@ mission "Geminus 1"
 		fleet "Large Northern Pirates"
 
 	on complete
-		action
-			set "gem 1"
 		log "Successfully delivered the raw materials needed for the rebuilding of the Geminus shipyards."
 		payment 1500000
 		dialog
@@ -980,7 +978,7 @@ mission "Geminus 2A"
 	stopover "New Wales"
 	destination Geminus
 	to offer
-		has "gem 1"
+		has "Geminus 1: done"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
