@@ -1996,7 +1996,7 @@ mission "Typhoons 1C"
 	destination Valhalla
 	waypoint Aspidiske
 	name "Conduct weapons testing"
-	description "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
+	description "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy Mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
 	to offer
 		has "Typhoons 1B: done"
 	on offer
