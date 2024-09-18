@@ -803,7 +803,7 @@ mission "Navy Pirate Patrol: Hunt"
 			label end
 			`"In addition to your payment of 350,000 credits," Danforth begins, "your promotion also carries an increase of salary pay. However, there's a few formalities that need to be sorted out by High Command before that goes into effect. In the meantime, find me in the spaceport when you're ready for more work."`
 
-mission "Geminus 1A"
+mission "Geminus 1"
 	name "Rebuilding Geminus: Groundbreaking"
 	description "Escort several Navy Cargo Auxiliaries to <stopover> to pick up building materials, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
@@ -878,7 +878,7 @@ mission "Geminus 1A"
 				`	"Hold on. 'One of our own?' You mean someone from the Navy?"`
 					goto investigate
 			label fight
-			apply
+			action
 				set "bad look"
 			`The dockworker chuckles for a second, takes his cigarette out of his mouth and flicks it at you. You almost throw a punch before one of the captains of the auxiliaries steps between the two of you. "Sir, it's been a long day for all of us. Could you please help us load our cargo onto our ships?"`
 			`"Yeah, yeah, we'll get on it," he replies. "And thanks for proving my point, you jumpy little-," he pointedly directs at you. Only then do you realize Danforth will probably hear of your behavior - and it's a sure bet he will not be pleased by your conduct.
@@ -915,7 +915,7 @@ mission "Geminus 1A"
 			`"Know him, eh?" he inquires. "I'd watch myself if I were you - man's got a mean streak a mile wide."`
 					goto end
 			label terror
-			apply
+			action
 				set "lifeDebt"
 				log "People" "Ranulph Hines" `Hines seems to believe that the Syndicate is subservient to the Republic - Lucas Hadley, a Syndicate dockworker, was injured by Hines when Hadley pointed out the Syndicate was more than capable of handling itself, threatening Hadley and his family with death if he reported Ranulph's behavior.`
 				log "People" "Lucas Hadley" `A Syndicate dockworker from Lodestone, Lucas Hadley was attacked by Ranulph Hines for challenging Hines' belief that the Republic are the superior force in human space, when the Syndicate is quite capable of defending itself from outside threats. Hadley puts on a gruff exterior (and a colorful tongue, to match), but deep-down, he's a good man who does his best to provide for his family.`
@@ -952,6 +952,8 @@ mission "Geminus 1A"
 		fleet "Large Northern Pirates"
 
 	on complete
+		action
+			set "gem 1"
 		log "Successfully delivered the raw materials needed for the rebuilding of the Geminus shipyards."
 		payment 1500000
 		dialog
@@ -974,12 +976,11 @@ event "geminus phase 1"
 mission "Geminus 2A"
 	name "Rebuilding Geminus: Troops and Defenses"
 	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up Navy Personnel and defensive emplacements, then return to <destination> to help rebuild the Navy Shipyards there."
-	landing
 	source Geminus
 	stopover "New Wales"
 	destination Geminus
 	to offer
-		has "Geminus 1A: done"
+		has "gem 1"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
@@ -992,7 +993,7 @@ mission "Geminus 2A"
 			`The admiral's quarters turns out to be a small grouping of construction trailers connected to each other. "Shut the door, please," he says as you enter the office. As Danforth takes a seat behind his desk, you glance about the room. The walls have tables, filing cabinets, and a few calendars with target objectives to be met.`
 				goto debriefing
 			label youDoneGoofed
-			apply
+			action
 				payment -1500000
 			`As you make your way through the "shipyard" (admittedly, more like a clearing with gun emplacements) to Admiral Danforth, you notice the auxiliaries are being modified - their rear halves are still the giant cargo containers, but the front of each auxiliary appears to have gained a set of fins - and a sleeker body. "They're being retrofitted to carry more personnel," Danforth says as he suddenly appears by your side. "For the next stage of the reconstruction, we need to bring in personnel and equipment - in addition to fresh recruits, we also need better defenses than the turrets we currently have."`
 			`	"That makes sense," you remark, turning towards the admiral. "If the pirates decide to attack again, we might not be able to drive them off with what we have."`
@@ -1015,7 +1016,7 @@ mission "Geminus 2A"
 			`Danforth nods. "You have your orders, Captain - get to it!"`
 				goto end
 			label hadley
-			apply
+			action
 				payment 1500000
 			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <stopover>, so we'll bring them here. <stopover> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
 			`	"That's the extent of your mission - get to <stopover> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
@@ -1037,7 +1038,6 @@ mission "Geminus 2A"
 			label end
 			`Walking back out of the admiral's quarters, you find the auxiliaries in their "hybrid" configuration - perfect for the retrieval of the new recruits and base defenses. After a brief meeting with the captains of the auxiliaries, you make your way back to <ship> and prepare for takeoff.`
 				accept
-
 	npc accompany save
 		government "Republic"
 		personality escort timid
@@ -1045,7 +1045,6 @@ mission "Geminus 2A"
 			names "republic" "capital"
 			variant
 				"Auxiliary" 4
-
 	on stopover
 		conversation
 			branch ranulph
@@ -1076,7 +1075,7 @@ mission "Geminus 2A"
 			`The auxiliary captain gives a warm smile. "Your optimism may be misguided, but I get your point. To be sure, it won't be long before they'll get their first taste of action."`
 				goto end
 			label indeed
-			apply
+			action
 				set "young buck"
 			`The auxiliary captain turns to face you with a somber look. "If only you knew, <last>, just how accurate that statement was."`
 			`	"Really?" you inquire, curious. "Do go on."`
@@ -1163,7 +1162,7 @@ mission "Geminus 2B"
 				has "young buck"
 			`	"No reason. Just confirming a suspicion."`
 			label terraform
-			apply
+			action
 				set "family"
 			`	"Did the topic of terraforming ever come up in the conversation?"`
 			`Heisenberg scratches his head in thought. "Well, now that you mention it, he did make references to the idea of terraforming some locations for, quote, 'reinforcing our front lines.' But to what end? It would be silly to waste resources trying to stabilize a planet just so our troops don't have to worry about the weather or the ground beneath their feet."`
@@ -1219,7 +1218,7 @@ mission "Geminus 3A"
 			`After heading to the spaceport to 'hit the head' quickly, you receive a notification of the auxiliaries imminent departure. You manage to board the <ship> right as the last of the auxiliaries finishes their conversion. As you warm up the engines, you manage to see Hines scowling about something. You shrug, figuring he's just having a bad day.`
 				goto next
 			label hadley
-			apply
+			action
 				set rescue
 			`	"Captain, one other thing before you go."`
 			`You stop and turn to face the Admiral. "What is it, sir?"`
@@ -1230,7 +1229,7 @@ mission "Geminus 3A"
 			`You brush off his angry tirade for a while longer before he finally leaves. That man seems out to get you any which way he can, and it's starting to become a problem.`
 				goto letter
 			label defiance
-			apply
+			action
 				set stunned
 			`Recalling your discussions from others in the past, you decide enough is enough and refuse to allow this intolerable behavior any longer. "How do you think your family on Geyser would react if they saw you now, Hines?" you fire back in defiance.`
 			`Predictably, Hines turns beet-red in anger. "And WHY would YOU care you whiny little soy boy?!?" he almost screams. "And how do you even know about that, you meddling worm-eye?!"`
@@ -1312,7 +1311,7 @@ mission "Geminus 3B"
 			`	"Did you read my note?" he whispers. You nod in reply. "Excellent. I know you're anxious to fulfill your promise, <last>, but we're still looking for an opening. Don't worry - it'll come soon enough."`
 				goto next
 			label staredown
-			apply
+			action
 				set impressed
 			`	"I think you might want to know, Admiral, Hines confronted me on the way back to my ship before the last mission. I called him out on his behavior, and the reaction I got tells me he's wasn't ready for anyone standing up to him."`
 			`Danforth smiles broadly. "You remind me of myself at a younger age, Captain. There are plenty of people in the chain of command who I personally feel shouldn't be there in the first place. And you putting Hines in his place gives me hope that one day, we can do just that. Before that, though, we have other matters to attend to."` 
@@ -1443,7 +1442,7 @@ mission "Geminus 3C"
 			`With some slight confusion, you just shrug and continue to wait while the rest of the mechanics are loaded aboard the transports.`
 				goto end
 			label help
-			apply
+			action
 				set "plan"
 				log "people" "Henry Radcliff" `An associate of Lucas Hadley, Radcliff and Hadley go way back. The two are practically brothers, and have vowed to keep an eye out for each other if anything went sideways. He also vows to be a private informant in case he sees anything sketchy.`
 			`	His expression suddenly softens. "The name's Henry Radcliff. I need to talk to you in private, if you don't mind." You nod, then turn to the other auxiliary captains. "I'll handle this one," you say to them.`
@@ -4011,12 +4010,12 @@ mission "Pug [12]"
 					goto "definitely surrender"
 			
 			label "definitely defeat"
-			apply
+			action
 				set "attacked the FW"
 			`	"Very well," says another senator. "In that case, we'll need you to meet with the fleet captains on Luna and figure out how to take on the Free Worlds."`
 			
 			label "definitely occupy"
-			apply
+			action
 				set "occupied the Syndicate"
 			`	Some of the senators are nervous about it, but order you to report to Geminus to get a fleet."`
 
