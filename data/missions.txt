@@ -684,7 +684,7 @@ mission "Navy Pirate Patrol 3"
 			`When you come in for a landing, you can't help but feel like something's wrong. Just from how remote Farpoint is, the activity in the base usually rather low. But now the hangars are swarming with crews and ships ready to take off. In addition, unlike most times, when you might have to wait up to twenty minutes to land, the control tower gives you clearance almost immediately. For you to be moved to the front of the line so quickly, while certainly a nice change of pace, also sends a slight twinge of dread down your spine... which soon proves to be well-founded.`
 			`	You quickly disembark the <ship> to find Danforth's aide waiting for you. The two of you quickly hurry to the Admiral's quarters, and find he's joined by other Navy officers. As you enter the room, instictively saluting as you do so, all eyes shift away from the table and towards you - and the looks you receive, in particular Danforth's, make you feel uneasy.`
 			`	"Captain <last>, your timing is impeccable," Danforth says. "We just obtained your sensor logs, and it may have just been enough to prevent things from getting worse."`
-			`	"... worse, sir?" you ask, cautiously.`
+			`	"... Worse, sir?" you ask, cautiously.`
 			`	"Indeed," one of the officers says. "Things have well and truly hit the fan right as you got here."`
 			`	"Hines, please," Danforth exasperatedly shushes the officer, raising his hand. "Just as we finished downloading your logs, a pirate fleet suddenly warped in. Most of them were either destroyed or routed back into the North, but one ship managed to escape. Most of us believe it's thanks to your sensor logs that we were able to halt their advance as much as we did."`
 			`	"Even so, that one ship is now running amok amongst the systems South of us," another officer adds. "We could have done more if we'd-"`
@@ -777,7 +777,7 @@ mission "Navy Pirate Patrol: Hunt"
 			`Sure enough, Admiral Danforth is present to greet you at Hangar 357, accompanied by Colonel Howell and, to your dismay, Hines. Howell appears as chipper as he was when you first met, but the scowl on Hines' face is worse than you remember. Nonetheless, you salute the trio as you exit the <ship>. "Captain <last>," Danforth begins, "with the destruction of <npc>, you did more than just prove your mettle in combat - you kept what could have become an interstellar incident contained to the Far North."`
 			`	"Just doing my job, Admiral," you reply, maintaining your salute.`
 			`Danforth smiles. "I wish we had more men and women who had your definition of 'just doing their job,' Captain... or should I say, 'Captain First Class-' you will still be referred to as Captain, however," He says with a wink.`
-			`	Your eyes widen slightly, though you maintain your salute. "Really?"`
+			`Your eyes widen slightly, though you maintain your salute. "Really?"`
 			`	"Per High Command's recommendation," Howell beams. "Your performance, in addition to the Admiral's suggestions, was all the evidence they needed. You have certainly earned the promotion, Captain."`
 			branch angry
 				has "ranulph's background"
