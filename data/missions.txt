@@ -881,7 +881,7 @@ mission "Geminus 1"
 			action
 				set "bad look"
 			`The dockworker chuckles for a second, takes his cigarette out of his mouth and flicks it at you. You almost throw a punch before one of the captains of the auxiliaries steps between the two of you. "Sir, it's been a long day for all of us. Could you please help us load our cargo onto our ships?"`
-			`"Yeah, yeah, we'll get on it," he replies. "And thanks for proving my point, you jumpy little-," he pointedly directs at you. Only then do you realize Danforth will probably hear of your behavior - and it's a sure bet he will not be pleased by your conduct.
+			`"Yeah, yeah, we'll get on it," he replies. "And thanks for proving my point, you jumpy little-," he pointedly directs at you. Only then do you realize Danforth will probably hear of your behavior - and it's a sure bet he will not be pleased by your conduct.`
 				goto end
 			label investigate
 			`"Who did you think I meant, numbskull?!" he almost screams at you as the cigarette falls out of his mouth. "You know full well I meant someone from the Navy! I knew you nincompoops were uptight, but don't tell me you're all a bunch of blithering idiots, too!"`
@@ -911,7 +911,7 @@ mission "Geminus 1"
 			choice
 				`	"I see. I'll keep an eye out for him."`
 					goto end
-				`	"That looks like Ranulph Hines."
+				`	"That looks like Ranulph Hines."`
 			`"Know him, eh?" he inquires. "I'd watch myself if I were you - man's got a mean streak a mile wide."`
 					goto end
 			label terror
@@ -978,7 +978,7 @@ mission "Geminus 2A"
 	stopover "New Wales"
 	destination Geminus
 	to offer
-		has "Geminus 1: done"
+		has "event: geminus phase 1"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
