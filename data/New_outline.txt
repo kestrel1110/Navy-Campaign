@@ -65,7 +65,7 @@ sideplot missions
 
 ----------------------------
 reread 2024
--up to geminus 2A
+-cat ram 1b
 ----------------------------
 
 
