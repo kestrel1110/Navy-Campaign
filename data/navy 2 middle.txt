@@ -131,10 +131,11 @@ mission "Navy FW Reassignment 4"
 			`	The governor stares at the datapad with his head in his hands. "Commodore, I can't believe this. Is what you say really true?"`
 			`	"It is, all of it," says Cruz. "I suggest you surrender control of the system before more lives are lost."`
 			`	Shaking his head, the governor complies. As soon as he gives the order, two Navy Intelligence operatives take him away.`
-	npc save
+	npc accompany save
 		personality heroic escort disables target
 		government Republic
 		ship "Cruiser (Mark II)" "R.N.S. Victory"
+		destination "Deep"
 	npc
 		personality heroic escort disables
 		government Republic
@@ -194,7 +195,6 @@ mission "Navy FW Reassignment 4"
 				"Hawk" 3
 				"Sparrow" 4
 				"Bastion" 2
-
 mission "Escort Intelligence Prisoners"
 	landing
 	source Deep
