@@ -1091,8 +1091,8 @@ mission "Tier Boost"
 event "geminus2weekleave"
 
 mission "Electrons 1A"
-	name `Weapons Development`
-	description `Report to Epsilon Leonis to aid in weapons development.`
+	name "Weapons Development"
+	description "Report to Epsilon Leonis to aid in weapons development."
 	to offer
 		has event "geminus2weekleave"
 		has "Tier Boost: offered"
@@ -1100,7 +1100,7 @@ mission "Electrons 1A"
 	deadline
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination "Valhalla"
 	landing
 	on offer
@@ -1228,7 +1228,7 @@ event "e-beam delay 1"
 mission "Electrons 1E"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
@@ -1351,7 +1351,7 @@ event "e-beam delay 2"
 mission "Electrons 1G"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
@@ -1407,7 +1407,7 @@ event "e-beam delay 3"
 mission "Electrons 2B"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
@@ -1505,7 +1505,7 @@ event "all-electrons-available"
 mission "Typhoons 1A"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
