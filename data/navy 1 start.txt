@@ -452,7 +452,7 @@ mission "Geminus 1"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Cargo)" 4
 	on stopover
@@ -717,7 +717,7 @@ mission "Geminus 2B"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary" 4
 	on stopover
@@ -840,7 +840,7 @@ mission "Geminus 3A"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Transport)" 4
 
@@ -909,7 +909,7 @@ mission "Geminus 3B"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Transport)" 4
 
@@ -971,7 +971,7 @@ mission "Geminus 3C"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Transport)" 4
 
@@ -1398,7 +1398,7 @@ mission "Electrons 2A"
 	npc accompany save
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Cargo)" 2
 
@@ -1558,7 +1558,7 @@ mission "Typhoons 1B"
 	npc accompany save
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Cargo)"
 	npc
