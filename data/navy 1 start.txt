@@ -687,7 +687,7 @@ mission "Geminus 2B"
 	name "Rebuilding Geminus: Science Team"
 	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up scientists and their R&D equipment, then return to <destination> to help rebuild the Navy Shipyards there."
 	source Geminus
-	stopover "Asgard"
+	stopover Asgard
 	destination Geminus
 	to offer
 		has "Geminus 2A: done"
@@ -699,7 +699,7 @@ mission "Geminus 2B"
 				has "lifeDebt"
 			`The new spaceport is slowly starting to take shape - off to your right, you see concrete being placed into forms for the new hangar, dug into the nearby hillside. On your left, meanwhile, a number of the new recruits are standing at attention for their first assignments - many of which involve manning the numerous turrets that now dot the base. While still a far cry from the original spaceport, it is a promising sight, nonetheless.`
 			`	It isn't long before you find Danforth, standing near some pylons. "Thanks to the new recruits and defensive emplacements, we can all sleep a bit better at night, <last>. More sleep means more productivity, and the sooner we can get the spaceport rebuilt. However, the bombings were a sort of dark blessing in their own way - the old spaceport was rather limited in its scope, and didn't lend itself to expansion. Any technologies we needed developed had to be done off-planet...but no more."`
-			`	Danforth brings up a hologram of the nearby systems, highlighting a system in the Deep. "Planet Asgard in the Naos System is the home of Deep Sky - they're responsible for making some of the best engines known to us. In addition, I'm told they may be working on new weapons technology, and would need a suitable location for testing - Geminus would be ideal to help assist with this development. As such, you'll be escorting the auxiliaries to Asgard for transportation of scientists and their equipment back here. Not that I think they need the escort - Deep Security tends to keep their borders pirate-free, but you know the old saying: "better safe than sorry."`
+			`	Danforth brings up a hologram of the nearby systems, highlighting a system in the Deep. "Planet <stopover> in the Naos System is the home of Deep Sky - they're responsible for making some of the best engines known to us. In addition, I'm told they may be working on new weapons technology, and would need a suitable location for testing - Geminus would be ideal to help assist with this development. As such, you'll be escorting the auxiliaries to Asgard for transportation of scientists and their equipment back here. Not that I think they need the escort - Deep Security tends to keep their borders pirate-free, but you know the old saying: "better safe than sorry."`
 			`"Understood, sir," you reply, nodding. "I'll make my way there at once."`
 				goto end
 			label hadley
@@ -722,8 +722,8 @@ mission "Geminus 2B"
 				"Auxiliary" 4
 	on stopover
 		event "geminus phase 2"
+		log "People" "Walter Heisenberg" `Hailing from the planet Asgard, Doctor Heisenberg is one of the most talented scientists in the Deep. He and his team have been brought to Geminus so they can test and develop new weaponry for the Republic Navy.`
 		conversation
-			log "people" "Walter Heisenberg" `Hailing from the planet Asgard, Doctor Heisenberg is one of the most talented scientists in the Deep. He and his team have been brought to Geminus so they can test and develop new weaponry for the Republic Navy.`
 			`Even though you may have been to the Deep several times, you still find yourself fascinated by all the advanced technology as you descend through <stopover>'s atmosphere. The dizzying spires of the spaceport gleam in the midday sun as your ships come in to dock at a tower which looks more advanced than the others. How anyone manages to find their way in this constantly-shifting spaceport is beyond you.`
 			`	As you exit the <ship>, you are immediately met by the Deep scientists and their research gear; as the crews of the auxiliaries exit their ships, a bald, older man, probably in his 50s, steps forward. "Ah, you must be Captain <last>," he begins. "Admiral Danforth told us you'd be here soon. I'm Dr. Walter Heisenberg - pleased to meet you."`
 			choice
@@ -981,11 +981,11 @@ mission "Geminus 3C"
 			`Your arrival on Millrace is similar to the arrival on Lodestone - rusted sheetmetal and spalling concrete intermingle with soot and grime to make for a fantastically unpleasant sight. Though you have to give the Syndicate credit for one thing: all their technology may be ugly, but it's efficient.`
 			`It's a familiar scene as you watch the mechanics lined up to be seated aboard their transports. Standing near one of the lines, a machinist looks over at you with a curious glance - almost like he recognizes you. It soon turns out to be the case as he asks, "Hey, aren't you that Navy Captain who was on Lodestone a while back?"`
 			choice
-			`	"I have no idea what you're talking about."`
+				`	"I have no idea what you're talking about."`
 				goto no
-			`	"I've been all over the galaxy - it's hard to say where I have and haven't been."`
+				`	"I've been all over the galaxy - it's hard to say where I have and haven't been."`
 				goto maybe
-			`	"Yes, I am."`
+				`	"Yes, I am."`
 				goto yes
 			label no
 			`	The dockworker studies you for a long minute before he shrugs and returns his gaze forward.`
@@ -993,9 +993,9 @@ mission "Geminus 3C"
 			label maybe
 			`	"Pretty sure I saw you there," he comments, almost goading you on. "Maybe I'm getting you confused with the other Navy prick who was there.`
 			choice
-			`	(say nothing)`
+				`	(say nothing)`
 				goto end
-			`	(attack him)`
+				`	(attack him)`
 			`Right as you move in to defend your honor, he procures a hidden blaster pistol from his shirt. Before you can realize your error, he suddenly shoots you several times in the stomach. You have just enough life in you to watch him be carted off by other Navy personnel before your vision is obscured by blackness.`
 			`You are dead. Not big surprise.`
 				die
@@ -1008,9 +1008,9 @@ mission "Geminus 3C"
 			label uhoh
 			`Though you don't display it outwardly, you realize that must be the dockworker you almost attacked on Lodestone. Better choose your words carefully, or things might get ugly.`
 			choice
-			`	"No...why do you ask? And what does he want?"`
+				`	"No...why do you ask? And what does he want?"`
 				goto oops
-			`	"I know I acted out of line on Lodestone - I promise it won't happen again."`
+				`	"I know I acted out of line on Lodestone - I promise it won't happen again."`
 				goto glare
 			label oops
 			`"Justice," he says as he procures a hidden blaster pistol from his shirt. Before you can realize your error, he suddenly shoots you several times in the stomach. You have just enough life in you to watch him be carted off by other Navy personnel before your vision is obscured by blackness.`
