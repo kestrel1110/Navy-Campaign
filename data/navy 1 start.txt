@@ -452,7 +452,7 @@ mission "Geminus 1"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Cargo)" 4
 	on stopover
@@ -717,7 +717,7 @@ mission "Geminus 2B"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary" 4
 	on stopover
@@ -840,7 +840,7 @@ mission "Geminus 3A"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Transport)" 4
 
@@ -909,7 +909,7 @@ mission "Geminus 3B"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Transport)" 4
 
@@ -971,7 +971,7 @@ mission "Geminus 3C"
 		government "Republic"
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Transport)" 4
 
@@ -1091,8 +1091,8 @@ mission "Tier Boost"
 event "geminus2weekleave"
 
 mission "Electrons 1A"
-	name `Weapons Development`
-	description `Report to Epsilon Leonis to aid in weapons development.`
+	name "Weapons Development"
+	description "Report to Epsilon Leonis to aid in weapons development."
 	to offer
 		has event "geminus2weekleave"
 		has "Tier Boost: offered"
@@ -1100,7 +1100,7 @@ mission "Electrons 1A"
 	deadline
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination "Valhalla"
 	landing
 	on offer
@@ -1228,7 +1228,7 @@ event "e-beam delay 1"
 mission "Electrons 1E"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
@@ -1309,7 +1309,7 @@ mission "Electrons 1F"
 		has "Electrons 1E: done"
 	on offer
 		conversation
-			`After taking care of some business, you head back to the main planetary spaceport and to the spaceport lounge as you remember John saying, and sure enough, you see him there waiting. You go over to him, and he tells you what your task is. "Lt. Commander, your job is to get to the <waypoint> system. There you will find a Mule and a Barb in orbit, and you are to disable them without destroying them. My engineers are installing analysis cameras on your hull as we speak. They will film the interaction for my analysts to deal with, and I will need your ships logs as well. Once you're done, report back to me and give me an honest assessment of the engagement so I may finalize our adjustments. Any questions?"
+			`After taking care of some business, you head back to the main planetary spaceport and to the spaceport lounge as you remember John saying, and sure enough, you see him there waiting. You go over to him, and he tells you what your task is. "Lt. Commander, your job is to get to the <waypoint> system. There you will find a Mule and a Barb in orbit, and you are to disable them without destroying them. My engineers are installing analysis cameras on your hull as we speak. They will film the interaction for my analysts to deal with, and I will need your ships logs as well. Once you're done, report back to me and give me an honest assessment of the engagement so I may finalize our adjustments. Any questions?"`
 			choice
 				`	"No questions."`
 			`With a grin that could only be described as 'cheeky,' he says "All right then, good. Have fun captain!"`
@@ -1325,7 +1325,7 @@ mission "Electrons 1F"
 		event "e-beam delay 2" 8		
 		payment 1750000
 		conversation
-			`You arrive on Valhalla and proceed to the secure facility where John works, and he meets you outside of your ship. "Well, how was the fight, <first>?"
+			`You arrive on Valhalla and proceed to the secure facility where John works, and he meets you outside of your ship. "Well, how was the fight, <first>?"`
 			choice
 				`	"It was pretty hard, but I managed to pull through. Those were some impressive weapons though!"`
 					goto hard
@@ -1335,7 +1335,7 @@ mission "Electrons 1F"
 			`	"Well, I am glad to have you back, and I'm glad they worked so well- I'll be reviewing the resources from your ship and we should have these ready in the coming days.`
 					goto end
 			label easy
-			`	"Yes they were, and I'm glad you weren't harmed- I'll be reviewing the resources from your ship and we should have these ready in the coming days."
+			`	"Yes they were, and I'm glad you weren't harmed- I'll be reviewing the resources from your ship and we should have these ready in the coming days."`
 			label end
 			`John hands you a credit chip worth <payment> credits, and sends you on your way. "Take care, <first>, and I will see you later!"`
 			`You shake his hand and walk up to the elevator. A short wait later, you step out of the elevator and hanger and into the afternoon sun.`
@@ -1351,7 +1351,7 @@ event "e-beam delay 2"
 mission "Electrons 1G"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
@@ -1398,7 +1398,7 @@ mission "Electrons 2A"
 	npc accompany save
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Cargo)" 2
 
@@ -1407,7 +1407,7 @@ event "e-beam delay 3"
 mission "Electrons 2B"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
@@ -1505,7 +1505,7 @@ event "all-electrons-available"
 mission "Typhoons 1A"
 	source
 		government Republic
-		not Valhalla
+		not planet Valhalla
 	destination Valhalla
 	landing
 	name "Report to the weapons lab."
@@ -1558,7 +1558,7 @@ mission "Typhoons 1B"
 	npc accompany save
 		personality escort timid
 		fleet
-			names "republic" "capital"
+			names "republic capital"
 			variant
 				"Auxiliary (Cargo)"
 	npc
