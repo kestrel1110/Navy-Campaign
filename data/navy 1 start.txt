@@ -1082,7 +1082,7 @@ mission "Tier Boost"
 		has event "geminus rebuilt"
 	on offer
 		event "geminus2weekleave" 14
-		log "Received a promotion because of my assistance with rebuilding the shipyards on Geminus."
+		log "Received a promotion to the rank of Lieutenant Commander because of my assistance with rebuilding the shipyards on Geminus. It's a wonder how I am managing to fly through the ranks like this. Also, I'm noting that I am now the same rank as Ranulf Hines..I have a very good idea of how he will feel about this."
 		"reputation: Republic" += 10
 		"reputation: Free Worlds" = 500
 		"reputation: Escort" = 500
@@ -1906,9 +1906,10 @@ mission "Electrons Final"
 		"salary: Navy" = 2500
 		set "license: Navy Cruiser"
 		conversation
-			`	The <ship>'s intercom suddenly beeps with a message from Admiral Danforth: "Lieutenant Commander <last>! For your contributions to the recent weapons development programs on Valhalla, you have been promoted to the rank of Commander, and your daily stipend henceforth shall be 2500 credits per diem. You have also received a license to purchase cruisers."`
+			`	The <ship>'s intercom suddenly beeps with a message from Admiral Danforth: "Lieutenant Commander <last>! For your contributions to the recent weapons development programs on Valhalla and Geminus, you have been promoted to the rank of Commander, and your daily stipend henceforth shall be 2500 credits per diem. You have also received a license to purchase cruisers."`
 			branch hines
 				has "rivalry"
 			label hines
 			`You think to yourself that Hines will not be happy when he hears this.`
+			label end
 				decline
