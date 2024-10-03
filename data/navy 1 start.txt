@@ -1121,7 +1121,7 @@ mission "Electrons 1A"
 			`You follow the scientists down a short corridor leaving the main area of the warehouse, ending in a well-lit elevator lobby. John puts a code into a keypad which makes a few silly beeping sounds, but it opens the elevator doors. You walk in and it begins its descent. You step into a sleek lab, filled with scientists hunched over various displays and devices, of which you can guess the purpose of very few. John leads you down a long hallway to a sealed room, flanked by two marines with rifles. He pulls a key card out of his pocket, motions to one of the guards, who pulls out a card of his own, and they swipe them simultaneously. The door opens with a hiss and reveals a perfectly white room, and a table on which is seated a long device, which appears to be the latest from the Deep.`
 			scene "outfit/electron beam"
 			`John motions you over, saying, "Here it is! We call it the Electron Beam. Twenty tons of pure destruction- but it doesn't work. Because of increased pirate problems in Syndicate space, we are missing some crucial materials. We need you to get those materials before we can get this working. Your destination is Lodestone, in the Ankaa system. You will need twenty-one tons of cargo space free for this mission. We have some fun for you when you get back," he says with a wink. You nod assent, even though you are still enamored by this elegant weapon, but John pulls you away and ushers you back to your ship.`
-				done
+
 
 mission "Electrons 1B"
 	name "Weapons Development"
@@ -1170,7 +1170,7 @@ mission "Electrons 1C"
 			`	After having eliminated the pirate threat, and reclaimed the cargo, you land back on <destination>, relieved that you survived that. Suddenly your communicator beeps, as a message from the Syndicate goes through:`
 			`	[Captain <last>, as gratitude for your destruction of the Pulsar, which has been raiding convoys in the area for weeks, 1.5 million credits have been transferred to your account.]`
 			`	Now that you have the cargo, you should head back to Valhalla.`
-				done
+				com
 			
 
 ship "Bulk Freighter" "Bulk Freighter (sneeki breeki)"
@@ -1206,11 +1206,11 @@ mission "Electrons 1D"
 	landing
 	description "Bring the special cargo to Valhalla to assist in the development of the Electron Beam."
 	on fail
-		dialogue "You have failed an essential Navy mission. Try reloading the save and trying again."
+		dialog "You have failed an essential Navy mission. Try reloading the save and trying again."
 	to offer
 		has "Electrons 1C: done"
 	on visit
-		dialogue "You do not have the secret cargo. Reload your save and try again."
+		dialog "You do not have the secret cargo. Reload your save and try again."
 	on complete
 		event "e-beam delay 1" 17
 		payment 300000
@@ -1231,7 +1231,7 @@ mission "Electrons 1D"
 					goto end
 			label end
 				`You follow him into the warehouse and through the elevator. Once again you find yourself in a white, polished, lab with devices you could never guess about what they do. Crossing the large rooms between the scientists you find a path with him to his office, and he bids you to follow him inside. Sitting down, he reaches under the desk and opens a small safe, gives you <payment> credits, and sends you on your way.`
-				done
+
 
 event "e-beam delay 1"
 
@@ -1262,7 +1262,7 @@ mission "Electrons 1E"
 			`		5 8 3 6 2 0 1`
 			`You punch in the numbers one at a time, only missing the 0 once (which requires you to wait thirty seconds to attempt again), and the elevator door opens with a pleasant hiss. You step in and wait for the ride down, noticing that old-fashioned elevator music from over a millenium ago is quietly murmuring from a small speaker in the back.`
 			`Finally, the elevator lands and you step out, and momentarily find yourself being greeted by a familiar face. "Hello, <first>, it's good you came so quickly!" he says with a wink. You wonder if he watched you miss the passcode, but brush the thought aside. "I have some work for you to do, and as I recall, you have an enjoyment of fighting. Luckily, your task will involve that- please meet me in the spaceport lounge in four hours for your next assignment, as I must prepare some files before my departure. I'll be waiting for you there, and so I will see you then!"`
-				done
+
 
 outfit "Electron Beam (Prototype)"
 	category "Guns"
@@ -1330,7 +1330,7 @@ mission "Electrons 1F"
 		system Aspidiske
 		ship "Mule Test Dummy (Electrons)" "Test Dummy"
 		ship "Barb Test Dummy (Electrons)" "Test Dummy"
-		dialogue "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
+		dialog "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
 	on complete
 		event "e-beam delay 2" 8		
 		payment 1750000
@@ -1350,7 +1350,7 @@ mission "Electrons 1F"
 			`John hands you a credit chip worth <payment> credits, and sends you on your way. "Take care, <first>, and I will see you later!"`
 			`You shake his hand and walk up to the elevator. A short wait later, you step out of the elevator and hanger and into the afternoon sun.`
 			`With some time to yourself now, it would probably be a good idea to get some extra work done.`
-					done
+
 
 event "e-beam delay 2"
 	outfitter "Deep Sky Basics"
@@ -1492,7 +1492,7 @@ mission "Electrons 2C"
 		system Aspidiske
 		ship "Mule Test Dummy (Electrons+Turret)" "Test Dummy"
 		ship "Barb Test Dummy (Electrons)" "Test Dummy"
-		dialogue "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
+		dialog "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
 	on complete
 		event "30-day-leave" 30
 		event "all-electrons-available" 10
@@ -1503,7 +1503,7 @@ mission "Electrons 2C"
 					goto end
 			label end
 			`	"Well, I'm glad you enjoyed in and everything turned out okay. I got to admit, though, these tests make me nervous, even though I know I can trust you. I guess it's just a thing with us scientists. Anyhow, give me a couple days to continue maximising the outputs and energy requirements, and then I'll let you know to report back. Until then, apparently you have a month of leave!"`
-					done
+
 
 event "30-day-leave"
 
@@ -1615,14 +1615,14 @@ mission "Typhoons 1C"
 			choice
 				`"The weapons performed perfectly, and although they were a little slow, when one did hit, it was quite a blast."`
 			`"Wondeful, Captain! In that case, as soon as we make a few more tweaks from the data in your logs, they should be ready for commercial use!`
-				done
+
 	npc disable save
 		personality staying disables nemesis target
 		government "Test Dummy"
 		system Aspidiske
 		ship "Mule Test Dummy (Typhoons)" "Test Dummy"
 		ship "Lance" "Test Dummy"
-		dialogue "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
+		dialog "You've killed the Test ships you were supposed to disable. Congratulations? Now I suggest you reload your save and try again."
 
 ship "Mule" "Mule Test Dummy (Typhoons)"
 	outfits
@@ -1704,7 +1704,7 @@ mission "Catalytic Ramscoops 1B"
 		conversation
 			`Faced with minimal difficulties on the way, you are shocked as you enter the system to find a large Pirate fleet in orbit. And, even more to your chagrin, they all immediately begin turning towards you, some of them already training their turrets on you. Evidently, your convoy is the target of a coordinated attack...but for now you focus on something more important- your own survival. Hopefully the new Auxiliaries will fare well.`
 	on visit
-		dialogue "You have not destroyed all of the Pirate raiders yet. Relaunch and destroy them as soon as possible."
+		dialog "You have not destroyed all of the Pirate raiders yet. Relaunch and destroy them as soon as possible."
 			launch
 	on complete
 		payment 510200
@@ -1831,27 +1831,26 @@ mission "Catalytic Ramscoops 1E"
 			`You walk through the base until you reach the operations facility where Danforth's office is located. Following the old familiar route, you soon find yourself knocking on the door again.`
 			`	"Come!"`
 			`As you enter, you notice Danforth sitting in his chair behind a monitor reading intently, but upon seeing you, he looks up and smiles.`
-			branch hines
-				has "rivalry"
+
 			`	"Sit down, Lieutenant Commander. How are you doing these days?"`
 			choice
 				`	"Great. The tasks are enjoyable, and I like my work!"`
 				`	"Poorly. The work is unenjoyable, but orders are orders."`
 			`Danforth nods, and asks what you've been doing for the scientists from the Deep. You describe your work, and before you know it, an hour has passed while you were chatting.`
+			branch hines
+				has "rivalry"
 			label hines
 			choice
 				`Ask Danforth how Hines is doing.`
-					goto hines2
+			`	"How is Ranulf Hines doing, Admiral?" you ask.`
+			`	"He's managed to stay out of trouble," Danforth replies, "probably because the war is brewing and he is focusing less on his rivalry with you and more on getting to the front when the time comes, because sadly, it looks like it will come. Anyways Lieutenant Commander, it's been good catching up with you. Now, if you have those sensor logs, that would be great," he says in an exaggerated Bill Lumbergh accent, winking at you. Your mind quickly flashes to a 20th century comedy, and then the momentary vision disappears.`
 			label end
 			choice
 				`Give Danforth your sensor logs`
 			`	"Thank you Captain. It really is so helpful for you to be able to take one more ship off of patrol duty. Oh, and by the way- here's a small bonus as compensation for that long detour."`
-			`You tank the Admiral and say goodbye, and walk out of the base into the sun.`
-				done
-			label hines2
-			`	"How is Ranulf Hines doing, Admiral?" you ask.`
-			`	"He's managed to stay out of trouble," Danforth replies, "probably because the war is brewing and he is focusing less on his rivalry with you and more on getting to the front when the time comes, because sadly, it looks like it will come. Anyways Lieutenant Commander, it's been good catching up with you. Now, if you have those sensor logs, that would be great," he says in an exaggerated Bill Lumbergh accent, winking at you. Your mind quickly flashes to a 20th century comedy, and then the momentary vision disappears.`
-				goto end
+			`Danforth hands you a credit chip worth <payment>; and sends you on your way.`
+			`You thank the Admiral and say goodbye, and walk out of the base into the sun.`
+
 			
 ### http://media.makeameme.org/created/ThatD-be-great.jpg
 

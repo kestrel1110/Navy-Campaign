@@ -18,7 +18,7 @@ mission "Navy FW Reassignment 1"
 	deadline
 	source
 		government "Republic"
-		not Earth
+		not planet Earth
 	destination Earth
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
@@ -813,7 +813,7 @@ mission "Syndicate investigation [1]"
 	on complete
 		log "Apparently the Syndicate was not in control over the nuclear fleet, but a certain 'extremist' faction was. The hyperlink removals were because of an alien species, called the Pug, that has invaded human space. The Syndicate has seven Jump Drives to outfit an attack fleet with, so the fleet will only have seven ships."
 		conversation
-#### I should note that this is just the edited dialogue from Michael Zahniser's "FW Pug 2B" mission from the reconciliation branch. (because this was too hard for me to write and supposed to have the exact same outcome)
+#### I should note that this is just the edited dialog from Michael Zahniser's "FW Pug 2B" mission from the reconciliation branch. (because this was too hard for me to write and supposed to have the exact same outcome)
 			`As you are coming in for a landing you announce yourself to the spaceport authorities as diplomatic representatives of the Republic. The moment you land, a Syndicate employee meets you and escorts you to their headquarters, culminating with the arrival at the extravagantly-furnished (perhaps even disgustingly-so) office of Alastair Korban - the CEO of the entire Syndicate Corporation.`
 			`"I'm very glad you've come," says Alastair. "It seems unlikely that we can defeat this attack unless we work together."`
 			`	"Wait," John says, "you're saying this whole thing is not the Syndicate's doing?"`
