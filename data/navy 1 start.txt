@@ -1374,6 +1374,7 @@ mission "Electrons 1G"
 		conversation
 			`You receive a communique from John, the scientist who was working on electron beams: "<first> <last>, please report to Valhalla immediately, your assistance is required."`
 			`The message is very brief, but you expect you can get more details later.`
+				accept
 
 mission "Electrons 2A"
 	source Valhalla
@@ -1394,7 +1395,7 @@ mission "Electrons 2A"
 				`"On my way."`
 					accept
 			label what
-				`"They are materials for heavy gears and such machinery. As you could probably guess, we're building a turret mount."`
+			`	"They are materials for heavy gears and such machinery. As you could probably guess, we're building a turret mount."`
 			choice
 				`"On my way."`
 					accept
@@ -1429,6 +1430,7 @@ mission "Electrons 2B"
 	on offer
 		conversation
 			`As you come in for a landing, you find you have received another communique from John: "<first> <last>, please report to Valhalla immediately, we have some fun for you."`
+				accept
 
 outfit "Electron Turret (Prototype)"
 	category "Turrets"
@@ -1667,6 +1669,7 @@ mission "Catalytic Ramscoops 1A"
 	on offer
 		conversation
 			`Upon settling the <ship> into its berth on <source>, you are relayed another message from the science team: Captain, please report to <destination>, as once again your assistance is required.`
+				accept
 	on complete
 		conversation
 			`Floating down through the clouds of Geminus, you look out of the viewports of the bridge to see the new shipyards you helped build sprawling out on the freshly moved dirt. Distantly the old yards sit like an abandoned battlefield in the morning sun, the rays of light cresting over the dusty wreck like strange mountains in the distance.`
@@ -1908,7 +1911,6 @@ mission "Electrons Final"
 		set "license: Navy Cruiser"
 		conversation
 			`	The <ship>'s intercom suddenly beeps with a message from Admiral Danforth: "Lieutenant Commander <last>! For your contributions to the recent weapons development programs on Valhalla, you have been promoted to the rank of Commander, and your daily stipend henceforth shall be 2500 credits per diem. You have also received a license to purchase cruisers."`
-				decline
 			branch hines
 				has "rivalry"
 			label hines
