@@ -396,7 +396,7 @@ mission "Navy Pirate Patrol: Hunt"
 
 mission "Geminus 1"
 	name "Rebuilding Geminus: Groundbreaking"
-	description "Escort several Navy Cargo Auxiliaries to <stopover> to pick up building materials, then return to <destination> to help rebuild the Navy Shipyards there."
+	description "Escort several Navy Cargo Auxiliaries to <planet stopovers> to pick up building materials, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
 	source "Farpoint"
 	stopover "Lodestone"
@@ -415,7 +415,7 @@ mission "Geminus 1"
 			`	"Involving the Auxie's, sir?"`
 			`"Indeed. Ever since the bombings of Geminus and Martini, there's been significant push to get the primary Naval Shipyards rebuilt. However, we can't rebuild the shipyards without any material to do so, and Navy Logistics has been tied up with disaster relief. We only just managed to convince Logistics to spare these four ships, which will be just enough for our purposes."`
 			`	"Where am I headed, Admiral?"`
-			`"The first stop for these Auxiliaries will be <stopover>; given the planet's rich supply of heavy metals and other minerals, it's the ideal location to procure building materials for the reconstruction. Before I forget, however, your salary increase should have just gone through-anyways, do you have any questions?"` 
+			`"The first stop for these Auxiliaries will be <planet stopovers>; given the planet's rich supply of heavy metals and other minerals, it's the ideal location to procure building materials for the reconstruction. Before I forget, however, your salary increase should have just gone through-anyways, do you have any questions?"` 
 			choice
 				`	"Not at all - I shall leave without delay, Admiral."`
 					accept
@@ -458,7 +458,7 @@ mission "Geminus 1"
 	on stopover
 		event "geminus phase 1"
 		conversation
-			`Your clearance to land on Lodestone was delayed by volcanic ash for about ten minutes before the port authorities allowed your fleet to land. "Fourth Port," as the spaceport is called, was built after the previous three ports were buried under Lodestone's numerous eruptions. Unlike your previous stay at <source>, where you would have struggled to have found a speck of dust in the mess hall, Fourth Port is a testament to the Syndicate's standards: warehouses of rusted sheetmetal, towering metal smokestacks that belching caustic ash, and barrels containing a disgusting yellowish liquid you can only hope are cleaning chemicals and not...something else.`
+			`Your clearance to land on Lodestone was delayed by volcanic ash for about ten minutes before the port authorities allowed your fleet to land. "Fourth Port," as the spaceport is called, was built after the previous three ports were buried under Lodestone's numerous eruptions. Unlike your previous stay at <origin>, where you would have struggled to have found a speck of dust in the mess hall, Fourth Port is a testament to the Syndicate's standards: warehouses of rusted sheetmetal, towering metal smokestacks that belching caustic ash, and barrels containing a disgusting yellowish liquid you can only hope are cleaning chemicals and not...something else.`
 			`	 Landing in the hangar designated for your fleet doesn't do the Syndicate's image any favors, either. Workers are actively repairing parts of the walls and ceiling that you felt should've been replaced long ago, and the rickety scaffolding they've erected for the repair crews makes you worried, to say the least. The air in the hangar is also thick and stagnant, and almost makes you gag. You quickly call over the captains of the auxiliaries and make your way to the loading docks - it takes about ten minutes to make your way through the maze of corridors before you reach your destination.`
 			`	Upon reaching the docks, several Syndicate dockworkers call you over to a large collection of cargo containers filled with the building materials bound for Geminus. "Took you long enough," one says with a cigarette hanging out the side of his mouth. "We've been waiting here for five hours with our thumbs up our butts for you Navy jarheads. One of your own came by here about a month ago and acted like they owned the place - I tell ya, my boss doesn't pay me enough to put up with B.S. like theirs."`
 			choice
@@ -563,7 +563,7 @@ event "geminus phase 1"
 
 mission "Geminus 2A"
 	name "Rebuilding Geminus: Troops and Defenses"
-	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up Navy Personnel and defensive emplacements, then return to <destination> to help rebuild the Navy Shipyards there."
+	description "Escort several Navy Hybrid Auxiliaries to <planet stopovers> to pick up Navy Personnel and defensive emplacements, then return to <destination> to help rebuild the Navy Shipyards there."
 	source Geminus
 	stopover "New Wales"
 	destination Geminus
@@ -599,16 +599,16 @@ mission "Geminus 2A"
 			label debriefing
 			branch hadley
 				has "lifeDebt"
-			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <stopover>, so we'll bring them here. <stopover> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
-			`	"That's the extent of your mission - get to <stopover> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
+			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <planet stopovers>, so we'll bring them here. <planet stopovers> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
+			`	"That's the extent of your mission - get to <planet stopovers> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
 			`	"No, sir."`
 			`Danforth nods. "You have your orders, Captain - get to it!"`
 				goto end
 			label hadley
 			action
 				payment 1500000
-			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <stopover>, so we'll bring them here. <stopover> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
-			`	"That's the extent of your mission - get to <stopover> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
+			`Danforth pulls out some files from his desk, dropping them on the desktop. "We recently finished training some new recruits. They're all dressed-up and ready to fight, but they've got nowhere to go. They're currently on <planet stopovers>, so we'll bring them here. <planet stopovers> also has some extra defensive guns that they're willing to lend us, with the expectation that we will return them once Geminus has been rebuilt to its former capacity." He hands you the file, and you open it to see a list of names on it. Likely the names of the new recruits to be sent here.`
+			`	"That's the extent of your mission - get to <planet stopovers> with the auxiliaries, pickup the troops and guns, and get them back here. Is there anything else you need to discuss before you leave?"`
 			`	"Actually, sir...there is."`
 			`Danforth raises an eyebrow. "Alright, I'm listening."`
 			`	"I met a dockworker at Lodestone named Lucas Hadley. He says that Hines stopped by about a month ago to pick up some materials for the base at New Iceland - is that true?"`
@@ -685,7 +685,7 @@ mission "Geminus 2A"
 
 mission "Geminus 2B"
 	name "Rebuilding Geminus: Science Team"
-	description "Escort several Navy Hybrid Auxiliaries to <stopover> to pick up scientists and their R&D equipment, then return to <destination> to help rebuild the Navy Shipyards there."
+	description "Escort several Navy Hybrid Auxiliaries to <planet stopovers> to pick up scientists and their R&D equipment, then return to <destination> to help rebuild the Navy Shipyards there."
 	source Geminus
 	stopover Asgard
 	destination Geminus
@@ -699,7 +699,7 @@ mission "Geminus 2B"
 				has "lifeDebt"
 			`The new spaceport is slowly starting to take shape - off to your right, you see concrete being placed into forms for the new hangar, dug into the nearby hillside. On your left, meanwhile, a number of the new recruits are standing at attention for their first assignments - many of which involve manning the numerous turrets that now dot the base. While still a far cry from the original spaceport, it is a promising sight, nonetheless.`
 			`	It isn't long before you find Danforth, standing near some pylons. "Thanks to the new recruits and defensive emplacements, we can all sleep a bit better at night, <last>. More sleep means more productivity, and the sooner we can get the spaceport rebuilt. However, the bombings were a sort of dark blessing in their own way - the old spaceport was rather limited in its scope, and didn't lend itself to expansion. Any technologies we needed developed had to be done off-planet...but no more."`
-			`	Danforth brings up a hologram of the nearby systems, highlighting a system in the Deep. "Planet <stopover> in the Naos System is the home of Deep Sky - they're responsible for making some of the best engines known to us. In addition, I'm told they may be working on new weapons technology, and would need a suitable location for testing - Geminus would be ideal to help assist with this development. As such, you'll be escorting the auxiliaries to Asgard for transportation of scientists and their equipment back here. Not that I think they need the escort - Deep Security tends to keep their borders pirate-free, but you know the old saying: "better safe than sorry."`
+			`	Danforth brings up a hologram of the nearby systems, highlighting a system in the Deep. "Planet <planet stopovers> in the Naos System is the home of Deep Sky - they're responsible for making some of the best engines known to us. In addition, I'm told they may be working on new weapons technology, and would need a suitable location for testing - Geminus would be ideal to help assist with this development. As such, you'll be escorting the auxiliaries to Asgard for transportation of scientists and their equipment back here. Not that I think they need the escort - Deep Security tends to keep their borders pirate-free, but you know the old saying: "better safe than sorry."`
 			`"Understood, sir," you reply, nodding. "I'll make my way there at once."`
 				goto end
 			label hadley
@@ -724,7 +724,7 @@ mission "Geminus 2B"
 		event "geminus phase 2"
 		log "People" "Walter Heisenberg" `Hailing from the planet Asgard, Doctor Heisenberg is one of the most talented scientists in the Deep. He and his team have been brought to Geminus so they can test and develop new weaponry for the Republic Navy.`
 		conversation
-			`Even though you may have been to the Deep several times, you still find yourself fascinated by all the advanced technology as you descend through <stopover>'s atmosphere. The dizzying spires of the spaceport gleam in the midday sun as your ships come in to dock at a tower which looks more advanced than the others. How anyone manages to find their way in this constantly-shifting spaceport is beyond you.`
+			`Even though you may have been to the Deep several times, you still find yourself fascinated by all the advanced technology as you descend through <planet stopovers>'s atmosphere. The dizzying spires of the spaceport gleam in the midday sun as your ships come in to dock at a tower which looks more advanced than the others. How anyone manages to find their way in this constantly-shifting spaceport is beyond you.`
 			`	As you exit the <ship>, you are immediately met by the Deep scientists and their research gear; as the crews of the auxiliaries exit their ships, a bald, older man, probably in his 50s, steps forward. "Ah, you must be Captain <last>," he begins. "Admiral Danforth told us you'd be here soon. I'm Dr. Walter Heisenberg - pleased to meet you."`
 			choice
 				`	"So I take it you are the one who knocks?"`
@@ -779,7 +779,7 @@ event "geminus phase 2"
 
 mission "Geminus 3A"
 	name "Rebuilding Geminus: Construction Workers"
-	description "Escort several Navy Transport Auxiliaries to <stopover> to pick up construction workers, then return to <destination> to help rebuild the Navy Shipyards there."
+	description "Escort several Navy Transport Auxiliaries to <planet stopovers> to pick up construction workers, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
 	source "Geminus"
 	stopover "New China"
@@ -793,10 +793,10 @@ mission "Geminus 3A"
 			`Walking away from the <ship>, you head towards the new pads where the Auxiliaries recently landed, dispensing the scientists' cargo efficiently from its bays with nearby cranes, as the scientists themselves file out in lines from the transport modules. In your mind the thought occurs to you that Geminus is actually starting to feel like a proper spaceport. As you watch, flatbed trucks arrive with crew modules and prepare to replace the cargo sections of the auxiliaries for the next mission. You hear a step behind you, and turn to see Danforth striding up to you with a beaming grin on his face.`
 			`	"It feels like only yesterday this place was just a hole in the ground," he comments, echoing your previous thoughts. "But now we're almost back to where we were prior to the bombings. There's just a few more steps to complete before the base is up and running again. Most notably, we need more construction workers."`
 			`	"And I assume you have a planet in mind for that mission?"`
-			`	"Indeed, <last>. The planet <stopover> is where we'll be picking up new workers."`
+			`	"Indeed, <last>. The planet <planet stopovers> is where we'll be picking up new workers."`
 			`	"Any particular reason, Admiral?"`
 			`	"It's a two-for-one reason, actually. The planet is already overpopulated - as a result, its citizens are middle-class at best, with the vast majority being comprised of clerks, construction workers and other low-paying jobs. We're going to give those workers and their families a substantial boost to their quality of life, and at least slightly alleviate the population problem."`
-			`	"Sounds good, Admiral. I'll make my way to <stopover> at once."`
+			`	"Sounds good, Admiral. I'll make my way to <planet stopovers> at once."`
 			branch hadley
 				has "lifeDebt"
 			`After heading to the spaceport to 'hit the head' quickly, you receive a notification of the auxiliaries imminent departure. You manage to board the <ship> right as the last of the auxiliaries finishes their conversion. As you warm up the engines, you manage to see Hines scowling about something. You shrug, figuring he's just having a bad day.`
@@ -847,7 +847,7 @@ mission "Geminus 3A"
 	on stopover
 		event "geminus phase 3"
 		conversation
-			`Thick plumes of smoke reach for the sky as you make your way through the skies of <stopover>, your auxiliaries in tow. The spaceport is easily found, looking like a giant warehouse surrounded by landing pads. It's only when you see a small child in tattered rags that the poverty level actually sinks in. Almost everyone is wearing clothes that are strictly utilitarian - fashion is of secondary importance.`
+			`Thick plumes of smoke reach for the sky as you make your way through the skies of <planet stopovers>, your auxiliaries in tow. The spaceport is easily found, looking like a giant warehouse surrounded by landing pads. It's only when you see a small child in tattered rags that the poverty level actually sinks in. Almost everyone is wearing clothes that are strictly utilitarian - fashion is of secondary importance.`
 			`	Eventually, the new hires and their families are located and brought to the auxiliaries to disembark. As they line up, a young couple catches your eye. They're accompanied by three children - two girls and a boy. You find yourself wondering what their story is, whether they were born into this life or chose to live here out of necessity.`
 			`	It isn't long before all the families are safely aboard the transports, and you make your way back to your ship.`
 	on complete
@@ -874,7 +874,7 @@ event "geminus phase 3"
 
 mission "Geminus 3B"
 	name "Rebuilding Geminus: Collegiate Interns"
-	description "Escort several Navy Transport Auxiliaries to <stopover> to pick up some college graduates, then return to <destination> to help rebuild the Navy Shipyards there."
+	description "Escort several Navy Transport Auxiliaries to <planet stopovers> to pick up some college graduates, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
 	source "Geminus"
 	stopover "Chiron"
@@ -931,7 +931,7 @@ mission "Geminus 3B"
 
 mission "Geminus 3C"
 	name "Rebuilding Geminus: Syndicate Mechanics"
-	description "Escort several Navy Transport Auxiliaries to <stopover> to pick up mechanics from the Syndicate, then return to <destination> to help rebuild the Navy Shipyards there."
+	description "Escort several Navy Transport Auxiliaries to <planet stopovers> to pick up mechanics from the Syndicate, then return to <destination> to help rebuild the Navy Shipyards there."
 	landing
 	source "Geminus"
 	stopover "Millrace"
@@ -1319,7 +1319,7 @@ mission "Electrons 1F"
 		has "Electrons 1E: done"
 	on offer
 		conversation
-			`After taking care of some business, you head back to the main planetary spaceport and to the spaceport lounge as you remember John saying, and sure enough, you see him there waiting. You go over to him, and he tells you what your task is. "Lt. Commander, your job is to get to the <waypoint> system. There you will find a Mule and a Barb in orbit, and you are to disable them without destroying them. My engineers are installing analysis cameras on your hull as we speak. They will film the interaction for my analysts to deal with, and I will need your ships logs as well. Once you're done, report back to me and give me an honest assessment of the engagement so I may finalize our adjustments. Any questions?"`
+			`After taking care of some business, you head back to the main planetary spaceport and to the spaceport lounge as you remember John saying, and sure enough, you see him there waiting. You go over to him, and he tells you what your task is. "Lt. Commander, your job is to get to the <waypoints> system. There you will find a Mule and a Barb in orbit, and you are to disable them without destroying them. My engineers are installing analysis cameras on your hull as we speak. They will film the interaction for my analysts to deal with, and I will need your ships logs as well. Once you're done, report back to me and give me an honest assessment of the engagement so I may finalize our adjustments. Any questions?"`
 			choice
 				`	"No questions."`
 			`With a grin that could only be described as 'cheeky,' he says "All right then, good. Have fun captain!"`
@@ -1484,7 +1484,7 @@ mission "Electrons 2C"
 		has "Electrons 2B: done"
 	on offer
 		conversation
-			`Upon arriving on Valhalla, you hail the spaceport control tower as usual for your landing pad coordinates, but after sending them they also attach a short message. It is from John: "Once again, we have a combat test for you. You are to travel to the <waypoint> system where you shall find another Mule in orbit. Please disable the mule and its fighter, however I repeat do NOT destroy them, as they have been equipped with out current prototypes and destroying them would lose all of our progress."`
+			`Upon arriving on Valhalla, you hail the spaceport control tower as usual for your landing pad coordinates, but after sending them they also attach a short message. It is from John: "Once again, we have a combat test for you. You are to travel to the <waypoints> system where you shall find another Mule in orbit. Please disable the mule and its fighter, however I repeat do NOT destroy them, as they have been equipped with out current prototypes and destroying them would lose all of our progress."`
 				accept
 	npc disable save
 		personality staying disables nemesis target
@@ -1502,7 +1502,7 @@ mission "Electrons 2C"
 				`"It was pretty fun, but in the end I disabled them and your precious weapons are safe."`
 					goto end
 			label end
-				`"Well, I'm glad you enjoyed in and everything turned out okay. I got to admit, though, these tests make me nervous, even though I know I can trust you. I guess it's just a thing with us scientists. Anyhow, give me a couple days to continue maximising the outputs and energy requirements, and then I'll let you know to report back. Until then, apparently you have a month of leave!"`
+			`	"Well, I'm glad you enjoyed in and everything turned out okay. I got to admit, though, these tests make me nervous, even though I know I can trust you. I guess it's just a thing with us scientists. Anyhow, give me a couple days to continue maximising the outputs and energy requirements, and then I'll let you know to report back. Until then, apparently you have a month of leave!"`
 					done
 
 event "30-day-leave"
@@ -1527,7 +1527,7 @@ mission "Typhoons 1A"
 		has "event: 30-day-leave"
 	on offer
 		conversation
-			`As you come in for a landing, you find you have received another communique from John: "Captain, instead of coming to the warehouse, head to the spaceport here on <planet> where I'll meet you for your next assignment."`
+			`As you come in for a landing, you find you have received another communique from John: "Captain, instead of coming to the warehouse, head to the spaceport here on <origin> where I'll meet you for your next assignment."`
 			`Surprised at the coincidence of his presence here, you follow his directions and soon arrive at the spaceport bar, where you immediately recognize John. You walk over to him, and motions you over. "<first>? There you are! Well, let's get straight to business. Your next task will be to assist in the development of a new weapon. However, instead of a beam weapon, you shall test a new projectile weapon. As this is not a secure location, I cannot tell you more at this time, but if you'll follow my ship to a protected location on Valhalla, we may discuss this in detail."`
 			choice
 				`"Sounds good. Let's go!"`
@@ -1547,6 +1547,7 @@ mission "Typhoons 1B"
 	name "Ferry materials"
 	description "Escort a Navy freighter to Crossroads and back to bring John's team the materials for the new Torpedo Launcher."
 	deadline
+	landing
 	to offer
 		has "Typhoons 1A: done"
 	on offer
@@ -1557,13 +1558,13 @@ mission "Typhoons 1B"
 			`Several minutes later, you get a notification that you are closing on the designated coordinates, and you begin to descend. Quickly, the factory comes into view, but as you look closely, you notice several slightly hidden anti-aircraft guns trained on your ship. You continue to descend, and as you come within a reasonable distance, you get another notification- you're being scanned. As soon as the scan completes, you watch the AAA guns cease to lock on to your ship, and begin scanning the skies once more.`
 			`The automatic landing gear extend, and you touch down on the landing pad. After you complete your post-flight checks, you leave your ship and meet John outside. He beckons you to follow, with a sly smile. As you follow a similar pattern of security checks and descending elevators as the last facility.`
 			`Eventually, you reach another white shiny room full of tech far beyond your understanding, half of which looks like it would disintegrate you with a mere fraction of its possible power. In the middle of it all is a stairway, which John escorts you down. At the bottom is a large bay in which the largest torpedo you have ever seen rests. Pulsing with a radioactive green energy, you wonder what sorcery these crazy scientists have concocted up now. However, you soon discover it is not sorcery, but just another powerful bomb. John begins explaining how much more advanced this weapon is than the atom bombs of old, but soon you zone out. He continues for a few more minutes but notices your eyes glazing over, and apologizes for taking so long. He then gives you your instructions.`
-				`"For this assignment, we will need you to escort a ship from the Syndicate to Valhalla. We have built a number of the prototype torpedoes, but we need a few more items for the launcher. So, please bring one Auxiliary from here to Crossroads and back in order to get us the necessary materials."`
+			`"For this assignment, we will need you to escort a ship from the Syndicate to Valhalla. We have built a number of the prototype torpedoes, but we need a few more items for the launcher. So, please bring one Auxiliary from here to Crossroads and back in order to get us the necessary materials."`
 			choice
 				`"You've got it!"`
 					accept
-		on stopover
-			conversation
-				`Despite the harassment from the mercenaries, you manage to safely touch down roughly within your landing beacons on the pad. Thankfully, the Auxiliary has survived without major damage, and after a short inspection, Syndicate dockworkers begin loading it up with heavily armored crates with large warning symbols on it. This crate would likely have caused cancer in California. After an short wait, the load is complete, and you head to the bridge to prepare your ship.
+	on stopover
+		conversation
+			`Despite the harassment from the mercenaries, you manage to safely touch down roughly within your landing beacons on the pad. Thankfully, the Auxiliary has survived without major damage, and after a short inspection, Syndicate dockworkers begin loading it up with heavily armored crates with large warning symbols on it. This crate would likely have caused cancer in California. After an short wait, the load is complete, and you head to the bridge to prepare your ship.
 	on complete
 		conversation
 			`With surprisingly no resistance, you manage to bring the Auxiliary home relatively unscathed, and with all its cargo intact. As you touch down on the pad, you receive another message from John informing you to meet him inside the lab.`
@@ -1664,11 +1665,11 @@ mission "Catalytic Ramscoops 1A"
 	landing
 	source
 		government "Republic"
-		not Geminus
+		not planet Geminus
 	destination Geminus
 	on offer
 		conversation
-			`Upon settling the <ship> into its berth on <source>, you are relayed another message from the science team: Captain, please report to <destination>, as once again your assistance is required.`
+			`Upon settling the <ship> into its berth on <origin>, you are relayed another message from the science team: Captain, please report to <destination>, as once again your assistance is required.`
 				accept
 	on complete
 		conversation
@@ -1695,11 +1696,11 @@ mission "Catalytic Ramscoops 1B"
 	to offer
 		has "Catalytic Ramscoops 1A: done"
 	landing
-	source Valhalla
+	source Geminus
 	destination Antipode
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
-	on enter Antipode
+	on enter Matar
 		conversation
 			`Faced with minimal difficulties on the way, you are shocked as you enter the system to find a large Pirate fleet in orbit. And, even more to your chagrin, they all immediately begin turning towards you, some of them already training their turrets on you. Evidently, your convoy is the target of a coordinated attack...but for now you focus on something more important- your own survival. Hopefully the new Auxiliaries will fare well.`
 	on visit
@@ -1740,10 +1741,10 @@ mission "Catalytic Ramscoops 1B"
 
 mission "Catalytic Ramscoops 1C"
 	name "Escort to Valhalla"
-	description "Return the Auxiliaries and their cargo to Valhalla safely. John is counting on you."
+	description "Return the Auxiliaries and their cargo to Geminus safely. John is counting on you."
 	landing
 	source Antipode
-	destination Valhalla
+	destination Geminus
 	to offer
 		has "Catalytic Ramscoops 1B: done"
 	on complete
@@ -1751,7 +1752,7 @@ mission "Catalytic Ramscoops 1C"
 		payment 2000000
 		conversation
 			`Upon making it back safely, you breathe a sigh of relief. Simultaneously, your ship's communicator lights up with a notification of a message from John:`
-			`	[Hello Lieutenant Commander, glad to see you made it back. I apologise for the difficulties, but then again it is part of your job. However, would you please join me at my lab? Thank you.]`
+			`	[Hello Lieutenant Commander, glad to see you made it back. I apologize for the difficulties, but then again it is part of your job. However, would you please join me at my lab? Thank you.]`
 			``
 			`Ten minutes later you arrive at John's lab. After going through security, you make it to John's office again.`
 			`	"Hello captain, how was the mission?" he asks."`
@@ -1760,22 +1761,19 @@ mission "Catalytic Ramscoops 1C"
 					goto ez
 				`	"I hope I never have to do that again. There were so many pirates, we nearly lost the entire fleet!"`
 					goto hard
-				label ez
-				`	"Well, I'm glad you fared well. Now to business."`
-					goto end
-				label hard
-				`	"I do too. Hopefully at least that'll prove that we can't just send unprotected convoys marching past anarchist space. Now, though, to business."`
-				label end
-				`	"In reward for your services, you have been given a bonus of two million credits. I hope it serves you well. My team will be spending the next few weeks assembling this device, after which we shall request your services again. Until then, you are on leave."`
-
+			label ez
+			`	"Well, I'm glad you fared well. Now to business."`
+				goto end
+			label hard
+			`	"I do too. Hopefully at least that'll prove that we can't just send unprotected convoys marching past anarchist space. Now, though, to business."`
+			label end
+			`	"In reward for your services, you have been given a bonus of two million credits. I hope it serves you well. My team will be spending the next few weeks assembling this device, after which we shall request your services again. Until then, you are on leave."`
 	npc accompany save
 		personality escort timid
 		ship "Auxiliary (Cargo)" "R.N.S. Hector"
 		ship "Auxiliary (Cargo)" "R.N.S. Achilles"
 
-
 event "c ramscoop built"
-
 
 mission "Catalytic Ramscoops 1D"
 	landing
@@ -1783,23 +1781,23 @@ mission "Catalytic Ramscoops 1D"
 	description "John has requested your presence back on Geminus to help him run an efficiency test on the Catalytic Ramscoop he has built."
 	source
 		government Republic
-		not Geminus
+		not planet Geminus
 	destination Geminus
 	to offer
 		has "event: c ramscoop built"
 	on offer
 		conversation
-			`You receive a message from John: [Lieutenant Commander, my team has completed the first prototype of the new ramscoops. Please meet me on Geminus to conduct an efficiency test on them. Thank you!]`
+			`You receive a message from John: [Lieutenant Commander, my team has completed the first prototype of the new device. Please meet me on Geminus to conduct a test. Thank you!]`
 				accept
 	on complete
 		log "People" "John Withers" "John was then hired by the Navy to build a new and improved, more efficient ramscoop."
 		outfit "Catalytic Ramscoop" 1
 		conversation
-			`Landing on the isolated pads, you walk out of your ship and into the building holding John's office. Once inside, you meet up with him, and he leads you to the back of the building to a window looking down into one of the warehouses. Down inside, you can see a large loading pallets with what you assume to be the prototype Catalytic ramscoop.`
+			`Landing on the isolated pads, you walk out of your ship and into the building holding John's office. Once inside, you meet up with him, and he leads you to the back of the building to a window looking down into one of the warehouses. Down inside, you can see a large loading pallets with what you assume to be the prototype device. It looks like an extremely complicated...upgrade...if not complete redesign...to the ramscoop the Deep has been producing for centuries.`
 			scene "outfit/catalytic ramscoop"
-			`	"Well <first>, its done. The first prototype. Only took us a year of doing the math wrong time and time again. You may think it is simple, but the calculations of designing the most efficient passive collector of raw hyperspace fuel are extremely complicated. You may be wondering, though, how will we test them-"`
+			`	"Well <first>, its done. The first prototype. Only took us a year of doing the math wrong time and time again. You may think it is simple, but the calculations of designing the most efficient passive collector of raw hyperspace fuel are extremely complicated. We call it the Catalytic Ramscoop, as it has a catalyst device that increases artificially the efficiency of its collection. You may be wondering, though, how will we test them-"`
 			choice
-				`	"Yeah, I mean these aren't weapons that you can put on a ship and fight in a combat test."`
+				`	"Yes, I mean these aren't weapons that you can put on a ship and fight in a combat test."`
 			`	"Exactly. So, I've come up with a different test. I want you to use the ramscoop to explore. I will send you a route through some of the northern uninhabited systems, and you can fly through them, using the ramscoop to refuel. How does that sound?"`
 			choice
 				`	"Great! I trust your invention completely!"`
@@ -1810,7 +1808,6 @@ mission "Catalytic Ramscoops 1D"
 			`	 "And, I've worked things out with Admiral Danforth so that you can double-task and run a patrol for him too! I do recommend you head east through Syndicate space, and then north to Farpoint- so head to the outfitter, make sure you've got space for it, and have that ramscoop installed on your ship!"`
 			choice
 				`	"Will do!"`
-		
 mission "Catalytic Ramscoops 1E"
 	landing
 	name "Efficiency Test"

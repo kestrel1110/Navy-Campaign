@@ -361,7 +361,7 @@ mission "ATTACK [0]"
 		event "dreadnoughts for sale"
 		event "dreadnought deployment"
 		conversation
-			`Almost immediately upon reaching <source>'s spaceport, you are contacted by Commodore Cruz. "Captain <last>, our ships are ready to begin the assault on the Free Worlds."`
+			`Almost immediately upon reaching <origin>'s spaceport, you are contacted by Commodore Cruz. "Captain <last>, our ships are ready to begin the assault on the Free Worlds."`
 			`	"What's the plan?"`
 			`	"High Command has determined that our only chance at success is to drive a wedge through the middle of the captured systems. In doing so, we will sever contact between the east and western halves of territory under Free Worlds control."`
 			`	"I see - cut off their ability to resupply, and they'll quickly fall. What's the first target?"`
