@@ -8,3 +8,4 @@ Discussion is active on the discord: https://discord.gg/jPr6Fyb
 
 Current status: Bug free (supposedly) up through Navy weapons development
 Next major task: FW attack and Navy Intelligence Sequence
+  See attack_outline.txt
