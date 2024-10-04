@@ -32,7 +32,7 @@ mission "Navy FW Reassignment 1"
 			`	"Commander <first> <last>, you are ordered to report to Commodore Joseph Cruz on Earth immediately. Further information will be provided at a later date."`
 			``
 			`Wondering at the potential work you will do next, you set your ship into pre-flight so as to leave immediately upon finishing your business at this planet.`
-			accept
+				accept
 
 mission "Navy FW Reassignment 2"
 	landing
@@ -203,16 +203,36 @@ mission "Navy Intelligence 1"
 	description "Check out the presumed sight on Clink and pick up some prisoners.
 	source Deep
 	destination Clink
+	clearance
 	landing
 	to offer
 		has "Navy FW Reassignment 4: done"
 	on offer
 		conversation
-			`	Hours later, while bringing your ship back to the spaceport, you look at the control panel and see a notification of a message, probably from Commodore Cruz. Once you set down on the landing pad you read the message.`
-			`	[Captain <last>, because of your exemplary performance in the Battle of Kornephoros, and due to your background as a merchant captain, your next assignment is to escort a prisoner convoy to Huginn Station in the Deep, the location of Navy Intelligence's interrogation and prisoner facilities, by <deadline>. This convoy is incredibly important, and must be protected at all costs. There will be other escort ships, but although they amount to a sizeable fleet, do not in any way consider yourself safe. Good luck, and fare well.]
-			`		Sincerely,`
-			`			Commodore Cruz.`
+			`Walking back to your ship, you are pulled aside by Commodore Cruz.`
+			`	"Commander, we need to talk. Please follow me."`
+			`Cruz leads you across the impromptu landing area to his ship, the R.N.S. Victory. You follow the gangplank up to the entrance, identical to the R.N.S. Horizon, and through the ship's white interior hallways to the captain's cabin. You enter following the Commodore, and he presses a button and sits down as the door hisses shut and seals with the squeak of an airlock.`
+			`	"Have a seat, Commander." He says, gesturing to the chair in front of the desk. You sit down and he continues:"
+			`	"<last>, as you know the moon of Clink is the actual supposed site of testing, and the Investigation is sure of it. However as somewhat a formality and somewhat for a corroborating account, we have been asked to get scans and samples of any and all sites that we can locate here.`
+			`	"The moon has been locked down since we entered the system, and right now Intelligence personnel are filtering through the population to find potential suspects or involved members. In any case, we should with all haste proceed there to search for the evidence around the moon. We should be able to take samples and readings by the time Intelligence is finished, at which point we can lift the lockdown and let the private captains or other personnel continue operations. But it is important that we finish our task before restrictions are lifted to prevent any chances of unwanted questions from inquisitive captains.
+			`	"How are we going to take the data?" You ask.`
+			`Cruz presses a button and then spins his monitor around. The monitor shows the R.N.S. Victory's drone bays- which are surprisingly loaded with surveillance drones as opposed to combat drones.`
+			scene "thumbnail/surveillance drone"
+			`	"Naval High Command specifically had me bring these. Our task will be to escort the drones around the planet's surface until they have scanned enough to locate potential sites which we will then investigate."`
+			choice
+				`	"Yes sir!"`
+			`Cruz leads you out of his ship, and with a friendly wink sends you off. As you walk back to your ship you hear the distant humming of the Victory's reactor firing up- you should probably finish up on the surface soon and head to Clink.`
 				accept
+	on complete
+		conversation
+			`<>`
+#note- interrogation scene
+
+	npc accompany save
+		personality heroic escort disables target
+		government Republic
+		ship "Cruiser (Mark II)" "R.N.S. Victory"
+		destination "Clink"
 	
 
 mission "Navy Intelligence 2"
@@ -229,6 +249,13 @@ mission "Navy Intelligence 2"
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on offer
 		conversation
+			`	Hours later, while bringing your ship back to the spaceport, you look at the control panel and see a notification of a message, probably from Commodore Cruz. Once you set down on the landing pad you read the message.`
+			`	[Captain <last>, you have been selected for a special assignment: escort a prisoner convoy to Huginn Station in the Deep, the location of Navy Intelligence's interrogation and prisoner facilities, by <deadline>. This convoy is incredibly important, and must be protected at all costs. There will be other escort ships, but although they amount to a sizeable fleet, do not in any way consider yourself safe. Good luck, and fare well.]
+			`		Sincerely,`
+			`			Commodore Cruz.`
+			`head to spaceport & meet intelligence people`
+				accept
+
 	on enter "Tania Australis"
 		conversation
 			`Upon entering the system, your radar lights up with dozens of contacts. They seem to identify as Merchants, but have hostile beacons. As they begin to attack, you have no choice but to defend yourself...`
@@ -243,22 +270,22 @@ mission "Navy Intelligence 2"
 		fleet
 			names "merchant"
 			variant 200
-				"Falcon" 5
+				"Falcon" 4
 				"Skein"
 				"Finch" 14
 				"Roost" 2
 			variant 200
 				"Falcon" 1
-				"Osprey" 3
+				"Osprey" 2
 				"Clipper" 2
-				"Bastion (Heavy)" 2
+				"Bastion (Heavy)" 1
 				"Skein" 2
-				"Finch" 24
-				"Roost" 2
+				"Finch" 20
+				"Roost" 1
 				"Nest" 2
 			variant 200
-				"Bastion" 6
-				"Argosy (Missile)" 8
+				"Bastion" 4
+				"Argosy (Missile)" 4
 				"Nest" 4
 				"Finch" 8
 			variant 200
@@ -280,7 +307,7 @@ mission "Navy Intelligence 2"
 		fleet
 			names "republic capital"
 			variant
-				"Auxiliary (Transport)" 1			
+				"Auxiliary (Transport)" 2			
 	npc
 		personality heroic escort
 		government Republic
@@ -288,13 +315,14 @@ mission "Navy Intelligence 2"
 			names "republic capital"
 			fighters "republic fighter"
 			variant
-				"Cruiser (Mark II)" 4
-				"Combat Drone" 28
-				"Frigate (Mark II)" 7
-				"Gunboat (Mark II)" 9
-				"Rainmaker (Mark II)" 8
-				"Carrier (Mark II)" 2
-				"Lance" 8
+				"Cruiser (Mark II)" 3
+				"Frigate (Mark II)" 5
+				"Gunboat (Mark II)" 7
+				"Rainmaker (Mark II)" 2
+				"Carrier (Mark II)" 1
+				"Lance" 4
+				"Combat Drone" 18
+
 government "Free Worlds Sympathiser"
 	"display name" "Merchant"
 	swizzle 5
@@ -304,15 +332,6 @@ government "Free Worlds Sympathiser"
 	"hostile hail" "hostile free worlds"
 	"attitude toward"
 		"Republic" -100
-
-event "start of hostilities(NAVY)"
-	government "Republic"
-		"attitude toward"
-			"Free Worlds" -.2
-	government "Free Worlds"
-		"attitude toward"
-			"Republic" -.2
-	"reputation: Free Worlds" <?= -10
 
 mission "NavyIntel [0]"
 	name "Report to Navy Intelligence"
@@ -331,9 +350,9 @@ mission "NavyIntel [0]"
 		event "oathkeepers founded navy pov" 50
 		conversation
 			`As you are landing you notice a news report stating that the Navy attacked the Free Worlds system Sabik, but was repulsed. This was followed by a swift counterattack on Kornephoros leading to its recapture by the Free Worlds. Many Navy personnel were captured, but the Free Worlds decided to give anyone who swore an oath to abstain from the war parole, and so a ceasefire lasting for around a week was negotiated to give the Free Worlds time to transport the prisoners to Republic space.`
-			``
+			`hines`
 			`	Your communicator lights up with a notification from Naval Command:`
-			`	[Lieutenant Commander <last>, ]
+			`	[Commander <last>, ]
 
 
 
