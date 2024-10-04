@@ -200,7 +200,7 @@ mission "Navy FW Reassignment 4"
 				"Bastion" 2
 mission "Navy Intelligence 1"
 	name "Clink"
-	description "Check out the presumed sight on Clink and pick up some prisoners.
+	description "Check out the presumed site on Clink and pick up some prisoners.
 	source Deep
 	destination Clink
 	clearance
@@ -283,10 +283,13 @@ mission "Navy Intelligence 2"
 		conversation
 			`Upon entering the system, your radar lights up with dozens of contacts. They seem to identify as Merchants, but have hostile beacons. As they begin to attack, you have no choice but to defend yourself...`
 	on complete
-		event "recapture of Kornephoros" 7
+		event "recapture of Kornephoros"
 		conversation
-			`	You dock with the station, thankfully with the Auxiliary still intact, 
-#note hines sabik attack
+			`	You dock with the station, thankfully with the Auxiliary still intact, and as you are landing you notice a news report stating that the Navy attacked the Free Worlds system Sabik, but was repulsed. This was followed by a swift counterattack on Kornephoros leading to its recapture by the Free Worlds. Many Navy personnel were captured, but the Free Worlds decided to give anyone who swore an oath to abstain from the war parole, and so a ceasefire lasting for around a week was negotiated to give the Free Worlds time to transport the prisoners to Republic space.`
+			`	Your communicator lights up with a notification from Naval Command:`
+			`	[Commander <last>, ]
+			`#note hines sabik attack`
+			`#note move to prowler sequence`
 	npc evade
 		personality staying disables heroic
 		government "Free Worlds Sympathizer"
@@ -357,36 +360,28 @@ government "Free Worlds Sympathizer"
 	"attitude toward"
 		"Republic" -100
 
-mission "NavyIntel [0]"
+mission "Navy Intelligence 3"
 	name "Report to Navy Intelligence"
-	description "Report to a Navy Intelligence base on Mars
+	description "Report to a Navy Intelligence base on Mars"
 	landing
 	source "Huginn Station"
 	destination Luna
 	to offer
-		has "Escort Intelligence Prisoners: done"
+		has "Navy Intelligence 2: done"
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 	on complete
-		event "recapture of Kornephoros"
-		event "temporary ceasefire"
-		event "start of hostilities" 8
+#		event "temporary ceasefire"
+#		event "start of hostilities" 8
 		event "oathkeepers founded navy pov" 50
 		conversation
-			`As you are landing you notice a news report stating that the Navy attacked the Free Worlds system Sabik, but was repulsed. This was followed by a swift counterattack on Kornephoros leading to its recapture by the Free Worlds. Many Navy personnel were captured, but the Free Worlds decided to give anyone who swore an oath to abstain from the war parole, and so a ceasefire lasting for around a week was negotiated to give the Free Worlds time to transport the prisoners to Republic space.`
-			`hines`
-			`	Your communicator lights up with a notification from Naval Command:`
-			`	[Commander <last>, ]
-
-
-
-
-event "oathkeepers founded navy pov"
+			`iwjofij`
 
 mission "oathkeepers founded [navy]"
 	landing
 	to offer
 		has "event: oathkeepers founded navy pov"
+#note maybe set condition for 'oathkeepers founded' normal (from FW) to help compat with plugins?
 	source
 		government "Republic"
 	on offer
@@ -396,9 +391,9 @@ mission "oathkeepers founded [navy]"
 			`When you land on <origin>, it seems that everyone in the spaceport is talking about a recent news story: the Navy has just announced the formation of a new regiment, called the Oathkeepers. This regiment is staffed mostly by prisoners paroled from Kornephoros, who want to honor their oath to take no further part in the conflict against the Free Worlds. They will be headquartered on Farpoint, in the far north, to defend that region of space against pirate incursions.`
 			`	Furthermore, the leader of the Oathkeepers will be Admiral Danforth, your good friend. Although he was not one of the paroled prisoners, he has become an outspoken advocate for a diplomatic solution to the Free Worlds conflict.`
 			`	It's heartening news, but you also can't help noticing how many people in the spaceport are talking now about how the Free Worlds might actually be full of "decent" and "honorable" people, and it's a shame that the Navy has to fight them. By responding to the Free Worlds' generous gesture with one of their own, the Navy has won a definite political victory, and given that they needed to defend the North anyway, it is a victory that cost them very little.`
+				decline
 
-
-
+#========================prowler==========================#
 
 mission "ATTACK [0]"
 	name "Assault on the Free Worlds"
