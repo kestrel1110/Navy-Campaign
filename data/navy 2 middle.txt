@@ -285,9 +285,13 @@ mission "Navy Intelligence 2"
 	on complete
 		event "recapture of Kornephoros"
 		conversation
-			`	You dock with the station, thankfully with the Auxiliary still intact, and as you are landing you notice a news report stating that the Navy attacked the Free Worlds system Sabik, but was repulsed. This was followed by a swift counterattack on Kornephoros leading to its recapture by the Free Worlds. Many Navy personnel were captured, but the Free Worlds decided to give anyone who swore an oath to abstain from the war parole, and so a ceasefire lasting for around a week was negotiated to give the Free Worlds time to transport the prisoners to Republic space.`
-			`	Your communicator lights up with a notification from Naval Command:`
-			`	[Commander <last>, ]
+			`You dock with the station, thankfully with the Auxiliary still intact, and as you are shutting down you notice a news report stating that the Navy attacked the Free Worlds system Sabik, but was repulsed. This was followed by a swift counterattack on Kornephoros leading to its recapture by the Free Worlds. Many Navy personnel were captured, but the Free Worlds decided to give anyone who swore an oath to abstain from the war parole, and so a ceasefire has been negotiated for around a week to give the Free Worlds time to transport the prisoners to Republic space.`
+			`Suddenly your communicator lights a notification from Naval High Command, distracting you from the broadcast:`
+			`	"Commander <last>
+			branch hadley
+				has plan
+			label hadley
+			`Upon finishing the 
 			`#note hines sabik attack`
 			`#note move to prowler sequence`
 	npc evade

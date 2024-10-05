@@ -1843,8 +1843,14 @@ mission "Catalytic Ramscoops 1E"
 			choice
 				`Ask Danforth how Hines is doing.`
 			`	"How is Ranulf Hines doing, Admiral?" you ask.`
-			`	"He's managed to stay out of trouble," Danforth replies, "probably because the war is brewing and he is focusing less on his rivalry with you and more on getting to the front when the time comes, because sadly, it looks like it will come. Anyways Lieutenant Commander, it's been good catching up with you. Now, if you have those sensor logs, that would be great," he says in an exaggerated Bill Lumbergh accent, winking at you. Your mind quickly flashes to a 20th century comedy, and then the momentary vision disappears.`
+			`	"He's managed to stay out of trouble," Danforth replies, "probably because the war is brewing and he is focusing less on his rivalry with you and more on getting to the front when the time comes, because sadly, it looks like it will come."`
+			branch hadley
+				has "plan"
+			label hadley
+				set "gotime"
+			`	"Also, <first>, you are about to have an opportunity to act on your plan with Henry. As soon as you get back to <source> you will have several weeks to yourself- I would advise you to get to Lodestone during that time and enact your rescue."`
 			label end
+			`	"Anyways Lieutenant Commander, it's been good catching up with you. Now, if you have those sensor logs, that would be great," he says in an exaggerated Bill Lumbergh accent, winking at you. Your mind quickly flashes to a 20th century comedy, and then the momentary vision disappears.`
 			choice
 				`Give Danforth your sensor logs`
 			`	"Thank you Captain. It really is so helpful for you to be able to take one more ship off of patrol duty. Oh, and by the way- here's a small bonus as compensation for that long detour."`
@@ -1864,8 +1870,9 @@ mission "Catalytic Ramscoops 1F"
 		has "Catalytic Ramscoops 1E: done"
 	on complete
 		payment 1500000
-		event "deep sky tech available" 3
-		event "mk ii ships for sale" 7
+		event "deep sky tech available" 6
+		event "mk ii ships for sale" 13
+		event "3 week hadley delay" 21
 		conversation
 			`Upon reaching your final destination of Geminus, you once again head to John's building. Entering his office, you find him pouring over a monitor filled with what looks to be data and specifications on the new ramscoop. You clear your throat and he looks up and says,`
 			`	"Ah Lieutenant Commander! You're back- it felt like it took so long but it was really only a few weeks! How did my ramscoop perform?"`
@@ -1892,12 +1899,19 @@ event "mk ii ships for sale"
 		"Frigate (Mark II)"
 		"Cruiser (Mark II)"
 		"Carrier (Mark II)"
+		"Auxiliary (Mark II)"
+		"Auxiliary (Cargo Mark II)"
+		"Auxiliary (Transport Mark II)"
+
+#to allow time for rescue
+event "3 week hadley delay"
 
 mission "Electrons Final"
 	landing
 	to offer
 		has "Catalytic Ramscoops 1F: done"
 		has "event: mk ii ships for sale"
+		has "event: 3 week hadley delay"
 	on offer
 		log "Was promoted to the rank of Commander, and given access to the Navy Cruiser license. Pay has also substantially increased."
 		"reputation: Republic" += 10
