@@ -296,6 +296,7 @@ mission "Navy Pirate Patrol: Hunt"
 	source "Farpoint"
 	waypoint "Saiph"
 	destination Farpoint
+	autosave
 	on fail
 		dialog `You have failed an essential Navy mission. If you want to complete the story line, revert to the autosave or another earlier snapshot of the game.`
 
@@ -401,6 +402,7 @@ mission "Geminus 1"
 	source "Farpoint"
 	stopover "Lodestone"
 	destination "Geminus"
+	autosave
 	to offer
 		has "Navy Pirate Patrol: Hunt: done"
 		has "chosen sides"
@@ -936,6 +938,7 @@ mission "Geminus 3C"
 	source "Geminus"
 	stopover "Millrace"
 	destination "Geminus"
+	autosave
 	to offer
 		has "Geminus 3B: done"
 		has "chosen sides"
@@ -1485,6 +1488,7 @@ mission "Electrons 2C"
 	destination Valhalla
 	name "Weapons Testing"
 	description "Disable a Mule with prototype weapons in Aspidiske- again."
+	autosave
 	to offer
 		has "Electrons 2B: done"
 	on offer
@@ -1599,6 +1603,7 @@ mission "Typhoons 1C"
 	waypoint Aspidiske
 	name "Conduct weapons testing"
 	description "Participate in the combat testing of a new torpedo invented by the Deep. The test will involve your ship and a Test Dummy Mule, which you are not supposed to destroy. Upon conclusion of the test, report back to Valhalla to report the results."
+	autosave
 	to offer
 		has "Typhoons 1B: done"
 	on offer
@@ -1875,6 +1880,7 @@ mission "Catalytic Ramscoops 1F"
 	description "Now that you have completed your patrol, return to Geminus to submit the test results."
 	source Farpoint
 	destination Geminus
+	autosave
 	to offer
 		has "Catalytic Ramscoops 1E: done"
 	on complete
