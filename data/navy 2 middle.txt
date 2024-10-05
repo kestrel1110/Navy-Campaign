@@ -47,8 +47,8 @@ mission "Navy FW Reassignment 2"
 	on offer
 		event "navy using mark ii ships"
 		conversation
-			`	As you land on Earth, <ship>'s communicator beeps, and a Navy officer whom you presume to be the Commodore comes on. "Good evening, Commander <last>! The Geminus Bombing Investigation believes that the most promising culprit for the Geminus bombing is the Free Worlds due to certain confidential information. Because of this, the Navy has received orders from Parliament to capture the Kornephoros system. Therefore, as the new shipyards are complete and we now have a surplus of available ships, you shall be requisitioned a single Cruiser and four combat drones to aid to your personal fighting capability during this battle. Please report to the shipyards on Luna to receive them."`
-			accept
+			`As you land on Earth, <ship>'s communicator beeps, and a Navy officer whom you presume to be the Commodore comes on. "Good evening, Commander <last>! The Geminus Bombing Investigation believes that the most promising culprit for the Geminus bombing is the Free Worlds due to certain confidential information. Because of this, the Navy has received orders from Parliament to capture the Kornephoros system. Therefore, as the new shipyards are complete and we now have a surplus of available ships, you shall be requisitioned a single Cruiser and four combat drones to aid to your personal fighting capability during this battle. Please report to the shipyards on Luna to receive them."`
+				accept
 	on complete
 		log "Was given a cruiser and its complement of drones in order to prepare for an invasion of the Free Worlds."
 		give ship "Cruiser (Mark II)" "R.N.S. Horizon"

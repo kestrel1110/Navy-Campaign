@@ -1991,7 +1991,7 @@ mission "Dockworker Rescue 2"
 			`Lucas mentions to you that in the weeks leading up to your arrival, he was starting to notice strange men following him and watching him and his family, and he believes if you hadn't come in time he might not be here with you now. Thanking you once again, he and his wife retire with the kids, leaving you to do your flying.`
 	on enter Capella
 		conversation
-			`"Captain?" Lucas radios to you, "I don't think those guys are friendly. Its quite possible that those men who were following me on Lodestone are in those ships. Forgive me, but I think that they should not `
+			`"Captain?" Lucas radios to you, "I don't think those guys are friendly. Its quite possible that those men who were following me on Lodestone are in those ships. Forgive me, but I think that they should not make it past today to spread information about where my family is...`
 	on complete
 		set "rescued"
 		conversation
@@ -2002,8 +2002,7 @@ mission "Dockworker Rescue 2"
 		system "Capella
 		personality heroic nemesis vindictive unconstrained target
 		confusion 15
-		ship "Protector Laser" "Nemesis"
-		ship "Falcon (Laser)" "Vagabond"
-		ship "Splinter (Laser)"	"Hubris"
-		ship "Splinter (Laser)"	"Ego"
+		ship "Marauder Leviathan (Weapons)" "Nemesis"
+		ship "Marauder Quicksilver (Engines)" "Hubris"
+		ship "Marauder Quicksilver (Engines)" "Ego"
 		dialog "You hear Lucas breathe a sigh of relief as the last ship is destroyed. You cannot let anyone know he is here. You also wonder who hired them..."
